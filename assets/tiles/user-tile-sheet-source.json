@@ -1,0 +1,22 @@
+{
+  "provider": "麻雀豆腐",
+  "sourcePage": "https://majandofu.com/mahjong-images",
+  "termsPage": "https://majandofu.com/terms",
+  "checkedOn": "2026-11-06",
+  "permissionSummary": "配布元の個別利用条件により、個人・商用利用と画像加工が認められている。著作権は放棄されていない。",
+  "permittedUses": [
+    "個人利用",
+    "商用利用",
+    "画像の加工",
+    "ゲーム・アプリへの組み込み（配布ページ内の編集部回答も確認）"
+  ],
+  "attribution": "配布ページではリンク・出典表示を依頼している。本プロジェクトでは出典をREADMEと第三者表記に記録し、配布用ファイルにも同梱する。",
+  "copyright": "原素材の権利は麻雀豆腐に留保される。MITやCC0などの別ライセンスとして扱わない。",
+  "modifications": [
+    "牌面の切り出し",
+    "白背景の透過化",
+    "色プロファイル変換",
+    "縮小・回転・遠近投影",
+    "立体素材との合成"
+  ]
+}

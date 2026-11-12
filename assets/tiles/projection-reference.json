@@ -1,0 +1,36 @@
+{
+  "manufacturer": "大洋技研 / AMOS",
+  "productPage": "https://amos-taiyo.com/product/smart/",
+  "dimensionsPage": "https://shop.taiyo-chemicals.co.jp/blog/?p=622",
+  "referenceUse": "実物写真の形状・牌面と側面の見え方、寸法比率の確認。写真の画素はゲーム素材へ使用していない。",
+  "tileMm": {
+    "height": 28,
+    "width": 21,
+    "thickness": 16.5
+  },
+  "projection": {
+    "pixelsPerMm": 2.2857142857142856,
+    "elevationDegrees": 43.432536557789774,
+    "verticalTopFacePx": [
+      48,
+      44
+    ],
+    "horizontalTopFacePx": [
+      64,
+      33
+    ],
+    "verticalSpritePx": [
+      48,
+      72
+    ],
+    "horizontalSpritePx": [
+      64,
+      60
+    ]
+  },
+  "riverPitchPx": {
+    "vertical": 44,
+    "horizontal": 33
+  },
+  "rule": "図柄を牌面の範囲内に収める。側面の厚みだけが隣の牌に隠れる。"
+}

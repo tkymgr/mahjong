@@ -1,0 +1,47 @@
+{
+  "originalAtlas": "https://www.gamedesign.jp/flash/mahjong/pat.gif",
+  "originalAtlasSha256": "cf367c5e6c51ca7bb04d195baa678123642552feed6cc4dfbb07a166f3863bce",
+  "slotPx": [
+    30,
+    30
+  ],
+  "slotOriginPx": [
+    200,
+    510
+  ],
+  "slotStridePx": [
+    30,
+    0
+  ],
+  "originalOpaqueBoundsPx": [
+    0,
+    0,
+    22,
+    24
+  ],
+  "previousOpaqueBoundsPx": [
+    2,
+    1,
+    27,
+    28
+  ],
+  "placementPitchPx": {
+    "horizontal": 20,
+    "vertical": 16
+  },
+  "newGeometryPx": {
+    "topFace": [
+      20,
+      14
+    ],
+    "body": [
+      20,
+      22
+    ],
+    "withShadow": [
+      22,
+      24
+    ]
+  },
+  "note": "元画像は比較測定だけに使用し、画素は再利用していない。"
+}

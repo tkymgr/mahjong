@@ -1,0 +1,9 @@
+{
+  "source": "https://raw.githubusercontent.com/notofonts/noto-cjk/main/Serif/OTF/Japanese/NotoSerifCJKjp-Bold.otf",
+  "sourceSha256": "861a2b2c0e24b23745c262be8c3fdef63f12628f0492fb120ee51aa55c503af8",
+  "subset": "MahjongTileSerif.otf",
+  "characters": "一二三四五六七八九萬東南西北發中白",
+  "license": "SIL Open Font License 1.1",
+  "renamedFamily": "Mahjong Tile Serif",
+  "note": "Subset and renamed for tile art; original copyright and license retained."
+}

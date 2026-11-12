@@ -1,0 +1,272 @@
+{
+  "unalteredAssets": {},
+  "assetsDirectory": "public/js",
+  "vue": {
+    "version": "3.5.45",
+    "source": "https://registry.npmjs.org/vue/-/vue-3.5.45.tgz"
+  },
+  "generatedAssets": {
+    "w_clear.wav": {
+      "sha256": "4261dcae4e67903a743697e96796ef04c0cdbc4c13a06a741691c75c21a9d2f8",
+      "generator": "scripts/generate-win-sound.py",
+      "description": "正弦波と倍音から合成した4音の和了チャイム。48 kHz / 16-bit / mono / 1.4秒。"
+    },
+    "pat.gif": {
+      "generator": "scripts/generate-tile-atlas.py",
+      "sourceArt": [
+        "assets/tiles/tile-flat.png",
+        "assets/tiles/tile-standing.png",
+        "assets/tiles/dice-blank.png",
+        "assets/tiles/dealer-marker-horizontal.png",
+        "assets/tiles/dealer-marker-vertical.png",
+        "assets/tiles/opposite-standing-back.png",
+        "assets/tiles/side-standing-left.png",
+        "assets/tiles/user-tile-sheet.png"
+      ],
+      "prompt": "assets/tiles/realistic-prompts.json",
+      "font": "assets/tiles/font-source.json",
+      "editableAtlas": "assets/tiles/pat-source.png",
+      "layout": "assets/tiles/atlas-layout.json",
+      "description": "通常34種・赤5各色の牌面を立体素材・四方向の投影に組み込んだ1200×1200、218領域のアトラス。",
+      "sha256": "128ae7736a0f60a7f976bd7667c2351cf3c97b339542dd123976989c688d4b9a",
+      "use": "legacy/export; not used for 3D tile rendering",
+      "projectionReference": "assets/tiles/projection-reference.json",
+      "dicePrompt": "assets/tiles/dice-prompt.json",
+      "diceLayoutReference": "assets/tiles/dice-layout-reference.json",
+      "dealerMarkerPrompts": "assets/tiles/dealer-marker-prompts.json",
+      "hiddenHandPrompts": "assets/tiles/hidden-hands-prompts.json",
+      "hiddenHandGeometry": "assets/tiles/hidden-hands-geometry.json",
+      "resinMaterialReference": "assets/tiles/resin-material-reference.json",
+      "faceSource": "assets/tiles/user-tile-sheet-layout.json",
+      "fontUse": "Dealer marker lettering only; tile glyphs are cropped from the user-provided sheet.",
+      "facePermissionRecord": "assets/tiles/user-tile-sheet-source.json"
+    },
+    "pat.png": {
+      "generator": "scripts/generate-tile-atlas.py",
+      "sourceArt": [
+        "assets/tiles/tile-flat.png",
+        "assets/tiles/tile-standing.png",
+        "assets/tiles/dice-blank.png",
+        "assets/tiles/dealer-marker-horizontal.png",
+        "assets/tiles/dealer-marker-vertical.png",
+        "assets/tiles/opposite-standing-back.png",
+        "assets/tiles/side-standing-left.png",
+        "assets/tiles/user-tile-sheet.png"
+      ],
+      "prompt": "assets/tiles/realistic-prompts.json",
+      "font": "assets/tiles/font-source.json",
+      "editableAtlas": "assets/tiles/pat-source.png",
+      "layout": "assets/tiles/atlas-layout.json",
+      "description": "通常34種・赤5各色の牌面を立体素材・四方向の投影に組み込んだ1200×1200、218領域のアトラス。",
+      "sha256": "c49c7aeeb72af971f9fb3ed3937c7e58d8c0cc409afa53ea02ced4d6e3619a3a",
+      "use": "legacy/export; not used for 3D tile rendering",
+      "projectionReference": "assets/tiles/projection-reference.json",
+      "dicePrompt": "assets/tiles/dice-prompt.json",
+      "diceLayoutReference": "assets/tiles/dice-layout-reference.json",
+      "dealerMarkerPrompts": "assets/tiles/dealer-marker-prompts.json",
+      "hiddenHandPrompts": "assets/tiles/hidden-hands-prompts.json",
+      "hiddenHandGeometry": "assets/tiles/hidden-hands-geometry.json",
+      "resinMaterialReference": "assets/tiles/resin-material-reference.json",
+      "faceSource": "assets/tiles/user-tile-sheet-layout.json",
+      "fontUse": "Dealer marker lettering only; tile glyphs are cropped from the user-provided sheet.",
+      "facePermissionRecord": "assets/tiles/user-tile-sheet-source.json"
+    },
+    "title.png": {
+      "sha256": "d3f53dc00692483440f56ae41155490c3a337e2a7f11794f7441e521dde28e56",
+      "sourceArt": "assets/title/title-source.png",
+      "prompt": "assets/title/prompts.json",
+      "generator": "scripts/prepare-title-assets.py",
+      "description": "淡い金色の麻雀の筆文字。299×442、透過PNG。"
+    },
+    "bg.png": {
+      "sha256": "14be86e66f03b0fe718915b82ec1148fdb6d313fd368f59258d1f5b54fd1320b",
+      "sourceArt": "assets/title/felt-source.png",
+      "prompt": "assets/title/prompts.json",
+      "generator": "scripts/prepare-title-assets.py",
+      "description": "新規生成の緑色のフェルト素材。960×720。"
+    },
+    "jong.png": {
+      "sha256": "156b338737176b1a88afd188b589508209825c0200a19e5b08331c91e6998280",
+      "sourceArt": "assets/title/harmony-seal-source.png",
+      "prompt": "assets/title/prompts.json",
+      "generator": "scripts/prepare-title-assets.py",
+      "description": "和の文字を使う新規生成の赤い印章。52×52、透過PNG。"
+    },
+    "w_tumo.wav": {
+      "sha256": "691578eb58a691e81cde10909d06da36520966b7ca9ba1d06220616b38ec4874",
+      "generator": "scripts/generate-game-sounds.py",
+      "description": "配牌・ツモ：小さく乾いた樹脂の接触音",
+      "duration": 0.11,
+      "sampleRate": 48000,
+      "loopable": false
+    },
+    "w_sute.wav": {
+      "sha256": "e2f72450dbb516cd585dfa888293b2be58468ef3b5bf1e2ebae445f72366e949",
+      "generator": "scripts/generate-game-sounds.py",
+      "description": "打牌：ツモより芯のある短い打音",
+      "duration": 0.14,
+      "sampleRate": 48000,
+      "loopable": false
+    },
+    "w_naki.wav": {
+      "sha256": "85cfd973266a5e148d0cf611a170a8c25ffc0fd7cd38a4a0bedf48eb1de64967",
+      "generator": "scripts/generate-game-sounds.py",
+      "description": "鳴き・カンの牌を置く連続した打音",
+      "duration": 0.25,
+      "sampleRate": 48000,
+      "loopable": false
+    },
+    "w_puyo.wav": {
+      "sha256": "ee8a4af8224d6128c60813bcdbe9374ee8b8282f722ed1cb0b9ddd19ae354b87",
+      "generator": "scripts/generate-game-sounds.py",
+      "description": "宣言・効果音ONの確認：柔らかい短い上昇音",
+      "duration": 0.24,
+      "sampleRate": 48000,
+      "loopable": false
+    },
+    "w_notice.wav": {
+      "sha256": "037a5890b87a6439ab40db0cdfb30c65bc89948bd0af52b45149bce4768784ce",
+      "generator": "scripts/generate-game-sounds.py",
+      "description": "ツモ・ロン可能時の通知：聞き分けやすい2音",
+      "duration": 0.46,
+      "sampleRate": 48000,
+      "loopable": false
+    },
+    "w_ribo.wav": {
+      "sha256": "2abf66749277ac886ce91620aac956dcddcd3341d45598162e3f2d4fb094dc6b",
+      "generator": "scripts/generate-game-sounds.py",
+      "description": "供託・支払い：点棒を置く打音と小さな余韻",
+      "duration": 0.26,
+      "sampleRate": 48000,
+      "loopable": false
+    },
+    "w_tenbo.wav": {
+      "sha256": "332e1cb9babe470893164a0020876489bdd9c8150f5c601e0673afe8012edc89",
+      "generator": "scripts/generate-game-sounds.py",
+      "description": "点数精算：継ぎ目が無音になる低音量のカウント音",
+      "duration": 0.2,
+      "sampleRate": 48000,
+      "loopable": true
+    },
+    "w_lose.wav": {
+      "sha256": "aaaff390cda7432f4f5702251d69c6ffb85aff2c38baf586b4835002746f29d8",
+      "generator": "scripts/generate-game-sounds.py",
+      "description": "CPU和了：穏やかな下降チャイム",
+      "duration": 0.62,
+      "sampleRate": 48000,
+      "loopable": false
+    },
+    "title-salon.webp": {
+      "sha256": "cf5fa0e900952a6bfa1bc6211a0bbed039b604ae79adec78f23ffda7defe06a2",
+      "sourceArt": "assets/title/salon-source.png",
+      "sourceSha256": "8058bbc7354a005cf96076a7ec7c058973f7cbc860db63e18a1cdda5e55d2ccc",
+      "styleReference": "assets/characters/title-style-reference.png",
+      "prompt": "assets/title/salon-prompt.json",
+      "generator": "scripts/prepare-salon-title.py",
+      "createdOn": "2026-11-11",
+      "description": "Original salon title artwork; text and interactive controls are rendered by Vue."
+    },
+    "salon-room.webp": {
+      "sha256": "7becc4d234db4f32af062fc1e9bfb96bcc7753660fac05e13e5c7c89dee66b75",
+      "sourceArt": "assets/title/salon-room-source.png",
+      "sourceSha256": "80a08823557d91d5c68d0d1a73d6a575b26df10c7e9bf1194c2358f685ad24c2",
+      "styleReference": "assets/characters/title-style-reference.png",
+      "prompt": "assets/title/salon-room-prompt.json",
+      "generator": "scripts/prepare-salon-title.py",
+      "createdOn": "2026-11-11",
+      "description": "Original quiet salon backdrop behind the transparent 3D game canvas."
+    }
+  },
+  "audioCatalogue": "assets/audio/effects.json",
+  "legacyAudioBackup": "Original recordings archived outside the project; excluded from source distribution.",
+  "implementation": {
+    "license": "MIT",
+    "sourceDirectory": "src/game",
+    "engine": {
+      "package": "@kobalab/majiang-core",
+      "version": "1.4.1",
+      "license": "MIT",
+      "source": "https://github.com/kobalab/majiang-core"
+    },
+    "cpu": {
+      "package": "@kobalab/majiang-ai",
+      "version": "1.3.0",
+      "license": "MIT",
+      "source": "https://github.com/kobalab/majiang-ai"
+    },
+    "legacyCodeIncluded": false
+  },
+  "characterAvatars": {
+    "generator": "built-in image_gen",
+    "createdOn": "2026-11-11",
+    "prompts": "assets/characters/prompts.json",
+    "license": "MIT",
+    "files": {
+      "hinata.png": {
+        "sha256": "7b87023afb10e516a2d296dad0b9bce77081894ca48ecd1957d7fdbb6a374ae9",
+        "source": "assets/characters/hinata-source.png",
+        "sourceSha256": "a32010362ed3eb928c45294072cd1db85cbc822d4c99a6327e1f5a4173a5bb42"
+      },
+      "ponta.png": {
+        "sha256": "9efccf198d0dc254cbaa902150f7c7aecf2ea41722acb89efcddd9814007056f",
+        "source": "assets/characters/ponta-source.png",
+        "sourceSha256": "ea903575f484dc20352aa0d4cfa2e988f9b32182517e205520eb086cc802c913"
+      },
+      "suzume.png": {
+        "sha256": "3726d90c848ee7de0e88bde019473d6e537f0eff3699dd6a67d982f4454e0214",
+        "source": "assets/characters/suzume-source.png",
+        "sourceSha256": "f0450d3673cb13378406244648da3f2d85b5fe7eef3dad47fdd0eedfcb269bdf"
+      },
+      "ren.png": {
+        "sha256": "b5e4a53f97f39c3a4d3dd961826847550443144d34d074c4bdf566b6a731003e",
+        "source": "assets/characters/ren-source.png",
+        "sourceSha256": "1f99f95672b3f67b83414cf0e5e4500aa9e9db8cbfab15e4f9950aedcce225f3"
+      },
+      "saki.png": {
+        "sha256": "4d10ce63c3ecb85c2a55531cf666684a4a4ee44b79bdae7342d7971b130af69f",
+        "source": "assets/characters/saki-source.png",
+        "sourceSha256": "eb93b149ee68da0faf102e20ea37898919f93da8ad44ae127b4b929b940b3a87"
+      },
+      "teppei.png": {
+        "sha256": "a22daa2057afa9107b5b463df97c50fcca04b1f8ef3b7be3a2f20f905aebf31e",
+        "source": "assets/characters/teppei-source.png",
+        "sourceSha256": "f00bbeb7efba59219e45730aa9c956f1b0a24c010eb95ad9965422b010c4ad25"
+      },
+      "rei.png": {
+        "sha256": "b88cecea5256f8da000bbeb8dce080f9fcc5ca7502cc8697af3fe20edc80486c",
+        "source": "assets/characters/rei-source.png",
+        "sourceSha256": "76324fa48c69c1469b29102199cbcf9613ea9851a15e3a792133d21fa4dbde28"
+      },
+      "jin.png": {
+        "sha256": "5b6df8a59268027d7440e82cf9b2b475d2d8b85532add2552516e993d58fec39",
+        "source": "assets/characters/jin-source.png",
+        "sourceSha256": "0b28f1b646dabb65b776e915e04abf55098824644aff5f87b90ed316b0907375"
+      },
+      "gen.png": {
+        "sha256": "401a4cda6adc546418b2f3eb485e9364b6676ce222877b55eebd27ce9e8e90bc",
+        "source": "assets/characters/gen-source.png",
+        "sourceSha256": "8f7080d0e9e3c69efd90e4d7e7198575b19f583f91ebc946d4f4ee0c165628c9"
+      }
+    },
+    "styleReference": "assets/characters/title-style-reference.png",
+    "exporter": "scripts/prepare-character-assets.py"
+  },
+  "rendering": {
+    "package": "playcanvas",
+    "version": "2.24.0",
+    "license": "MIT",
+    "source": "https://github.com/playcanvas/engine",
+    "mode": "standalone WebGL2, true 3D meshes, shared camera and shadows",
+    "licenseFile": "public/licenses/PLAYCANVAS-LICENSE.txt"
+  },
+  "tileModel": {
+    "sourceRecord": "assets/models/candidates/just-mahjong/SOURCE.json",
+    "runtime": "public/models/mahjong-tile.json",
+    "sha256": "7de400b9fb6fffe6a31e644356d5d2dd6503e6d4bead44cfdcc594096cfe3d68",
+    "license": "CC0 as stated in upstream README",
+    "converter": "scripts/convert-tile-model.py",
+    "triangles": 60,
+    "specification": "assets/models/tile-spec.json"
+  },
+  "runtimeFaceDirectory": "public/js/faces"
+}

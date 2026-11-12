@@ -1,0 +1,71 @@
+{
+  "camera": {
+    "elevationDegrees": 43.432536557789774,
+    "standingHeightMm": 28,
+    "faceWidthMm": 21,
+    "laminatedDepthMm": 16.5
+  },
+  "standingOpposite": {
+    "atlasRect": [
+      0,
+      440,
+      48,
+      72
+    ],
+    "visiblePlanes": [
+      "white far portion of top cap",
+      "amber near lip of top cap",
+      "upright amber back"
+    ],
+    "capHeightPx": 26,
+    "whiteCapHeightPx": 17,
+    "backFaceHeightPx": 46,
+    "noWhiteBottomBand": true
+  },
+  "standingSides": {
+    "rightPlayerAtlasRect": [
+      100,
+      440,
+      40,
+      78
+    ],
+    "leftPlayerAtlasRect": [
+      150,
+      440,
+      40,
+      78
+    ],
+    "topCapHeightPx": 33,
+    "sideFaceHeightPx": 45,
+    "rightPlayer": "amber toward table center (left), white toward right player (right)",
+    "leftPlayer": "white toward left player (left), amber toward table center (right)"
+  },
+  "separation": "Upright hands and face-down wall tiles remain separate poses; amber resin is shared with the accepted upright back reference.",
+  "sourcePlanes": {
+    "opposite": {
+      "file": "opposite-standing-back.png",
+      "normalizedYBreaks": [
+        0.184,
+        0.276
+      ],
+      "targetPlaneHeightsPx": [
+        17,
+        9,
+        46
+      ]
+    },
+    "left": {
+      "file": "side-standing-left.png",
+      "normalizedYBreaks": [
+        0.33
+      ],
+      "targetPlaneHeightsPx": [
+        33,
+        45
+      ]
+    },
+    "right": {
+      "operation": "horizontal mirror of fitted left pose"
+    }
+  }
+}

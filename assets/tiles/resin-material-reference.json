@@ -1,0 +1,27 @@
+{
+  "reference": "assets/tiles/opposite-standing-back.png",
+  "referenceCropNormalizedY": [
+    0.4,
+    0.82
+  ],
+  "target": "同じ背面素材を捨て牌の下端・伏せた牌山の上面と側面へ再利用",
+  "sideLaminateRatio": {
+    "white": 0.65,
+    "backColor": 0.35
+  },
+  "layerOrder": {
+    "faceUp": [
+      "ivory face",
+      "white core",
+      "thin yellow back"
+    ],
+    "faceDown": [
+      "yellow back face",
+      "thin yellow back layer",
+      "white core"
+    ]
+  },
+  "projectionUnchanged": "牌面は上下44px／左右33pxのまま。側面の内部比率だけを変更。",
+  "topBrightnessMultiplier": 1.1,
+  "note": "受け入れ済みの立てた手牌の素材を基準にした。手牌・起家マーク・サイコロの画像は変更しない。"
+}

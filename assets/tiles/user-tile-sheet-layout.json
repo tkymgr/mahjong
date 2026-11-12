@@ -1,0 +1,499 @@
+{
+  "source": "assets/tiles/user-tile-sheet.png",
+  "sourceSize": [
+    638,
+    592
+  ],
+  "sourceProvenance": "user-provided attachment",
+  "sourceSha256": "c6db796d2e92dcdae00b638aed6b18c0d9e95a3ada1d28c4e378329e882de076",
+  "sourceColorProfile": "Display",
+  "colorHandling": "Convert embedded ICC profile to sRGB, then remove white matte while retaining colors and antialiasing.",
+  "sourceProvider": "麻雀豆腐",
+  "sourcePage": "https://majandofu.com/mahjong-images",
+  "permissionRecord": "assets/tiles/user-tile-sheet-source.json",
+  "license": "配布元の個別利用条件（個人・商用利用、加工可。著作権は配布元に留保）",
+  "cells": [
+    {
+      "name": "man-1",
+      "sourceRow": 2,
+      "sourceColumn": 0,
+      "crop": [
+        16,
+        261,
+        72,
+        337
+      ],
+      "runtimeIndex": 0,
+      "file": "assets/tiles/user-faces/man-1.png"
+    },
+    {
+      "name": "man-2",
+      "sourceRow": 2,
+      "sourceColumn": 1,
+      "crop": [
+        82,
+        261,
+        138,
+        337
+      ],
+      "runtimeIndex": 1,
+      "file": "assets/tiles/user-faces/man-2.png"
+    },
+    {
+      "name": "man-3",
+      "sourceRow": 2,
+      "sourceColumn": 2,
+      "crop": [
+        148,
+        261,
+        204,
+        337
+      ],
+      "runtimeIndex": 2,
+      "file": "assets/tiles/user-faces/man-3.png"
+    },
+    {
+      "name": "man-4",
+      "sourceRow": 2,
+      "sourceColumn": 3,
+      "crop": [
+        214,
+        261,
+        270,
+        337
+      ],
+      "runtimeIndex": 3,
+      "file": "assets/tiles/user-faces/man-4.png"
+    },
+    {
+      "name": "man-5",
+      "sourceRow": 2,
+      "sourceColumn": 4,
+      "crop": [
+        280,
+        261,
+        336,
+        337
+      ],
+      "runtimeIndex": 4,
+      "file": "assets/tiles/user-faces/man-5.png"
+    },
+    {
+      "name": "man-6",
+      "sourceRow": 2,
+      "sourceColumn": 5,
+      "crop": [
+        346,
+        261,
+        402,
+        337
+      ],
+      "runtimeIndex": 5,
+      "file": "assets/tiles/user-faces/man-6.png"
+    },
+    {
+      "name": "man-7",
+      "sourceRow": 2,
+      "sourceColumn": 6,
+      "crop": [
+        412,
+        261,
+        468,
+        337
+      ],
+      "runtimeIndex": 6,
+      "file": "assets/tiles/user-faces/man-7.png"
+    },
+    {
+      "name": "man-8",
+      "sourceRow": 2,
+      "sourceColumn": 7,
+      "crop": [
+        478,
+        261,
+        534,
+        337
+      ],
+      "runtimeIndex": 7,
+      "file": "assets/tiles/user-faces/man-8.png"
+    },
+    {
+      "name": "man-9",
+      "sourceRow": 2,
+      "sourceColumn": 8,
+      "crop": [
+        544,
+        261,
+        600,
+        337
+      ],
+      "runtimeIndex": 8,
+      "file": "assets/tiles/user-faces/man-9.png"
+    },
+    {
+      "name": "pin-1",
+      "sourceRow": 0,
+      "sourceColumn": 0,
+      "crop": [
+        16,
+        25,
+        72,
+        101
+      ],
+      "runtimeIndex": 9,
+      "file": "assets/tiles/user-faces/pin-1.png"
+    },
+    {
+      "name": "pin-2",
+      "sourceRow": 0,
+      "sourceColumn": 1,
+      "crop": [
+        82,
+        25,
+        138,
+        101
+      ],
+      "runtimeIndex": 10,
+      "file": "assets/tiles/user-faces/pin-2.png"
+    },
+    {
+      "name": "pin-3",
+      "sourceRow": 0,
+      "sourceColumn": 2,
+      "crop": [
+        148,
+        25,
+        204,
+        101
+      ],
+      "runtimeIndex": 11,
+      "file": "assets/tiles/user-faces/pin-3.png"
+    },
+    {
+      "name": "pin-4",
+      "sourceRow": 0,
+      "sourceColumn": 3,
+      "crop": [
+        214,
+        25,
+        270,
+        101
+      ],
+      "runtimeIndex": 12,
+      "file": "assets/tiles/user-faces/pin-4.png"
+    },
+    {
+      "name": "pin-5",
+      "sourceRow": 0,
+      "sourceColumn": 4,
+      "crop": [
+        280,
+        25,
+        336,
+        101
+      ],
+      "runtimeIndex": 13,
+      "file": "assets/tiles/user-faces/pin-5.png"
+    },
+    {
+      "name": "pin-6",
+      "sourceRow": 0,
+      "sourceColumn": 5,
+      "crop": [
+        346,
+        25,
+        402,
+        101
+      ],
+      "runtimeIndex": 14,
+      "file": "assets/tiles/user-faces/pin-6.png"
+    },
+    {
+      "name": "pin-7",
+      "sourceRow": 0,
+      "sourceColumn": 6,
+      "crop": [
+        412,
+        25,
+        468,
+        101
+      ],
+      "runtimeIndex": 15,
+      "file": "assets/tiles/user-faces/pin-7.png"
+    },
+    {
+      "name": "pin-8",
+      "sourceRow": 0,
+      "sourceColumn": 7,
+      "crop": [
+        478,
+        25,
+        534,
+        101
+      ],
+      "runtimeIndex": 16,
+      "file": "assets/tiles/user-faces/pin-8.png"
+    },
+    {
+      "name": "pin-9",
+      "sourceRow": 0,
+      "sourceColumn": 8,
+      "crop": [
+        544,
+        25,
+        600,
+        101
+      ],
+      "runtimeIndex": 17,
+      "file": "assets/tiles/user-faces/pin-9.png"
+    },
+    {
+      "name": "sou-1",
+      "sourceRow": 1,
+      "sourceColumn": 0,
+      "crop": [
+        16,
+        143,
+        72,
+        219
+      ],
+      "runtimeIndex": 18,
+      "file": "assets/tiles/user-faces/sou-1.png"
+    },
+    {
+      "name": "sou-2",
+      "sourceRow": 1,
+      "sourceColumn": 1,
+      "crop": [
+        82,
+        143,
+        138,
+        219
+      ],
+      "runtimeIndex": 19,
+      "file": "assets/tiles/user-faces/sou-2.png"
+    },
+    {
+      "name": "sou-3",
+      "sourceRow": 1,
+      "sourceColumn": 2,
+      "crop": [
+        148,
+        143,
+        204,
+        219
+      ],
+      "runtimeIndex": 20,
+      "file": "assets/tiles/user-faces/sou-3.png"
+    },
+    {
+      "name": "sou-4",
+      "sourceRow": 1,
+      "sourceColumn": 3,
+      "crop": [
+        214,
+        143,
+        270,
+        219
+      ],
+      "runtimeIndex": 21,
+      "file": "assets/tiles/user-faces/sou-4.png"
+    },
+    {
+      "name": "sou-5",
+      "sourceRow": 1,
+      "sourceColumn": 4,
+      "crop": [
+        280,
+        143,
+        336,
+        219
+      ],
+      "runtimeIndex": 22,
+      "file": "assets/tiles/user-faces/sou-5.png"
+    },
+    {
+      "name": "sou-6",
+      "sourceRow": 1,
+      "sourceColumn": 5,
+      "crop": [
+        346,
+        143,
+        402,
+        219
+      ],
+      "runtimeIndex": 23,
+      "file": "assets/tiles/user-faces/sou-6.png"
+    },
+    {
+      "name": "sou-7",
+      "sourceRow": 1,
+      "sourceColumn": 6,
+      "crop": [
+        412,
+        143,
+        468,
+        219
+      ],
+      "runtimeIndex": 24,
+      "file": "assets/tiles/user-faces/sou-7.png"
+    },
+    {
+      "name": "sou-8",
+      "sourceRow": 1,
+      "sourceColumn": 7,
+      "crop": [
+        478,
+        143,
+        534,
+        219
+      ],
+      "runtimeIndex": 25,
+      "file": "assets/tiles/user-faces/sou-8.png"
+    },
+    {
+      "name": "sou-9",
+      "sourceRow": 1,
+      "sourceColumn": 8,
+      "crop": [
+        544,
+        143,
+        600,
+        219
+      ],
+      "runtimeIndex": 26,
+      "file": "assets/tiles/user-faces/sou-9.png"
+    },
+    {
+      "name": "east",
+      "sourceRow": 3,
+      "sourceColumn": 0,
+      "crop": [
+        16,
+        379,
+        72,
+        455
+      ],
+      "runtimeIndex": 27,
+      "file": "assets/tiles/user-faces/east.png"
+    },
+    {
+      "name": "south",
+      "sourceRow": 3,
+      "sourceColumn": 1,
+      "crop": [
+        82,
+        379,
+        138,
+        455
+      ],
+      "runtimeIndex": 28,
+      "file": "assets/tiles/user-faces/south.png"
+    },
+    {
+      "name": "west",
+      "sourceRow": 3,
+      "sourceColumn": 2,
+      "crop": [
+        148,
+        379,
+        204,
+        455
+      ],
+      "runtimeIndex": 29,
+      "file": "assets/tiles/user-faces/west.png"
+    },
+    {
+      "name": "north",
+      "sourceRow": 3,
+      "sourceColumn": 3,
+      "crop": [
+        214,
+        379,
+        270,
+        455
+      ],
+      "runtimeIndex": 30,
+      "file": "assets/tiles/user-faces/north.png"
+    },
+    {
+      "name": "white",
+      "sourceRow": 3,
+      "sourceColumn": 5,
+      "crop": [
+        346,
+        379,
+        402,
+        455
+      ],
+      "runtimeIndex": 31,
+      "file": "assets/tiles/user-faces/white.png"
+    },
+    {
+      "name": "green",
+      "sourceRow": 3,
+      "sourceColumn": 4,
+      "crop": [
+        280,
+        379,
+        336,
+        455
+      ],
+      "runtimeIndex": 32,
+      "file": "assets/tiles/user-faces/green.png"
+    },
+    {
+      "name": "red",
+      "sourceRow": 3,
+      "sourceColumn": 6,
+      "crop": [
+        412,
+        379,
+        468,
+        455
+      ],
+      "runtimeIndex": 33,
+      "file": "assets/tiles/user-faces/red.png"
+    },
+    {
+      "name": "red-pin-5",
+      "sourceRow": 4,
+      "sourceColumn": 0,
+      "crop": [
+        16,
+        497,
+        72,
+        573
+      ],
+      "runtimeIndex": null,
+      "file": "assets/tiles/user-faces/red-pin-5.png"
+    },
+    {
+      "name": "red-sou-5",
+      "sourceRow": 4,
+      "sourceColumn": 1,
+      "crop": [
+        82,
+        497,
+        138,
+        573
+      ],
+      "runtimeIndex": null,
+      "file": "assets/tiles/user-faces/red-sou-5.png"
+    },
+    {
+      "name": "red-man-5",
+      "sourceRow": 4,
+      "sourceColumn": 2,
+      "crop": [
+        148,
+        497,
+        204,
+        573
+      ],
+      "runtimeIndex": null,
+      "file": "assets/tiles/user-faces/red-man-5.png"
+    }
+  ],
+  "redFives": "Red fives are rendered when enabled in the rule settings."
+}

@@ -1,0 +1,33 @@
+{
+  "checkedOn": "2026-11-10",
+  "status": "adopted: tile mesh converted for PlayCanvas; original files retained",
+  "repository": "https://github.com/hiinaspace/just-mahjong",
+  "commit": "9ade9ec79d28b5d28f74448a17d0b37dafd63f42",
+  "licenseStatement": "CC0 / public domain, as stated in the upstream README",
+  "scope": "Tile model files only; unrelated third-party assets in the full repository are not adopted.",
+  "files": [
+    {
+      "upstreamPath": "Blender/tile.blend",
+      "file": "tile.blend",
+      "sourceUrl": "https://raw.githubusercontent.com/hiinaspace/just-mahjong/9ade9ec79d28b5d28f74448a17d0b37dafd63f42/Blender/tile.blend",
+      "bytes": 632760,
+      "sha256": "1dccc18c6f2c9b9ec0a3dedbd806eb7b46d38b8df008c7d79a921bbec396dfd0"
+    },
+    {
+      "upstreamPath": "Assets/Riichi/tileFbx.fbx",
+      "file": "tileFbx.fbx",
+      "sourceUrl": "https://raw.githubusercontent.com/hiinaspace/just-mahjong/9ade9ec79d28b5d28f74448a17d0b37dafd63f42/Assets/Riichi/tileFbx.fbx",
+      "bytes": 20700,
+      "sha256": "9d38baa86966149859e15191acbb0c7dc60ac91187f9c2bcf4d4c7f081b428c9"
+    },
+    {
+      "upstreamPath": "README.md",
+      "file": "UPSTREAM_README.md",
+      "sourceUrl": "https://raw.githubusercontent.com/hiinaspace/just-mahjong/9ade9ec79d28b5d28f74448a17d0b37dafd63f42/README.md",
+      "bytes": 629,
+      "sha256": "311b13d5f9c648fcbfcd1edc249d7e7bd04d32466f6b5ac2e3b692e57a9befb7"
+    }
+  ],
+  "runtime": "public/models/mahjong-tile.json",
+  "converter": "scripts/convert-tile-model.py"
+}

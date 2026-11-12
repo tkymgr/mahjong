@@ -1,0 +1,37 @@
+import { test, expect } from '@playwright/test';
+import fs from 'node:fs';
+import { ready, start, openMenu, closeMenu } from './helpers.js';
+const notices = fs.readFileSync('THIRD_PARTY_NOTICES.md', 'utf8');
+
+test('license notices open inside the SPA and return to the paused menu', async ({ page, context }) => {
+  await ready(page); await start(page); await openMenu(page, 'help');
+  const originalUrl = page.url(), pages = context.pages().length;
+  await page.evaluate(() => { window.gameBeforeLicense = window.mahjongGame; });
+  await page.locator('#license-notices').click();
+  await expect(page.getByRole('dialog', { name: '素材・ライセンス', exact: true })).toBeVisible();
+  expect(await page.locator('.license-text').textContent()).toBe(notices);
+  await expect(page.locator('.license-text')).toHaveAttribute('lang', 'en');
+  expect(page.url()).toBe(originalUrl); expect(context.pages().length).toBe(pages);
+  expect(await page.evaluate(() => window.gameBeforeLicense === window.mahjongGame)).toBe(true);
+  const board = await page.locator('#canvas').boundingBox(), popup = await page.locator('.table-menu').boundingBox();
+  expect(popup.x).toBeGreaterThanOrEqual(board.x); expect(popup.y).toBeGreaterThanOrEqual(board.y);
+  expect(popup.x + popup.width).toBeLessThanOrEqual(board.x + board.width + 1);
+  expect(popup.y + popup.height).toBeLessThanOrEqual(board.y + board.height + 1);
+  await page.screenshot({ path: `test-results/${test.info().project.name}-license-dialog.png` });
+  await page.locator('.menu-content').evaluate(el => { el.scrollTop = el.scrollHeight; });
+  expect(await page.locator('.menu-content').evaluate(el => el.scrollTop)).toBeGreaterThan(0);
+  await expect(page.locator('#menu-close')).toBeVisible();
+  await page.locator('#menu-close').press('Escape');
+  await expect(page.getByRole('dialog', { name: 'メニュー', exact: true })).toBeVisible();
+  await expect(page.locator('#license-notices')).toBeFocused();
+  expect(await page.evaluate(() => window.mahjongGame.input.enabled)).toBe(false);
+  await page.locator('#license-notices').click();
+  await page.locator('#license-back').click();
+  await expect(page.locator('#license-notices')).toBeFocused();
+  await page.locator('#license-notices').click();
+  await page.locator('#menu-close').click();
+  await expect(page.getByRole('dialog', { name: 'メニュー', exact: true })).toBeVisible();
+  await closeMenu(page);
+  expect(await page.evaluate(() => window.mahjongGame.input.enabled)).toBe(true);
+  expect(page.url()).toBe(originalUrl); expect(context.pages().length).toBe(pages);
+});

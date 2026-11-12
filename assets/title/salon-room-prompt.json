@@ -1,0 +1,9 @@
+{
+  "generator": "built-in image_gen",
+  "createdOn": "2026-11-11",
+  "reference": "assets/characters/title-style-reference.png",
+  "referenceRole": "Original approved title-screen concept; style and palette only",
+  "source": "assets/title/salon-room-source.png",
+  "runtime": "public/js/salon-room.webp",
+  "prompt": "Use case: stylized-concept. Asset type: quiet full-screen background art behind a real 3D mahjong table in a Japanese anime browser game. Input image role: original approved title-screen concept, STYLE AND PALETTE REFERENCE ONLY. Create a NEW environment illustration with NO characters and NO interface. An elegant Japanese-modern mahjong salon back wall: deep emerald wood and softly lit green-gold folding screens, subtle cherry blossom branch artwork on the central folding screen, warm small wall lanterns high at the far left and right, restrained brass details and softly diffused evening light. Refined premium anime-game background painting matching the reference's warm salon atmosphere. Wide landscape composition, approximately 2.13:1. The upper half has gentle architectural detail and soft depth; the lower half fades smoothly into very dark forest green so it can sit quietly behind the foreground game table. Keep detail low contrast and slightly out of focus, with no glaring lights, no strong white panels and no busy decorative patterns. IMPORTANT: no people, no silhouettes of people, no table, no chairs, no mahjong tiles, no floating objects, no text, no logos, no lettering, no menus, no buttons, no watermark. The actual green felt table and character avatars will be rendered separately in front of this image."
+}

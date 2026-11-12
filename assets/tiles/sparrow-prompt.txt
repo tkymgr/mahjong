@@ -1,0 +1,5 @@
+Tool: built-in image_gen.imagegen
+Mode: new image generation (no reference images), transparent_background=true
+
+Prompt:
+Use case: illustration-story. Asset type: a single isolated sparrow emblem for the ONE OF BAMBOO tile in an original Japanese riichi mahjong game. Create a completely original flat vector-like bitmap illustration, not a copy of any game artwork. One charming stylized sparrow standing on a tiny bamboo sprig, side profile facing left, plump rounded body, raised tail, a single clear eye. Color palette limited to deep jade green, warm copper, ivory and dark charcoal; dominant jade, copper breast. Bold simple continuous shapes, no fine feathers, no gradients, no shadows, thick compact silhouette clearly legible when reduced to 28 by 38 pixels. Center the single bird with generous transparent padding, full body visible. No text, no numerals, no tile, no border, no background, no logos, no additional objects except the small bamboo sprig. Transparent background required.

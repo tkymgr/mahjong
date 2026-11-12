@@ -1,0 +1,374 @@
+{
+  "checkedOn": "2026-11-11",
+  "sourceDirectory": "src/game",
+  "engine": {
+    "name": "@kobalab/majiang-core",
+    "version": "1.4.1"
+  },
+  "cpu": {
+    "name": "@kobalab/majiang-ai",
+    "version": "1.3.0"
+  },
+  "unit": {
+    "command": "npm test",
+    "passed": 26,
+    "failed": 0,
+    "scoring": {
+      "sevenPairsTsumo": {
+        "fu": 25,
+        "han": 3,
+        "points": 3200
+      },
+      "kokushi": {
+        "yakuman": 1,
+        "points": 32000
+      }
+    },
+    "fullCpuMatch": {
+      "seed": 73117,
+      "rounds": "east",
+      "renchan": false,
+      "abortiveDraws": false,
+      "totalPoints": 100000,
+      "rankSet": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "rankPointSum": 0
+    },
+    "characterCases": {
+      "roster": 9,
+      "perDifficulty": 3,
+      "withoutReplacement": true,
+      "legalDiscardsAndRiichi": true,
+      "differentDefensiveDecision": true,
+      "mixedMatchSeed": 81023,
+      "identitiesPersistAcrossHands": true,
+      "distinctPersonalities": 9,
+      "sameStrengthCallingDifference": true,
+      "sameStrengthFoldingDifference": true,
+      "valueCallingDifference": true,
+      "allPersonalitiesCompleteSeededMatches": true
+    }
+  },
+  "browserDevelopment": {
+    "command": "npm run test:browser -- --workers=2",
+    "passed": 59,
+    "skipped": 4,
+    "failed": 0,
+    "projects": [
+      "desktop",
+      "mobile",
+      "landscape"
+    ],
+    "browser": "Chromium",
+    "note": "Before final camera and dimension tuning; final regression uses the production build."
+  },
+  "limitations": [
+    "Representative checks, not exhaustive rules validation",
+    "Safari, Firefox and physical mobile devices not verified",
+    "GitHub Pages workflow has not been run remotely"
+  ],
+  "browserProduction": {
+    "command": "PLAYWRIGHT_PREVIEW=1 npm run test:browser -- --workers=2",
+    "passed": 59,
+    "skipped": 7,
+    "failed": 0,
+    "total": 66,
+    "checkedOn": "2026-11-10"
+  },
+  "deploymentSmoke": {
+    "base": "/mahjong/",
+    "renderer": "PlayCanvas 2.24.0",
+    "handTiles": 14,
+    "faceTextures": 37,
+    "loadedSounds": 9,
+    "licenseNoticesLoaded": true,
+    "pageErrors": []
+  },
+  "assetChecks": {
+    "atlasRegions": 218,
+    "recordedHashesMatch": true,
+    "approvedWinSoundUnchanged": true,
+    "licenseCopiesMatch": true,
+    "characterAvatars": 9,
+    "avatarSourcesAndPromptsSaved": true,
+    "cc0ModelSourceAndHashChecked": true
+  },
+  "feltCharacterLayout": {
+    "difficultyLabelsVisible": false,
+    "separateOpponentStrip": false,
+    "allAvatarsSameSize": true,
+    "cases": [
+      "Profiles on felt",
+      "No visible difficulty labels",
+      "Perspective depth, straight rows, backs facing center",
+      "Contact and directional shadows",
+      "Packed rivers including riichi"
+    ],
+    "avatarMaxPixels": 184,
+    "portraitAvatarMaxPixels": 80,
+    "landscapeAvatarApproxPixels": 109,
+    "namesWithoutSurnames": true,
+    "pointsAndWindsOnCenterUnit": true
+  },
+  "tableControls": {
+    "externalHeader": false,
+    "externalControls": false,
+    "menu": "inside felt, bottom left",
+    "actions": "inside felt above hand, meld previews and wrapped choices",
+    "menuBlocksCanvasInput": true,
+    "menuScrollAndFocusTested": true,
+    "fullscreenAlignmentTested": "desktop Chromium"
+  },
+  "licenseDialog": {
+    "navigation": false,
+    "newTab": false,
+    "content": "bundled English THIRD_PARTY_NOTICES.md",
+    "preservesGameInstance": true,
+    "restoresHelpMenuAndFocus": true,
+    "scrollableInsideTable": true,
+    "fullscreenTested": "desktop Chromium",
+    "developmentTargeted": {
+      "passed": 10,
+      "skipped": 2,
+      "failed": 0
+    },
+    "productionTargeted": {
+      "passed": 4,
+      "skipped": 2,
+      "failed": 0
+    },
+    "build": "passed"
+  },
+  "scoreResults": {
+    "views": [
+      "final rankings, points and settlement score",
+      "per-hand balance changes including deposits",
+      "per-match and per-character totals"
+    ],
+    "retainedAfterHome": true,
+    "retention": "current page session; resets on reload",
+    "duplicateCompletionPrevented": true,
+    "unfinishedMatchesExcluded": true,
+    "allFourFinalRowsFitSmallTable": true,
+    "unitAdditionalCases": 4,
+    "developmentTargeted": {
+      "passed": 12,
+      "failed": 0
+    },
+    "productionTargeted": {
+      "passed": 7,
+      "skipped": 2,
+      "failed": 0
+    },
+    "realHanchanCompletion": [
+      "desktop",
+      "mobile",
+      "landscape"
+    ],
+    "build": "passed"
+  },
+  "scrollableHandHistory": {
+    "checkedOn": "2026-11-09",
+    "allRowsRendered": true,
+    "paginated": false,
+    "mobileLandscapePriority": true,
+    "recordCountAndLastRoundShown": true,
+    "nativeVerticalScroll": true,
+    "firstAndLastButtons": true,
+    "menuWrapperHeightFixed": true,
+    "southFourVisibleInBothFinishedScreenAndMenu": true,
+    "productionRegression": {
+      "passed": 6,
+      "failed": 0
+    },
+    "realHanchanCompletionCases": 3,
+    "build": "passed"
+  },
+  "rendering": {
+    "name": "playcanvas",
+    "version": "2.24.0",
+    "mode": "standalone WebGL2",
+    "sharedPerspectiveCamera": true,
+    "directionalShadows": true,
+    "modelSource": "hiinaspace/just-mahjong",
+    "modelLicense": "CC0 as stated in upstream README",
+    "modelTriangles": 60,
+    "modelSpecification": "assets/models/tile-spec.json",
+    "realGeometry": true,
+    "tableContactAndHiddenFacesChecked": true,
+    "pointerRayPicking": true
+  },
+  "tapAdjustment": {
+    "checkedOn": "2026-11-10",
+    "initialTileRetainedForTouch": true,
+    "touchAndPenMaximumTravelCssPixels": 12,
+    "maximumTargetMarginCssPixels": 6,
+    "marginLimitedToQuarterTileWidth": true,
+    "dragAwayAndBackCancels": true,
+    "pointerCancelAndSecondaryTouchChecked": true,
+    "pendingTurnGuard": true,
+    "mouseAndKeyboardPreserved": true,
+    "productionRegression": {
+      "command": "PLAYWRIGHT_PREVIEW=1 npm run test:browser -- tests/browser/touch.spec.js tests/browser/game.spec.js tests/browser/layout.spec.js tests/browser/menu.spec.js --grep-invert 'complete hanchan' --workers=2",
+      "passed": 38,
+      "skipped": 4,
+      "failed": 0,
+      "projects": [
+        "desktop",
+        "mobile",
+        "landscape"
+      ],
+      "browser": "Chromium",
+      "touchInput": "CDP and touchscreen emulation",
+      "dedicatedTouchCases": 9
+    },
+    "unitPassed": 21,
+    "build": "passed",
+    "physicalMobileDeviceVerified": false
+  },
+  "characterRefresh": {
+    "checkedOn": "2026-11-11",
+    "avatars": 9,
+    "artStyle": "Original anime adult female characters, Japanese-modern salon",
+    "generator": "built-in image_gen",
+    "promptRecord": "assets/characters/prompts.json",
+    "exporter": "scripts/prepare-character-assets.py",
+    "publicDirectory": "public/characters",
+    "namesAndTaglinesUpdated": true,
+    "strengthLabelsVisible": false,
+    "distinctDecisionStyles": 9,
+    "unitPassed": 26,
+    "browserProduction": {
+      "command": "PLAYWRIGHT_PREVIEW=1 npm run test:browser -- tests/browser/characters.spec.js tests/browser/game.spec.js --workers=2",
+      "passed": 16,
+      "skipped": 2,
+      "failed": 0,
+      "projects": [
+        "desktop",
+        "mobile",
+        "landscape"
+      ],
+      "realHanchanCompletedInAllProjects": true
+    },
+    "build": "passed",
+    "sourceAndRuntimeHashesMatch": true,
+    "physicalMobileVerified": false
+  },
+  "salonTitle": {
+    "checkedOn": "2026-11-11",
+    "artwork": "public/js/title-salon.webp",
+    "source": "assets/title/salon-source.png",
+    "prompt": "assets/title/salon-prompt.json",
+    "generator": "built-in image_gen",
+    "realVueControls": true,
+    "separateArtAndText": true,
+    "dialogs": [
+      "characters",
+      "settings",
+      "licenses"
+    ],
+    "returnToTitlePreservesGameInstance": true,
+    "focusReturnsToOpener": true,
+    "productionRegression": {
+      "command": "PLAYWRIGHT_PREVIEW=1 npm run test:browser -- tests/browser/title.spec.js tests/browser/menu.spec.js tests/browser/licenses.spec.js --workers=2",
+      "passed": 22,
+      "skipped": 2,
+      "failed": 0,
+      "projects": [
+        "desktop",
+        "mobile",
+        "landscape"
+      ]
+    },
+    "build": "passed"
+  },
+  "automaticTableRefresh": {
+    "checkedOn": "2026-11-11",
+    "camera": {
+      "position": [
+        0,
+        1000,
+        1350
+      ],
+      "target": [
+        0,
+        0,
+        -70
+      ],
+      "horizontalFov": 46,
+      "nearClip": 10
+    },
+    "avatars": {
+      "sameSize": true,
+      "landscapeApproxPixels": 109,
+      "maximumPixels": 184,
+      "leftAndRight": "outer sides, lowered to 33 percent",
+      "opposite": "top center; overlapping its own concealed hand is allowed",
+      "namesOnly": true,
+      "surnamesVisible": false
+    },
+    "centralDisplay": {
+      "physicalSize": [
+        204,
+        7,
+        204
+      ],
+      "canvasSize": [
+        768,
+        768
+      ],
+      "players": 4,
+      "pointsByPlayerId": true,
+      "windsByCurrentSeat": true,
+      "honbaDepositsRemaining": true,
+      "separateAvatarScoresRemoved": true,
+      "actualRenderedColorChecked": true
+    },
+    "flatTiles": {
+      "scale": 0.76,
+      "riverInitialDistance": 150,
+      "specularDisabled": true,
+      "opaqueIvoryFaceSrgb": [
+        230,
+        224,
+        207
+      ],
+      "inkAlphaExponent": 0.8,
+      "faceLightingIndependent": true,
+      "anisotropyMaximum": 8,
+      "lightIntensityChangeTest": [
+        1.15,
+        4
+      ],
+      "sampleRgbTolerance": 3
+    },
+    "room": {
+      "runtime": "public/js/salon-room.webp",
+      "prompt": "assets/title/salon-room-prompt.json",
+      "generator": "built-in image_gen",
+      "transparentGameCanvas": true
+    },
+    "unitPassed": 26,
+    "productionRegression": {
+      "command": "PLAYWRIGHT_PREVIEW=1 npm run test:browser -- tests/browser/characters.spec.js tests/browser/assets.spec.js tests/browser/menu.spec.js tests/browser/touch.spec.js tests/browser/station.spec.js tests/browser/layout.spec.js --workers=2",
+      "passed": 46,
+      "skipped": 2,
+      "failed": 0,
+      "projects": [
+        "desktop",
+        "mobile",
+        "landscape"
+      ]
+    },
+    "developmentLightingAndLifecycle": {
+      "passed": 9,
+      "failed": 0
+    },
+    "build": "passed",
+    "physicalMobileVerified": false
+  }
+}

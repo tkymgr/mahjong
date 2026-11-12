@@ -1,0 +1,9 @@
+{
+  "generator": "built-in image_gen",
+  "createdOn": "2026-11-11",
+  "reference": "assets/characters/title-style-reference.png",
+  "referenceRole": "Original generated title-screen concept approved by the user",
+  "source": "assets/title/salon-source.png",
+  "runtime": "public/js/title-salon.webp",
+  "prompt": "Use case: precise-object-edit. Edit target: the supplied original mahjong title-screen concept. Create the production BACKGROUND ILLUSTRATION layer for this approved design. Remove ALL text, the title lettering, all English lettering, every button and button border, all UI lines, and the bottom-left notice text. In their place continue the underlying dark emerald softly textured background and subtle gold botanical decoration seamlessly. Preserve the exact three adult female character identities, hairstyles, faces, clothing, warm lighting, Japanese-modern salon interior, green mahjong table and ivory tiles with amber backs. Preserve the overall composition: quiet dark green negative space on the LEFT 40 percent; three characters clearly arranged across the RIGHT 60 percent. Maintain original polished anime illustration quality. This is only a clean art layer; ABSOLUTELY NO TEXT, letters, labels, title, buttons, logos or watermark. Wide landscape composition, approximately 2.13:1 aspect ratio to fit a smartphone landscape browser game. Keep faces and ornaments comfortably inside the frame, nothing important cropped at the top. Do not add characters or objects. The real title and interactive controls will be rendered separately by the game."
+}

@@ -1,0 +1,17 @@
+Mahjong tile mesh
+
+Author/project: hiinaspace / just-mahjong
+Source: https://github.com/hiinaspace/just-mahjong
+Pinned commit: 9ade9ec79d28b5d28f74448a17d0b37dafd63f42
+Original file: Assets/Riichi/tileFbx.fbx
+Upstream license statement: CC0 / public domain (README.md).
+CC0: https://creativecommons.org/publicdomain/zero/1.0/
+
+The tile mesh alone is adopted. Unrelated third-party objects, game code,
+textures and other assets from the upstream project are not bundled.
+
+Modifications: normalized dimensions and axis convention; triangulated
+polygons; clipped surface triangles at the ivory/amber material seam;
+retained authored beveled shape and per-corner normals. The tile face art
+comes from the Mahjong Toufu assets separately credited in the notices.
+Conversion script: scripts/convert-tile-model.py

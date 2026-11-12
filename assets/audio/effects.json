@@ -1,0 +1,103 @@
+{
+  "generator": "scripts/generate-game-sounds.py",
+  "sampleRate": 48000,
+  "channels": 1,
+  "bitsPerSample": 16,
+  "method": "Deterministic modal/sine synthesis; no recordings or sample libraries.",
+  "clips": [
+    {
+      "id": "tumo",
+      "file": "public/js/w_tumo.wav",
+      "purpose": "配牌・ツモ：小さく乾いた樹脂の接触音",
+      "duration": 0.11,
+      "previewStart": 0.0,
+      "peakDbfs": -12.0,
+      "rmsDbfs": -27.49,
+      "sha256": "691578eb58a691e81cde10909d06da36520966b7ca9ba1d06220616b38ec4874",
+      "loopable": false
+    },
+    {
+      "id": "sute",
+      "file": "public/js/w_sute.wav",
+      "purpose": "打牌：ツモより芯のある短い打音",
+      "duration": 0.14,
+      "previewStart": 0.41,
+      "peakDbfs": -9.0,
+      "rmsDbfs": -26.26,
+      "sha256": "e2f72450dbb516cd585dfa888293b2be58468ef3b5bf1e2ebae445f72366e949",
+      "loopable": false
+    },
+    {
+      "id": "naki",
+      "file": "public/js/w_naki.wav",
+      "purpose": "鳴き・カンの牌を置く連続した打音",
+      "duration": 0.25,
+      "previewStart": 0.85,
+      "peakDbfs": -10.0,
+      "rmsDbfs": -26.73,
+      "sha256": "85cfd973266a5e148d0cf611a170a8c25ffc0fd7cd38a4a0bedf48eb1de64967",
+      "loopable": false
+    },
+    {
+      "id": "puyo",
+      "file": "public/js/w_puyo.wav",
+      "purpose": "宣言・効果音ONの確認：柔らかい短い上昇音",
+      "duration": 0.24,
+      "previewStart": 1.4,
+      "peakDbfs": -13.0,
+      "rmsDbfs": -23.5,
+      "sha256": "ee8a4af8224d6128c60813bcdbe9374ee8b8282f722ed1cb0b9ddd19ae354b87",
+      "loopable": false
+    },
+    {
+      "id": "notice",
+      "file": "public/js/w_notice.wav",
+      "purpose": "ツモ・ロン可能時の通知：聞き分けやすい2音",
+      "duration": 0.46,
+      "previewStart": 1.94,
+      "peakDbfs": -11.5,
+      "rmsDbfs": -23.8,
+      "sha256": "037a5890b87a6439ab40db0cdfb30c65bc89948bd0af52b45149bce4768784ce",
+      "loopable": false
+    },
+    {
+      "id": "ribo",
+      "file": "public/js/w_ribo.wav",
+      "purpose": "供託・支払い：点棒を置く打音と小さな余韻",
+      "duration": 0.26,
+      "previewStart": 2.7,
+      "peakDbfs": -11.0,
+      "rmsDbfs": -30.32,
+      "sha256": "2abf66749277ac886ce91620aac956dcddcd3341d45598162e3f2d4fb094dc6b",
+      "loopable": false
+    },
+    {
+      "id": "tenbo",
+      "file": "public/js/w_tenbo.wav",
+      "purpose": "点数精算：継ぎ目が無音になる低音量のカウント音",
+      "duration": 0.2,
+      "previewStart": 3.26,
+      "peakDbfs": -16.0,
+      "rmsDbfs": -36.4,
+      "sha256": "332e1cb9babe470893164a0020876489bdd9c8150f5c601e0673afe8012edc89",
+      "loopable": true
+    },
+    {
+      "id": "lose",
+      "file": "public/js/w_lose.wav",
+      "purpose": "CPU和了：穏やかな下降チャイム",
+      "duration": 0.62,
+      "previewStart": 3.76,
+      "peakDbfs": -10.5,
+      "rmsDbfs": -21.87,
+      "sha256": "aaaff390cda7432f4f5702251d69c6ffb85aff2c38baf586b4835002746f29d8",
+      "loopable": false
+    }
+  ],
+  "approvedWin": {
+    "file": "public/js/w_clear.wav",
+    "sha256": "4261dcae4e67903a743697e96796ef04c0cdbc4c13a06a741691c75c21a9d2f8",
+    "previewStart": 4.68,
+    "changed": false
+  }
+}
