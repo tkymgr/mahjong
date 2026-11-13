@@ -123,7 +123,7 @@ defineExpose({ requestFullscreen, toggleSound });
     <div class="table-ui" :style="overlayBounds">
       <div class="table-play-controls" :inert="menuOpen">
         <section v-if="state.phase === 'title'" class="title-screen" aria-label="四人麻雀 タイトル画面">
-          <img :src="`${assetBase}js/title-salon.webp`" alt="" class="title-art" fetchpriority="high" draggable="false">
+          <img :src="`${assetBase}js/title-salon.webp?v=3d-20261113`" alt="" class="title-art" fetchpriority="high" draggable="false">
           <div class="title-shade" aria-hidden="true"></div>
           <div class="title-content">
             <div class="title-wordmark"><h1>四人麻雀</h1><p lang="en">MAHJONG</p></div>

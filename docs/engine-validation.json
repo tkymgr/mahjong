@@ -370,5 +370,34 @@
     },
     "build": "passed",
     "physicalMobileVerified": false
+  },
+  "title3DComposite": {
+    "checkedOn": "2026-11-13",
+    "model": "public/models/mahjong-tile.json",
+    "tileCount": 53,
+    "tileDimensionsMm": [
+      21,
+      28,
+      16.5
+    ],
+    "allRenderedEntityDimensionsValidated": true,
+    "layout": "assets/title/title-tiles-layout.json",
+    "metrics": "assets/title/title-tiles-render.json",
+    "cleanPlate": "assets/title/salon-base-no-tiles.png",
+    "composite": "assets/title/salon-composite.png",
+    "runtime": "public/js/title-salon.webp",
+    "heldTileWidthPixels": 22.33273835537898,
+    "fingerReferencePixels": 18,
+    "productionTitleTests": {
+      "passed": 6,
+      "failed": 0,
+      "projects": [
+        "desktop",
+        "mobile",
+        "landscape"
+      ]
+    },
+    "build": "passed",
+    "pushed": false
   }
 }

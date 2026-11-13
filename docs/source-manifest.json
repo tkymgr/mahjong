@@ -157,14 +157,23 @@
       "loopable": false
     },
     "title-salon.webp": {
-      "sha256": "cf5fa0e900952a6bfa1bc6211a0bbed039b604ae79adec78f23ffda7defe06a2",
-      "sourceArt": "assets/title/salon-source.png",
-      "sourceSha256": "8058bbc7354a005cf96076a7ec7c058973f7cbc860db63e18a1cdda5e55d2ccc",
+      "sha256": "62c73073f38d5cc101467ea1bb572d2bdedc89654df881320aa96e47ecb637d1",
+      "sourceArt": "assets/title/salon-composite.png",
+      "sourceSha256": "d1f20c287f2f81f1922f681eee23d4d0f821055ae94c0eb81063929871c895f6",
       "styleReference": "assets/characters/title-style-reference.png",
-      "prompt": "assets/title/salon-prompt.json",
+      "prompt": "assets/title/salon-clean-plate-prompt.json",
       "generator": "scripts/prepare-salon-title.py",
       "createdOn": "2026-11-11",
-      "description": "Original salon title artwork; text and interactive controls are rendered by Vue."
+      "description": "Original clean illustration composited with dimensioned CC0 3D tiles and licensed tile-face artwork.",
+      "updatedOn": "2026-11-13",
+      "cleanIllustration": "assets/title/salon-base-no-tiles.png",
+      "model": "public/models/mahjong-tile.json",
+      "layout": "assets/title/title-tiles-layout.json",
+      "renderMetrics": "assets/title/title-tiles-render.json",
+      "renderer": "scripts/render-title-tiles.mjs",
+      "compositor": "scripts/compose-title-art.py",
+      "tileFacePermission": "assets/tiles/user-tile-sheet-source.json",
+      "licenseNote": "AI base art and code: MIT; tile mesh: CC0; tile-face art: Mahjong Toufu usage terms. The composite is not wholly relicensed under MIT."
     },
     "salon-room.webp": {
       "sha256": "7becc4d234db4f32af062fc1e9bfb96bcc7753660fac05e13e5c7c89dee66b75",
