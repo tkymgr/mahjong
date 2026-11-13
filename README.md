@@ -33,7 +33,17 @@ npm start
 
 承認済みの和モダンな麻雀サロンのデザインを実装しています。3人の美少女雀士を背景に、四人麻雀のロゴ・「対局開始」「雀士紹介」「設定」を表示します。素材・ライセンスもタイトルから卓内ダイアログで確認できます。設定した対局形式と開始点を表示し、対局から戻ると同じタイトル画面を復元します。
 
-背景は`public/js/title-salon.webp`、元画像と生成プロンプトは`assets/title/salon-source.png`・`salon-prompt.json`です。文字とボタンはVueで描画し、背景画像とは分離しています。`scripts/prepare-salon-title.py`でWebPへの書き出しとハッシュ記録を再実行できます。
+背景は`public/js/title-salon.webp`です。人物・背景だけの元画像を`assets/title/salon-base-no-tiles.png`、3D牌の配置を`assets/title/title-tiles-layout.json`に保存しています。牌はAI画像に描き込まず、ゲーム本体と同じCC0モデルを21×28×16.5mmに揃えてPlayCanvasで描画します。手持ちの牌は指幅を基準に校正し、卓上の牌も同じ寸法と透視カメラで配置します。文字と操作ボタンはVueで描画します。
+
+タイトル画像の再生成は次の手順です。PlaywrightのChromiumと、PythonのPillowが必要です。通常の起動・ビルドでは生成済みの画像を使います。
+
+```bash
+node scripts/render-title-tiles.mjs
+python3 scripts/compose-title-art.py
+python3 scripts/prepare-salon-title.py
+```
+
+3D描画・影・指先の前後関係を合成した画像は`assets/title/salon-composite.png`です。牌の寸法や配置はJSONから調整できます。合成画像に含まれる牌の図柄には麻雀豆腐の利用条件が適用され、画像全体をMITに変更するものではありません。
 
 ## 横画面の卓レイアウト
 
@@ -113,6 +123,6 @@ PLAYWRIGHT_PREVIEW=1 npm run test:browser
 
 新規ソースコードと合成音声は [MIT](LICENSE) です。麻雀エンジン・CPU・Vue・PlayCanvasの著作権表示とライセンスも配布物に含めています。
 
-牌の図柄は [麻雀豆腐](https://majandofu.com/mahjong-images) の個人・商用利用と加工が許可された素材です。この素材をMITへ変更するものではありません。起家マーク用フォントはSIL OFL 1.1です。牌の立体素材、タイトル、背景、印は本プロジェクト用に生成した画像です。出典・利用条件は [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)、制作記録は `assets/` と `docs/source-manifest.json` を参照してください。
+牌の図柄は [麻雀豆腐](https://majandofu.com/mahjong-images) の個人・商用利用と加工が許可された素材です。この素材をMITへ変更するものではありません。起家マーク用フォントはSIL OFL 1.1です。旧アトラスの立体素材、タイトルの人物・背景、背景画、印は本プロジェクト用に生成した画像です。現在のタイトルは実際の3D牌を合成しており、図柄の利用条件も適用されます。出典・利用条件は [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)、制作記録は `assets/` と `docs/source-manifest.json` を参照してください。
 
 効果音9種は録音サンプルを使わず合成しています。採用済みの自分の和了音を保持しています。画像アトラスの再生成にはPillow・fonttools、音声生成にはPythonを使用します。通常の起動・ビルドにPythonは不要です。

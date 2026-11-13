@@ -1,0 +1,89 @@
+{
+  "schema": "mahjong-title-3d-composite-v1",
+  "referenceSize": [
+    1828,
+    860
+  ],
+  "oversampling": 2,
+  "tileDimensionsMm": [
+    21,
+    28,
+    16.5
+  ],
+  "camera": {
+    "heightMm": 300,
+    "horizontalFov": 60
+  },
+  "backHand": {
+    "count": 13,
+    "center": [
+      1230,
+      772
+    ],
+    "pitchMm": 21.5
+  },
+  "leftWall": {
+    "stacks": 9,
+    "start": [
+      700,
+      808
+    ],
+    "pitchMm": 21.5,
+    "yaw": 47
+  },
+  "rightWall": {
+    "stacks": 9,
+    "start": [
+      1785,
+      836
+    ],
+    "pitchMm": 21.5,
+    "yaw": 90
+  },
+  "discards": [
+    {
+      "code": "z7",
+      "center": [
+        1147,
+        811
+      ],
+      "yaw": -4
+    },
+    {
+      "code": "p5",
+      "center": [
+        1189,
+        813
+      ],
+      "yaw": 2
+    },
+    {
+      "code": "s6",
+      "center": [
+        1231,
+        815
+      ],
+      "yaw": -2
+    }
+  ],
+  "heldTile": {
+    "code": "z6",
+    "center": [
+      1732,
+      445
+    ],
+    "fingerWidthPixels": 18,
+    "fingerWidthMm": 17
+  },
+  "fingerForeground": {
+    "bounds": [
+      1712,
+      424,
+      1753,
+      465
+    ],
+    "topMaxY": 433,
+    "bottomMinY": 455
+  },
+  "scaleReference": "Held tile calibrated to an 18-pixel fingertip representing approximately 17 mm; all tiles share the same millimetre dimensions."
+}
