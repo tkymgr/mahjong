@@ -279,3 +279,31 @@ test('winning results distinguish indicator tiles from actual dora and never inf
   s.handleEvent('hule',{...data,fubaopai:null,hupai:[{name:'大三元',fanshu:'*'}],damanguan:1});
   assert.deepEqual(s.result.uraDora,[]);assert.equal(s.result.yaku[0].value,'*');
 });
+
+test('meld display identifies the discarder and preserves the called tile, red fives and remaining order',()=>{
+  const cases=[
+    ['m123-', ['m3','m1','m2'],0],
+    ['m12-3', ['m2','m1','m3'],0],
+    ['m1-23', ['m1','m2','m3'],0],
+    ['p340-', ['p0','p3','p4'],0],
+    ['p555-', ['p5','p5','p5'],0],
+    ['p555=', ['p5','p5','p5'],1],
+    ['p555+', ['p5','p5','p5'],2],
+    ['p550-', ['p0','p5','p5'],0],
+    ['p550=', ['p5','p0','p5'],1],
+    ['p550+', ['p5','p5','p0'],2],
+    ['s1111-', ['s1','s1','s1','s1'],0],
+    ['s1111=', ['s1','s1','s1','s1'],1],
+    ['s1111+', ['s1','s1','s1','s1'],3],
+    ['s111-1', ['s1','s1','s1','s1'],0],
+    ['s111=1', ['s1','s1','s1','s1'],1],
+    ['s111+1', ['s1','s1','s1','s1'],3]
+  ];
+  for(const [meld,codes,called] of cases){
+    const tiles=meldTiles(meld);
+    assert.deepEqual(tiles.map(t=>t.tile),codes,meld);
+    assert.deepEqual(tiles.map((t,i)=>t.called?i:null).filter(i=>i!==null),[called],meld);
+    assert.ok(tiles.every(t=>!t.back),meld);
+  }
+  assert.deepEqual(meldTiles('z5555').map(t=>t.back),[true,false,false,true]);
+});

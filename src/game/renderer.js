@@ -147,7 +147,9 @@ export class TableRenderer {
     for(const id of [2,3,1,0]){
       const seat=model.player_id.indexOf(id),hand=this.session.revealedHands.get(seat)||model.shoupai[seat];if(!hand)continue;
       const visible=id===0||this.session.revealed.has(seat),cards=handTiles(hand);
-      const melds=hand._fulou.map(m=>meldTiles(m));
+      // The first call stays at the player's right; later groups extend left.
+      // Reverse only the display groups, preserving called-tile orientation and core history.
+      const melds=hand._fulou.slice().reverse().map(m=>meldTiles(m));
       const revealAll=this.session.result?.type==='pingju';
       if(id===0){this.playerHand(cards,melds,revealAll);continue;}
       const scale=WORLD_TILE_SCALE;
@@ -160,9 +162,10 @@ export class TableRenderer {
         this.tile(card.tile,p,{player:id,yaw:p.yaw,hidden:!visible,flat:this.session.revealed.has(seat),index:null,drawn:card.drawn,scale});distance+=TILE.pitch*scale;
       });
       for(const meld of melds){distance+=12*scale;for(const card of meld){
-        const p=seatPosition(id,distance,id===0?370:id===2?420:HAND_DISTANCE);
+        const width=(card.called?TILE.height:TILE.width)*scale;
+        const p=seatPosition(id,distance+(width-TILE.width*scale)/2,id===2?420:HAND_DISTANCE);
         const back=card.back&&!revealAll;
-        this.tile(card.tile,p,{player:id,yaw:p.yaw+(card.called?90:0),kind:'meld',flat:true,faceDown:back,hidden:back,scale});distance+=((card.called?TILE.height:TILE.width)+2)*scale;
+        this.tile(card.tile,p,{player:id,yaw:p.yaw+(card.called?90:0),kind:'meld',flat:true,faceDown:back,hidden:back,scale});distance+=width+2*scale;
       }}
     }
   }
