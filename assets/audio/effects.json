@@ -3,7 +3,7 @@
   "sampleRate": 48000,
   "channels": 1,
   "bitsPerSample": 16,
-  "method": "Deterministic modal/sine synthesis; no recordings or sample libraries.",
+  "method": "Deterministic modal, filtered contact-noise and sine synthesis; no recordings or sample libraries.",
   "clips": [
     {
       "id": "tumo",
@@ -12,9 +12,19 @@
       "duration": 0.11,
       "previewStart": 0.0,
       "peakDbfs": -12.0,
-      "rmsDbfs": -27.49,
-      "sha256": "691578eb58a691e81cde10909d06da36520966b7ca9ba1d06220616b38ec4874",
-      "loopable": false
+      "rmsDbfs": -34.16,
+      "sha256": "e97822993a09ae5d58423ac074f4a492ab92c2d13f834a15678dbc6c6657b486",
+      "loopable": false,
+      "variants": [
+        {
+          "file": "public/js/w_tumo_2.wav",
+          "sha256": "dcfeb979435a5ae02e819d4f8f56afb8c0c012bf1f87913a7d7ab89e799edacc"
+        },
+        {
+          "file": "public/js/w_tumo_3.wav",
+          "sha256": "cabbbd1574a185bd674f1cd46dee468e77c2459037dd463b4f8416f4e382dbc5"
+        }
+      ]
     },
     {
       "id": "sute",
@@ -23,9 +33,19 @@
       "duration": 0.14,
       "previewStart": 0.41,
       "peakDbfs": -9.0,
-      "rmsDbfs": -26.26,
-      "sha256": "e2f72450dbb516cd585dfa888293b2be58468ef3b5bf1e2ebae445f72366e949",
-      "loopable": false
+      "rmsDbfs": -31.2,
+      "sha256": "fbebede8a961f4f885b85bae5de84b424b144674aea743060591dd85b36813b9",
+      "loopable": false,
+      "variants": [
+        {
+          "file": "public/js/w_sute_2.wav",
+          "sha256": "6023acd42f263b1efd02ca0ddaaf414c366f5935d1fdc265eb2575c48b49c998"
+        },
+        {
+          "file": "public/js/w_sute_3.wav",
+          "sha256": "c30974767c7846434af26b2306af5c3bfb7b9e4f3a1a5753f1ba76fe33da379d"
+        }
+      ]
     },
     {
       "id": "naki",
@@ -34,9 +54,19 @@
       "duration": 0.25,
       "previewStart": 0.85,
       "peakDbfs": -10.0,
-      "rmsDbfs": -26.73,
-      "sha256": "85cfd973266a5e148d0cf611a170a8c25ffc0fd7cd38a4a0bedf48eb1de64967",
-      "loopable": false
+      "rmsDbfs": -32.13,
+      "sha256": "f02a9e6b6780ec22c8d6743eaafd96053fecd2d60221d0edc5c60caf0be526e8",
+      "loopable": false,
+      "variants": [
+        {
+          "file": "public/js/w_naki_2.wav",
+          "sha256": "5c68b5bc79ca8ddee33a27ad4a9ff22309568d140076b669152656ed402e266d"
+        },
+        {
+          "file": "public/js/w_naki_3.wav",
+          "sha256": "d6cd9f96231c66fcf0a4588fc7d8f95f3ffdef1c594c5dcb645a18b29b92b4af"
+        }
+      ]
     },
     {
       "id": "puyo",
@@ -47,7 +77,8 @@
       "peakDbfs": -13.0,
       "rmsDbfs": -23.5,
       "sha256": "ee8a4af8224d6128c60813bcdbe9374ee8b8282f722ed1cb0b9ddd19ae354b87",
-      "loopable": false
+      "loopable": false,
+      "variants": []
     },
     {
       "id": "notice",
@@ -58,7 +89,8 @@
       "peakDbfs": -11.5,
       "rmsDbfs": -23.8,
       "sha256": "037a5890b87a6439ab40db0cdfb30c65bc89948bd0af52b45149bce4768784ce",
-      "loopable": false
+      "loopable": false,
+      "variants": []
     },
     {
       "id": "ribo",
@@ -67,9 +99,19 @@
       "duration": 0.26,
       "previewStart": 2.7,
       "peakDbfs": -11.0,
-      "rmsDbfs": -30.32,
-      "sha256": "2abf66749277ac886ce91620aac956dcddcd3341d45598162e3f2d4fb094dc6b",
-      "loopable": false
+      "rmsDbfs": -35.12,
+      "sha256": "d2f25f675cafc8f9b5e4b3e4f56d1983d49f5177a05219f3c01888b23ba6713c",
+      "loopable": false,
+      "variants": [
+        {
+          "file": "public/js/w_ribo_2.wav",
+          "sha256": "bf5dd50e2c29be5ba8e5adede72d328a5d1ec15f854431cc40ffa8a09f2c2d5f"
+        },
+        {
+          "file": "public/js/w_ribo_3.wav",
+          "sha256": "1d89fdddaeaf50a289c6e2d9d478e849244afb2449255e5a00a6480e0af4dd54"
+        }
+      ]
     },
     {
       "id": "tenbo",
@@ -78,9 +120,10 @@
       "duration": 0.2,
       "previewStart": 3.26,
       "peakDbfs": -16.0,
-      "rmsDbfs": -36.4,
-      "sha256": "332e1cb9babe470893164a0020876489bdd9c8150f5c601e0673afe8012edc89",
-      "loopable": true
+      "rmsDbfs": -39.22,
+      "sha256": "10b84eab3fde9a73b37d291f91853df8c17612b6d06d6a9ce4444b6050bb123f",
+      "loopable": true,
+      "variants": []
     },
     {
       "id": "lose",
@@ -91,7 +134,8 @@
       "peakDbfs": -10.5,
       "rmsDbfs": -21.87,
       "sha256": "aaaff390cda7432f4f5702251d69c6ffb85aff2c38baf586b4835002746f29d8",
-      "loopable": false
+      "loopable": false,
+      "variants": []
     }
   ],
   "approvedWin": {

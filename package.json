@@ -1,6 +1,6 @@
 {
   "name": "mahjong-standalone",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "private": true,
   "description": "Vue 3とPlayCanvasで動作する3D四人麻雀",
   "type": "module",

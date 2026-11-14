@@ -1,14 +1,15 @@
 import { test, expect } from '@playwright/test';
-import { ready } from './helpers.js';
+import { ready, landscape } from './helpers.js';
 
 test('image failure can be retried and an optional missing sound is tolerated', async ({ page }) => {
   await page.route('**/models/mahjong-tile.json', route => route.abort());
-  await page.goto('/'); await expect(page.locator('#load-error')).toBeVisible();
+  await landscape(page); await page.goto('/'); await expect(page.locator('#load-error')).toBeVisible();
   await page.unroute('**/models/mahjong-tile.json');
   await page.route('**/js/w_tumo.wav', route => route.abort());
   await page.locator('#retry').click();
   await expect(page.locator('#start-game')).toBeVisible();
-  expect(await page.evaluate(() => window.mahjongGame.audio.sounds.size)).toBe(8);
+  expect(await page.evaluate(() => window.mahjongGame.audio.sounds.size)).toBe(9);
+  expect(await page.evaluate(() => window.mahjongGame.audio.sounds.get('tumo').buffers.length)).toBe(2);
 });
 
 test('Vue unmount disposes engine callbacks, textures and sound; remount works', async ({ page }) => {

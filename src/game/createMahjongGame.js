@@ -7,14 +7,27 @@ import { BOARD_WIDTH, BOARD_HEIGHT } from './model-layout.js';
 
 // Vue owns overlays and settings; PlayCanvas owns the actual 3D world.
 export function createMahjongGame({canvas,parent,onError=()=>{},onSoundChange=()=>{},onState=()=>{},onView=()=>{}}) {
-  const game={engineName:'PlayCanvas',version:pc.version,canvas,app:null,table:null,session:null,audio:null,preferences:loadPreferences(),input:{enabled:true},initialized:false,disposed:false};
+  const game={engineName:'PlayCanvas',version:pc.version,canvas,app:null,table:null,session:null,audio:null,preferences:loadPreferences(),input:{enabled:true},initialized:false,disposed:false,orientationBlocked:false};
   let observer=null,activePointer=null,pressed=null,gesture=null,started=false;
+  let orientationPausedEngine=null;
   const events=[];
   const listen=(target,name,fn,options)=>{target.addEventListener(name,fn,options);events.push(()=>target.removeEventListener(name,fn,options));};
   const coordinates=event=>{const r=canvas.getBoundingClientRect();return {x:(event.clientX-r.x)*BOARD_WIDTH/r.width,y:(event.clientY-r.y)*BOARD_HEIGHT/r.height};};
   const cancel=()=>{activePointer=null;pressed=null;gesture=null;if(game.table){game.table.hover=null;game.table.highlight();}};
   const trackGesture=event=>{
     if(gesture?.touch&&Math.hypot(event.clientX-gesture.x,event.clientY-gesture.y)>12)gesture.cancelled=true;
+  };
+  game.setOrientationBlocked=blocked=>{
+    if(game.disposed)return;
+    game.orientationBlocked=blocked;cancel();
+    game.audio?.setHidden(document.hidden||blocked);
+    if(blocked){
+      const engine=game.session?.engine;
+      if(engine&&!engine.closed&&!engine._stop){engine.stop();orientationPausedEngine=engine;}
+    }else if(orientationPausedEngine){
+      if(orientationPausedEngine===game.session?.engine&&!orientationPausedEngine.closed)orientationPausedEngine.start();
+      orientationPausedEngine=null;
+    }
   };
   game.saveSettings=()=>{if(game.session)game.preferences.rules=game.session.rules;savePreferences(game.preferences);};
   game.destroy=()=>{
@@ -29,7 +42,7 @@ export function createMahjongGame({canvas,parent,onError=()=>{},onSoundChange=()
       const resize=()=>{if(game.disposed)return;const r=parent.getBoundingClientRect();app.resizeCanvas(Math.max(1,Math.round(r.width)),Math.max(1,Math.round(r.height)));game.table?.resize();};
       observer=new ResizeObserver(resize);observer.observe(parent);resize();
       game.audio=new GameAudio(game.preferences,state=>{onSoundChange(state);savePreferences(game.preferences);});
-      game.session=new MahjongSession({rules:game.preferences.rules,preferences:game.preferences,audio:game.audio,onChange:state=>{if(game.disposed)return;if(game.table)game.table.dirty=true;onState(state);}});
+      game.session=new MahjongSession({rules:game.preferences.rules,preferences:game.preferences,audio:game.audio,onChange:state=>{if(game.disposed)return;game.audio?.setScene(state.phase);if(game.table)game.table.dirty=true;onState(state);}});
       game.table=new TableRenderer(app,game.session,{onView});
       await Promise.all([game.table.load(import.meta.env.BASE_URL),game.audio.load(import.meta.env.BASE_URL)]);
       if(game.disposed)return game;
@@ -41,7 +54,7 @@ export function createMahjongGame({canvas,parent,onError=()=>{},onSoundChange=()
         if(game.table.dirty)game.table.draw();
       });
       listen(canvas,'pointerdown',event=>{
-        if(!game.input.enabled||activePointer!==null||event.button!==0||event.isPrimary===false)return;
+        if(!game.input.enabled||game.orientationBlocked||activePointer!==null||event.button!==0||event.isPrimary===false)return;
         game.audio.unlock();activePointer=event.pointerId;
         const p=coordinates(event),r=canvas.getBoundingClientRect(),touch=event.pointerType==='touch'||event.pointerType==='pen';
         pressed=game.table.hit(p.x,p.y,touch?{x:6*BOARD_WIDTH/r.width,y:6*BOARD_HEIGHT/r.height}:undefined)?.id||null;
@@ -50,7 +63,7 @@ export function createMahjongGame({canvas,parent,onError=()=>{},onSoundChange=()
         canvas.setPointerCapture?.(event.pointerId);
       });
       listen(canvas,'pointermove',event=>{
-        if(!game.input.enabled||(activePointer!==null&&activePointer!==event.pointerId))return;
+        if(!game.input.enabled||game.orientationBlocked||(activePointer!==null&&activePointer!==event.pointerId))return;
         if(gesture?.touch){trackGesture(event);game.table.hover=gesture.cancelled?null:pressed;game.table.highlight();}
         else if(event.pointerType!=='touch'){const p=coordinates(event);game.table.move(p.x,p.y);}
       });
@@ -58,12 +71,14 @@ export function createMahjongGame({canvas,parent,onError=()=>{},onSoundChange=()
         if(activePointer!==event.pointerId)return;
         trackGesture(event);
         const p=coordinates(event),id=gesture?.touch?(!gesture.cancelled?pressed:null):game.table.hit(p.x,p.y)?.id;
-        if(game.input.enabled&&pressed&&id===pressed&&gesture?.pending===game.session.pending)game.table.activate(id);
+        if(game.input.enabled&&!game.orientationBlocked&&pressed&&id===pressed&&gesture?.pending===game.session.pending)game.table.activate(id);
         if(canvas.hasPointerCapture?.(event.pointerId))canvas.releasePointerCapture(event.pointerId);
         cancel();
       });
       listen(canvas,'pointercancel',cancel);listen(canvas,'lostpointercapture',cancel);listen(window,'blur',cancel);
-      listen(canvas,'keydown',event=>{if(!game.input.enabled||!['ArrowLeft','ArrowRight','Enter',' '].includes(event.key))return;event.preventDefault();game.audio.unlock();game.table.keyboard(event.key);});
+      listen(document,'visibilitychange',()=>game.audio.setHidden(document.hidden||game.orientationBlocked));
+      game.audio.setHidden(document.hidden||game.orientationBlocked);
+      listen(canvas,'keydown',event=>{if(!game.input.enabled||game.orientationBlocked||!['ArrowLeft','ArrowRight','Enter',' '].includes(event.key))return;event.preventDefault();game.audio.unlock();game.table.keyboard(event.key);});
       app.start();started=true;game.initialized=true;game.session.publish();game.table.draw();return game;
     }catch(error){
       if(!game.disposed){console.error(error);onError(error);}

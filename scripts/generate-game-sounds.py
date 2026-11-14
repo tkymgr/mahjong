@@ -1,15 +1,16 @@
 #!/usr/bin/env python3
 """Synthesize eight original game effects; preserve the approved win chime.
 
-Uses only Python's standard library. No recordings, third-party samples,
-random noise or external audio services are used. Short inharmonic modes
-model resin contact sounds; sine partials produce restrained UI chimes.
+Uses only Python's standard library. No recordings, third-party samples
+or audio services are used. Short inharmonic modes and filtered contact noise
+model resin impacts; sine partials produce restrained UI chimes.
 """
 import argparse
 import array
 import hashlib
 import json
 import math
+import random
 from pathlib import Path
 import sys
 import wave
@@ -19,15 +20,24 @@ RATE = 48000
 
 
 def impact(samples, start, frequency, amplitude=1.0, softness=1.0):
-    modes = ((1, 1, 48), (1.91, .52, 68), (3.17, .27, 96), (4.83, .15, 132), (6.23, .065, 175))
+    # A broad initial collision, resin resonances and a damped felt/table body.
+    # Seeded filtered noise models contact roughness without any recorded sample.
+    rng = random.Random(round(frequency * 101 + start * 10000))
+    modes = ((.63, .35, 130), (1, .50, 180), (1.47, .30, 240), (2.21, .18, 310), (3.38, .11, 420), (4.97, .06, 560))
     first = round(start * RATE)
-    for i in range(first, min(len(samples), first + round(.14 * RATE))):
+    low = previous = 0.0
+    for i in range(first, min(len(samples), first + round(.16 * RATE))):
         age = (i - first) / RATE
-        attack = 1 - math.exp(-age / (.0009 * softness))
+        attack = 1 - math.exp(-age / (.00022 * softness))
         tone = sum(gain * math.sin(math.tau * frequency * ratio * age) * math.exp(-decay * age / softness)
                    for ratio, gain, decay in modes)
-        body = .22 * math.sin(math.tau * frequency * .32 * age) * math.exp(-65 * age)
-        samples[i] += amplitude * attack * (tone + body)
+        noise = rng.uniform(-1, 1)
+        low += .32 * (noise - low)
+        bright = low - previous
+        previous = low
+        contact = .95 * bright * math.exp(-age / .0028) + .12 * low * math.exp(-age / .012)
+        body = .28 * math.sin(math.tau * (165 + frequency * .075) * age) * math.exp(-85 * age)
+        samples[i] += amplitude * attack * (tone + body + contact)
 
 
 def bell(samples, start, frequency, amplitude=1.0, decay=13):
@@ -111,6 +121,14 @@ def main():
         pcm = synthesize(spec)
         path = args.output_dir / f'w_{name}.wav'
         save(path, pcm)
+        variants = []
+        if name in ('tumo', 'sute', 'naki', 'ribo'):
+            for index, factor in enumerate((.94, 1.055), 2):
+                duration, peak, purpose, hits, notes = spec
+                variant = (duration, peak, purpose, [(t, f * factor, a, soft * (2 - factor)) for t, f, a, soft in hits], notes)
+                variant_path = args.output_dir / f'w_{name}_{index}.wav'
+                save(variant_path, synthesize(variant))
+                variants.append({'file': f'public/js/{variant_path.name}', 'sha256': hashlib.sha256(variant_path.read_bytes()).hexdigest()})
         start = len(preview) / RATE
         preview.extend(pcm)
         preview.extend([0] * round(.30 * RATE))
@@ -119,14 +137,14 @@ def main():
                       'duration': len(pcm) / RATE, 'previewStart': round(start, 3),
                       'peakDbfs': spec[1], 'rmsDbfs': round(20 * math.log10(rms), 2),
                       'sha256': hashlib.sha256(path.read_bytes()).hexdigest(),
-                      'loopable': name == 'tenbo'})
+                      'loopable': name == 'tenbo', 'variants': variants})
     # Do not regenerate or overwrite the win chime selected by the user.
     win = read(ROOT / 'public/js/w_clear.wav')
     win_start = len(preview) / RATE
     preview.extend(win)
     save(ROOT / 'assets/audio/effects-preview.wav', preview)
     record = {'generator': 'scripts/generate-game-sounds.py', 'sampleRate': RATE,
-              'channels': 1, 'bitsPerSample': 16, 'method': 'Deterministic modal/sine synthesis; no recordings or sample libraries.',
+              'channels': 1, 'bitsPerSample': 16, 'method': 'Deterministic modal, filtered contact-noise and sine synthesis; no recordings or sample libraries.',
               'clips': clips, 'approvedWin': {'file': 'public/js/w_clear.wav',
               'sha256': hashlib.sha256((ROOT / 'public/js/w_clear.wav').read_bytes()).hexdigest(),
               'previewStart': round(win_start, 3), 'changed': False}}

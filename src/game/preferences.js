@@ -12,7 +12,7 @@ export function loadPreferences(storage) {
       if (['0', '1'].includes(old.get('sound'))) value.sound = old.get('sound') === '1';
     }
   } catch { /* Defaults also support browsers with storage disabled. */ }
-  return { speed: Number.isInteger(value.speed) && value.speed >= 0 && value.speed <= 4 ? value.speed : 3, sound: typeof value.sound === 'boolean' ? value.sound : true, rules: normalizeRules(value.rules) };
+  return { music: typeof value.music === 'boolean' ? value.music : value.sound !== false, musicVolume: Number.isFinite(value.musicVolume) ? Math.max(0, Math.min(1, value.musicVolume)) : .25, speed: Number.isInteger(value.speed) && value.speed >= 0 && value.speed <= 4 ? value.speed : 3, sound: typeof value.sound === 'boolean' ? value.sound : true, rules: normalizeRules(value.rules) };
 }
 export function savePreferences(value, storage) {
   try { (storage ?? globalThis.localStorage).setItem(KEY, JSON.stringify(value)); } catch { /* Keep session settings usable. */ }

@@ -1,4 +1,5 @@
 import * as pc from 'playcanvas';
+import { characterAppearance } from './characterAppearance.js';
 import { handTiles, meldTiles } from './tiles.js';
 import { TILE, TABLE, CAMERA, PLAYER_HAND, HAND_DISTANCE, WORLD_TILE_SCALE, RIVER_SCALE, BOARD_WIDTH, BOARD_HEIGHT, faceFile, TILE_CODES, seatPosition, riverPosition } from './model-layout.js';
 
@@ -99,7 +100,7 @@ export class TableRenderer {
     const label=new pc.Entity('East / South');label.addComponent('render',{meshInstances:[new pc.MeshInstance(mesh,this.faceMaterials.get('z1'))],castShadows:false,receiveShadows:false});label.setLocalEulerAngles(-90,0,0);label.setLocalPosition(0,2.1,0);root.addChild(label);
     this.marker=root;this.markerLabel=label;
   }
-  tile(code,position,{player=0,kind='hand',yaw=0,roll=0,flat=false,faceDown=false,hidden=false,scale=1,index=null,drawn=false,screenSpace=false}={}) {
+  tile(code,position,{player=0,kind='hand',yaw=0,roll=0,flat=false,faceDown=false,hidden=false,scale=1,index=null,drawn=false,screenSpace=false,winning=false}={}) {
     const entity=new pc.Entity(`${kind}-${player}-${index??this.tiles.length}`);this.group.addChild(entity);
     const meshInstances=[new pc.MeshInstance(this.ivoryMesh,screenSpace?this.handIvory:flat?this.flatWhite:this.white),new pc.MeshInstance(this.backMesh,screenSpace?this.handBack:this.back)];
     if(!hidden&&(code!=='z5'||flat||screenSpace))meshInstances.push(new pc.MeshInstance(this.glyphMesh,((flat||screenSpace)?this.flatFaceMaterials:this.faceMaterials).get(code)));
@@ -113,7 +114,7 @@ export class TableRenderer {
       ? (Math.abs(rotation.transformVector(new pc.Vec3(1,0,0)).y)*TILE.width+Math.abs(rotation.transformVector(new pc.Vec3(0,1,0)).y)*TILE.height+Math.abs(rotation.transformVector(new pc.Vec3(0,0,1)).y)*TILE.depth)*scale
       : (flat?TILE.depth:TILE.height)*scale;
     entity.setPosition(position.x,height/2+(position.layer||0),position.z);
-    const entry={entity,code:hidden?null:code,player,kind,index,drawn,flat,faceDown,hidden,scale,yaw,roll,screenSpace,position:{x:position.x,y:height/2+(position.layer||0),z:position.z},height,contactY:position.layer||0,meshInstances};
+    const entry={entity,code:hidden?null:code,player,kind,index,drawn,winning,flat,faceDown,hidden,scale,yaw,roll,screenSpace,position:{x:position.x,y:height/2+(position.layer||0),z:position.z},height,contactY:position.layer||0,meshInstances};
     this.tiles.push(entry);
     if(kind==='hand'&&player===0&&index!==null){
       const legal=this.session.legalDiscards().some(p=>p.slice(0,2)===code);
@@ -132,7 +133,7 @@ export class TableRenderer {
     let x=-(closed+open)*fit/2;
     cards.forEach((card,index)=>{
       if(card.drawn)x+=14*handScale;
-      this.tile(card.tile,{x:x+TILE.width*handScale/2,z:0,layer:baseline},{player:0,index,drawn:card.drawn,scale:handScale,screenSpace:true});
+      this.tile(card.tile,{x:x+TILE.width*handScale/2,z:0,layer:baseline},{player:0,index,drawn:card.drawn,winning:this.session.result?.type==='hule'&&this.session.result.winnerId===0&&card.drawn,scale:handScale,screenSpace:true});
       x+=TILE.pitch*handScale;
     });
     for(const meld of melds){x+=16*fit;for(const card of meld){
@@ -159,7 +160,7 @@ export class TableRenderer {
       cards.forEach((card,index)=>{
         if(card.drawn)distance+=14*scale;
         const p=seatPosition(id,distance,id===0?370:id===2?420:HAND_DISTANCE);
-        this.tile(card.tile,p,{player:id,yaw:p.yaw,hidden:!visible,flat:this.session.revealed.has(seat),index:null,drawn:card.drawn,scale});distance+=TILE.pitch*scale;
+        this.tile(card.tile,p,{player:id,yaw:p.yaw,hidden:!visible,flat:this.session.revealed.has(seat),index:null,drawn:card.drawn,winning:this.session.result?.type==='hule'&&this.session.result.winnerId===id&&card.drawn,scale});distance+=TILE.pitch*scale;
       });
       for(const meld of melds){distance+=12*scale;for(const card of meld){
         const width=(card.called?TILE.height:TILE.width)*scale;
@@ -201,8 +202,9 @@ export class TableRenderer {
     if(playing){this.wall();this.rivers();this.hands();}
     this.updateBounds();this.highlight();this.dirty=false;this.app.renderNextFrame=true;
     const model=this.session.model;
-    this.onView({station:this.stationState,speech:this.session.speech,center:this.project(new pc.Vec3(0,8,0)),remaining:model?.shan?.paishu||0,
-      profiles:this.session.opponents.map((character,i)=>({ ...character,player:i+1,riichi:!!model?.shoupai[model.player_id.indexOf(i+1)]?.lizhi })),
+    const winning=this.tiles.find(tile=>tile.winning);
+    this.onView({winningTile:winning?{x:winning.x,y:winning.y,w:winning.w,h:winning.h,code:winning.code,player:winning.player}:null,station:this.stationState,speech:this.session.speech,center:this.project(new pc.Vec3(0,8,0)),remaining:model?.shan?.paishu||0,
+      profiles:this.session.opponents.map((character,i)=>({ ...character,...characterAppearance(character,i+1,model,this.session.rules,this.session.phase==='result'?this.session.result:null),player:i+1,riichi:!!model?.shoupai[model.player_id.indexOf(i+1)]?.lizhi })),
       ownWind:['東','南','西','北'][this.session.humanSeat],ownPoints:model?.defen[0]??25000,
       round:model?`${['東','南','西','北'][model.zhuangfeng]||'東'}${'一二三四'[model.jushu]}局`:'',honba:model?.changbang||0,deposits:model?.lizhibang||0});
   }

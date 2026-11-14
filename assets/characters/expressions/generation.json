@@ -1,0 +1,130 @@
+{
+  "generator": "built-in image_gen",
+  "createdOn": "2026-11-14",
+  "intent": "identity-preserving edits of original project portraits",
+  "adultCharacters": "All characters are adult women in their twenties, as established in assets/characters/prompts.json.",
+  "specifications": {
+    "sheet": {
+      "layout": "Three equal square panels, left to right: happy, upset, flustered.",
+      "invariants": "Facial identity, hair, ornaments, garment patterns, head pose/scale, emerald bokeh and original premium anime rendering.",
+      "expressions": "Delighted victory smile; disappointed pout; worried expression with faint blush and sweat.",
+      "costume": "For flustered, slightly relaxed outer collar or one shoulder; opaque chest covering."
+    },
+    "crisis": {
+      "layout": "One square head-and-shoulders portrait.",
+      "invariants": "Same adult character identity, hair, accessories, original garment fabrics, green background and lighting.",
+      "expression": "Flustered, slightly defiant and embarrassed.",
+      "costume": "Outer garment relaxed below both shoulders with a deeper neckline; opaque fabric covers the bust."
+    }
+  },
+  "sources": [
+    {
+      "id": "gen",
+      "source": "assets/characters/expressions/gen-crisis-source.png",
+      "editTarget": "public/characters/gen.png",
+      "sha256": "ea9deecc00e87ab68c172f168c8170dac204e28776ab4ebffaf21615f2a7cf6c"
+    },
+    {
+      "id": "gen",
+      "source": "assets/characters/expressions/gen-sheet-source.png",
+      "editTarget": "public/characters/gen.png",
+      "sha256": "87e3003ab5f3ba122ccd3d3018396298fd9ff6037d860ddf59ff3755a8fe24f7"
+    },
+    {
+      "id": "hinata",
+      "source": "assets/characters/expressions/hinata-crisis-source.png",
+      "editTarget": "public/characters/hinata.png",
+      "sha256": "19e3cd78230e9fd3aee9837d60293a9e9ec19ca080065d449cf449df9b391936"
+    },
+    {
+      "id": "hinata",
+      "source": "assets/characters/expressions/hinata-sheet-source.png",
+      "editTarget": "public/characters/hinata.png",
+      "sha256": "c7e596b3b437864af968ba3682e2e59417dad6ac78572fca4d29aa18646649ae"
+    },
+    {
+      "id": "jin",
+      "source": "assets/characters/expressions/jin-crisis-source.png",
+      "editTarget": "public/characters/jin.png",
+      "sha256": "27662497fbec66afcd1219e96eb64165590b9d92e5182e619e26ed9fa1269340"
+    },
+    {
+      "id": "jin",
+      "source": "assets/characters/expressions/jin-sheet-source.png",
+      "editTarget": "public/characters/jin.png",
+      "sha256": "1be6ba71eb71f69287c2b2ad54bddf6ed4d8be7a6b035cc3fc05cd1addf6e6af"
+    },
+    {
+      "id": "ponta",
+      "source": "assets/characters/expressions/ponta-crisis-source.png",
+      "editTarget": "public/characters/ponta.png",
+      "sha256": "f5567d840cbd7e21e16ab23daea80872cf4338a42c61b692d9bbf0a443627c57"
+    },
+    {
+      "id": "ponta",
+      "source": "assets/characters/expressions/ponta-sheet-source.png",
+      "editTarget": "public/characters/ponta.png",
+      "sha256": "ac7568bea6b0663736637e7c48a3c84fa724cf4c1f51b3c0df5b1f853c423484"
+    },
+    {
+      "id": "rei",
+      "source": "assets/characters/expressions/rei-crisis-source.png",
+      "editTarget": "public/characters/rei.png",
+      "sha256": "2b1209ab6938593455c195989be64e01f2a22741d1563ddb1d05c7a393bb4888"
+    },
+    {
+      "id": "rei",
+      "source": "assets/characters/expressions/rei-sheet-source.png",
+      "editTarget": "public/characters/rei.png",
+      "sha256": "c1afedb7c4f6432f9f7ca91bbc780ddbad805e2da8c07ffaf68c624798f7dbe1"
+    },
+    {
+      "id": "ren",
+      "source": "assets/characters/expressions/ren-crisis-source.png",
+      "editTarget": "public/characters/ren.png",
+      "sha256": "c321b06a155de2390b2d808d34528505134434051e9c74169620d09f3917787d"
+    },
+    {
+      "id": "ren",
+      "source": "assets/characters/expressions/ren-sheet-source.png",
+      "editTarget": "public/characters/ren.png",
+      "sha256": "88fec659bda8f8bd2ba2b1c4ba59e28db76b5d2219fd272b7d8c998ad94ea978"
+    },
+    {
+      "id": "saki",
+      "source": "assets/characters/expressions/saki-crisis-source.png",
+      "editTarget": "public/characters/saki.png",
+      "sha256": "273c2e5f10c77b00b36e51c28f6df472582dac8384f0ef76491323630cd4e16d"
+    },
+    {
+      "id": "saki",
+      "source": "assets/characters/expressions/saki-sheet-source.png",
+      "editTarget": "public/characters/saki.png",
+      "sha256": "3f3f2b51dfc4eb4efcd589e9372803d574bc81aaf3aea84829d8c7d8f35ea3ae"
+    },
+    {
+      "id": "suzume",
+      "source": "assets/characters/expressions/suzume-crisis-source.png",
+      "editTarget": "public/characters/suzume.png",
+      "sha256": "f3158a45d9dbcaa044d37bedc5fc32a98af9c3859e8f71a0988c3d32409aea24"
+    },
+    {
+      "id": "suzume",
+      "source": "assets/characters/expressions/suzume-sheet-source.png",
+      "editTarget": "public/characters/suzume.png",
+      "sha256": "e2b6e3dd0a7bb5c47b8b798f66ac08f774ec04673280fad7e95dac4e9a036d55"
+    },
+    {
+      "id": "teppei",
+      "source": "assets/characters/expressions/teppei-crisis-source.png",
+      "editTarget": "public/characters/teppei.png",
+      "sha256": "6fadf678f3860d38e7cdeb096aef0863dac0df9a63356b580b773e3d675167d7"
+    },
+    {
+      "id": "teppei",
+      "source": "assets/characters/expressions/teppei-sheet-source.png",
+      "editTarget": "public/characters/teppei.png",
+      "sha256": "1929765b1df7e0e5e54207f95e973162f91ee18df1b6b55836f9cf45104305e2"
+    }
+  ]
+}

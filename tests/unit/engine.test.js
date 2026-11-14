@@ -30,7 +30,7 @@ test('settings round trip, migrate old preferences and tolerate blocked storage'
   const data = new Map([['mahjong', 'speed=2&sound=0&']]);
   const storage = { getItem: key => data.get(key), setItem: (key, value) => data.set(key, value) };
   assert.equal(loadPreferences(storage).sound, false); assert.equal(loadPreferences(storage).speed, 2);
-  const prefs = { speed: 4, sound: true, rules: normalizeRules({ rounds: 1 }) };
+  const prefs = { speed: 4, sound: true, music: false, musicVolume: .37, rules: normalizeRules({ rounds: 1 }) };
   savePreferences(prefs, storage); assert.deepEqual(loadPreferences(storage), prefs);
   const blocked = { getItem() { throw Error('blocked'); }, setItem() { throw Error('blocked'); } };
   assert.equal(loadPreferences(blocked).speed, 3); assert.doesNotThrow(() => savePreferences(prefs, blocked));
@@ -306,4 +306,20 @@ test('meld display identifies the discarder and preserves the called tile, red f
     assert.ok(tiles.every(t=>!t.back),meld);
   }
   assert.deepEqual(meldTiles('z5555').map(t=>t.back),[true,false,false,true]);
+});
+
+test('music settings migrate independently and clamp invalid volume',()=>{
+  const storage=value=>({getItem:key=>key==='mahjong.preferences.v2'?JSON.stringify(value):null});
+  const old=loadPreferences(storage({sound:false}));
+  assert.equal(old.sound,false);assert.equal(old.music,false);assert.equal(old.musicVolume,.25);
+  assert.equal(loadPreferences(storage({music:false,musicVolume:2})).musicVolume,1);
+  assert.equal(loadPreferences(storage({musicVolume:-1})).musicVolume,0);
+  assert.equal(loadPreferences(storage({musicVolume:'loud'})).musicVolume,.25);
+});
+
+test('winning tile keeps its exact red identity and is the single drawn card in the revealed snapshot',()=>{
+  const s=new MahjongSession();s.engine={model:{player_id:[2,3,0,1],defen:[25000,25000,25000,25000],shoupai:Array.from({length:4},()=>Majiang.Shoupai.fromString('m123456p123s789z1'))}};
+  s.handleEvent('hule',{l:0,baojia:1,shoupai:'m123456p55s123z11p0',fu:30,fanshu:3,defen:3900,hupai:[],fenpei:[3900,-3900,0,0]});
+  assert.equal(s.result.winnerId,2);assert.equal(s.result.winningTile,'p0');assert.equal(s.result.winMethod,'ロン');
+  const drawn=handTiles(s.revealedHands.get(0)).filter(t=>t.drawn);assert.deepEqual(drawn,[{tile:'p0',drawn:true}]);
 });
