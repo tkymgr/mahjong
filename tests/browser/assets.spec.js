@@ -1,11 +1,13 @@
 import {test,expect} from '@playwright/test';
 import {ready,start} from './helpers.js';
-import {TILE} from '../../src/game/model-layout.js';
+import {TILE,WORLD_TILE_SCALE} from '../../src/game/model-layout.js';
 
 test('real 3D tiles retain all face textures and conceal the opponents faces',async({page})=>{
  await ready(page);await page.locator('#start-game').click();await page.waitForFunction(()=>window.mahjongGame.session.pending?.kind==='round');
- const result=await page.evaluate(()=>{const t=window.mahjongGame.table;t.draw();return {textures:t.faceMaterials.size,model:t.model.source,players:[1,2,3].map(id=>t.tiles.filter(tile=>tile.kind==='hand'&&tile.player===id).map(tile=>({hidden:tile.hidden,code:tile.code,meshes:tile.meshInstances.length}))),contact:t.tiles.filter(tile=>tile.kind==='hand').map(tile=>tile.position.y-tile.height/2)};});
+ const result=await page.evaluate(()=>{const t=window.mahjongGame.table;t.draw();return {textures:t.faceMaterials.size,model:t.model.source,wallContacts:t.tiles.filter(tile=>tile.kind==='wall').map(tile=>({bottom:tile.entity.getPosition().y-tile.height/2,top:tile.entity.getPosition().y+tile.height/2})),worldScales:t.tiles.filter(tile=>tile.kind==='wall'||(tile.kind==='hand'&&tile.player!==0)).map(tile=>tile.scale),players:[1,2,3].map(id=>t.tiles.filter(tile=>tile.kind==='hand'&&tile.player===id).map(tile=>({hidden:tile.hidden,code:tile.code,meshes:tile.meshInstances.length}))),contact:t.tiles.filter(tile=>tile.kind==='hand'&&!tile.screenSpace).map(tile=>tile.position.y-tile.height/2)};});
  expect(result.textures).toBe(37);expect(result.model.repository).toBe('https://github.com/hiinaspace/just-mahjong');
+ for(const scale of result.worldScales)expect(scale).toBe(WORLD_TILE_SCALE);
+ for(let i=0;i<result.wallContacts.length;i+=2){expect(result.wallContacts[i].bottom).toBeCloseTo(0,3);expect(result.wallContacts[i+1].bottom).toBeCloseTo(result.wallContacts[i].top,3);}
  for(const hand of result.players){expect(hand).toHaveLength(13);for(const p of hand)expect(p).toEqual({hidden:true,code:null,meshes:2});}
  for(const y of result.contact)expect(Math.abs(y)).toBeLessThan(.001);
 });

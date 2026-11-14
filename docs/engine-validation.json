@@ -1,5 +1,5 @@
 {
-  "checkedOn": "2026-11-11",
+  "checkedOn": "2026-11-14",
   "sourceDirectory": "src/game",
   "engine": {
     "name": "@kobalab/majiang-core",
@@ -11,7 +11,7 @@
   },
   "unit": {
     "command": "npm test",
-    "passed": 26,
+    "passed": 39,
     "failed": 0,
     "scoring": {
       "sevenPairsTsumo": {
@@ -399,5 +399,304 @@
     },
     "build": "passed",
     "pushed": false
+  },
+  "frontalPlayerHand": {
+    "checkedOn": "2026-11-14",
+    "branch": "feature/frontal-player-hand",
+    "worldCamera": {
+      "position": [
+        0,
+        1450,
+        1650
+      ],
+      "target": [
+        0,
+        0,
+        80
+      ],
+      "horizontalFov": 40
+    },
+    "logicalTableSize": 1060,
+    "foregroundExtension": 520,
+    "frontRailGenerated": false,
+    "opponentAvatar": "upper right, as selected by the user",
+    "playerCamera": "orthographic, separate layer in the same PlayCanvas application",
+    "same3DModel": true,
+    "playerScale": 1.75,
+    "meldScale": 1.15,
+    "maximumViewportWidth": 0.8,
+    "bottomMarginIn720Units": 12,
+    "projectionAwareNativePicking": true,
+    "equalSizeAndFrontalOrientationChecked": true,
+    "firstAndDrawnTileInputChecked": true,
+    "openMeldsAndFourConcealedKansChecked": true,
+    "orientationPreservesGame": true,
+    "unitPassed": 26,
+    "productionRegression": {
+      "command": "PLAYWRIGHT_PREVIEW=1 npm run test:browser -- tests/browser/layout.spec.js tests/browser/assets.spec.js tests/browser/characters.spec.js tests/browser/touch.spec.js tests/browser/menu.spec.js tests/browser/station.spec.js tests/browser/game.spec.js --workers=2",
+      "passed": 65,
+      "skipped": 4,
+      "failed": 0,
+      "projects": [
+        "desktop",
+        "mobile",
+        "landscape"
+      ],
+      "realHanchanCompletedInAllProjects": true
+    },
+    "build": "passed",
+    "physicalMobileVerified": false,
+    "pushed": false
+  },
+  "playerHandLighting": {
+    "checkedOn": "2026-11-14",
+    "selectedPattern": "B",
+    "pitch": 10,
+    "handKeyLight": {
+      "intensity": 0.9,
+      "euler": [
+        45,
+        -25,
+        0
+      ]
+    },
+    "handFillLight": {
+      "intensity": 0.5,
+      "euler": [
+        115,
+        30,
+        0
+      ]
+    },
+    "ivoryLightingFloor": [
+      0.42,
+      0.4,
+      0.34
+    ],
+    "worldLightingChanged": false,
+    "beforeBevelSampleRgb": [
+      167,
+      161,
+      134
+    ],
+    "afterBevelSampleRgb": [
+      240,
+      229,
+      192
+    ],
+    "faceSampleRgbUnchanged": [
+      230,
+      224,
+      207
+    ],
+    "comparison": "docs/hand-angle-patterns/b-lighting-comparison.png",
+    "developmentGeometryInputLifecycle": {
+      "passed": 27,
+      "failed": 0
+    },
+    "productionRegression": {
+      "passed": 52,
+      "skipped": 2,
+      "failed": 0,
+      "projects": [
+        "desktop",
+        "mobile",
+        "landscape"
+      ]
+    },
+    "build": "passed",
+    "pushed": false
+  },
+  "centerReadabilityAndTileScale": {
+    "checkedOn": "2026-11-14",
+    "camera": {
+      "position": [
+        0,
+        1900,
+        1350
+      ],
+      "target": [
+        0,
+        0,
+        10
+      ],
+      "horizontalFov": 38,
+      "elevationDegrees": 54.80609275989709,
+      "shadowDistance": 3000
+    },
+    "station": {
+      "size": [
+        232,
+        7,
+        232
+      ],
+      "displayPlaneSize": [
+        226,
+        226
+      ],
+      "scoreFontMaximum": 76,
+      "roundFont": 88,
+      "windFont": 64,
+      "honbaDepositFont": 44,
+      "remainingFont": 64,
+      "renderedDisplayAspectMinimum": 0.75
+    },
+    "worldHandMeldAndWallScale": 0.76,
+    "worldSpacingAndStackHeightUseSameScale": true,
+    "playerHandScale": 1.55,
+    "playerMeldScale": 1.05,
+    "playerPitch": 10,
+    "playerLightingPreserved": true,
+    "unitPassed": 26,
+    "productionRegression": {
+      "passed": 52,
+      "skipped": 2,
+      "failed": 0,
+      "projects": [
+        "desktop",
+        "mobile",
+        "landscape"
+      ]
+    },
+    "build": "passed",
+    "pushed": false
+  },
+  "titleVersionBadge": {
+    "checkedOn": "2026-11-14",
+    "source": "package.json version",
+    "value": "1.0.0",
+    "position": "bottom right",
+    "titleOnly": true,
+    "viewportsChecked": [
+      "desktop",
+      "mobile",
+      "landscape"
+    ]
+  },
+  "riichiAutomaticDiscard": {
+    "checkedOn": "2026-11-14",
+    "defaultEnabledAfterHumanRiichi": true,
+    "legalDrawnTileOnly": true,
+    "redTileIdentityPreserved": true,
+    "tsumoConfirmation": true,
+    "ronConfirmationPreserved": true,
+    "legalConcealedKanConfirmation": true,
+    "kanPassDiscardsDrawnTile": true,
+    "autoPlayBehaviorPreserved": true,
+    "noIndependentTimer": true,
+    "quickPauseResumeFixed": true,
+    "disposedSessionGuard": true,
+    "seededMixedMatch": {
+      "seed": 81023,
+      "completedHands": 4,
+      "automaticRiichiRepliesObserved": true
+    },
+    "unitPassed": 36,
+    "developmentRiichiUI": {
+      "passed": 12,
+      "failed": 0
+    },
+    "productionRegression": {
+      "command": "PLAYWRIGHT_PREVIEW=1 npm run test:browser -- tests/browser/riichi.spec.js tests/browser/menu.spec.js tests/browser/game.spec.js --workers=2",
+      "passed": 38,
+      "skipped": 4,
+      "failed": 0,
+      "projects": [
+        "desktop",
+        "mobile",
+        "landscape"
+      ],
+      "realHanchanCompletedInAllProjects": true
+    },
+    "build": "passed",
+    "pushed": false
+  },
+  "drawHandReveal": {
+    "checkedOn": "2026-11-14",
+    "allFourHandsRevealed": true,
+    "normalAndAbortiveDrawsIncludingNineTerminals": true,
+    "concealedKansRevealed": true,
+    "opponentHandsLaidFaceUp": true,
+    "scoringAndTenpaiDeclarationsUnchanged": true,
+    "compactNonModalSummary": true,
+    "tableTapDoesNotAdvance": true,
+    "nextButtonAdvances": true,
+    "autoPlayBehaviorPreserved": true,
+    "unitPassed": 38,
+    "developmentBrowser": {
+      "passed": 6,
+      "failed": 0
+    },
+    "productionRegression": {
+      "command": "PLAYWRIGHT_PREVIEW=1 npm run test:browser -- tests/browser/draw.spec.js tests/browser/menu.spec.js tests/browser/riichi.spec.js tests/browser/game.spec.js --workers=2",
+      "passed": 43,
+      "skipped": 4,
+      "failed": 1,
+      "failure": "Desktop fullscreen menu bounds check failed during resize; isolated rerun passed (1 test).",
+      "fullscreenIsolatedRerun": {
+        "passed": 1,
+        "failed": 0
+      },
+      "drawCasesPassed": 6,
+      "projects": [
+        "desktop",
+        "mobile",
+        "landscape"
+      ],
+      "realHanchanCompletedInAllProjects": true
+    },
+    "samples": [
+      "docs/playcanvas-desktop-draw-all-hands.png",
+      "docs/playcanvas-desktop-nine-terminals-all-hands.png",
+      "docs/playcanvas-mobile-draw-all-hands.png",
+      "docs/playcanvas-mobile-nine-terminals-all-hands.png",
+      "docs/playcanvas-landscape-draw-all-hands.png",
+      "docs/playcanvas-landscape-nine-terminals-all-hands.png"
+    ],
+    "build": "passed",
+    "pushed": false
+  },
+  "winningDoraDisplay": {
+    "checkedOn": "2026-11-14",
+    "indicatorAndActualDoraImages": true,
+    "uraSource": "hule.fubaopai only",
+    "conversion": "Majiang.Shan.zhenbaopai",
+    "noHiddenUraInference": true,
+    "scoringUnchanged": true,
+    "yakuFansShown": true,
+    "compactPanelWithScrollableDetails": true,
+    "avatarNameStackingIsolated": true,
+    "maximumFiveIndicatorPairsChecked": true,
+    "unitPassed": 39,
+    "build": "passed",
+    "pushed": false,
+    "samples": [
+      "docs/playcanvas-desktop-win-ura-dora.png",
+      "docs/playcanvas-mobile-win-ura-dora.png",
+      "docs/playcanvas-landscape-win-ura-dora.png"
+    ],
+    "productionRegression": {
+      "command": "PLAYWRIGHT_PREVIEW=1 npm run test:browser -- tests/browser/win-dora.spec.js tests/browser/menu.spec.js --workers=2",
+      "passed": 16,
+      "skipped": 2,
+      "failed": 0,
+      "projects": [
+        "desktop",
+        "mobile",
+        "landscape"
+      ],
+      "defaultDoraImagesFullyWithinDetails": true,
+      "longDetailsScrollAndNextRemainsVisible": true
+    },
+    "drawRegressionBeforeFinalStylePolish": {
+      "passed": 22,
+      "skipped": 2,
+      "failed": 0,
+      "included": [
+        "win-dora",
+        "draw",
+        "menu"
+      ]
+    }
   }
 }

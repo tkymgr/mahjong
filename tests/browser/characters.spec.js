@@ -17,7 +17,8 @@ test('three equally sized avatar profiles match the random 3D opponents',async({
  const board=await page.locator('#canvas').boundingBox();
  expect(Math.min(...sizes)).toBeGreaterThanOrEqual(board.width/board.height>1.8?90:56);
  const opposite=await page.locator('.seat-2 img').boundingBox();
- expect(Math.abs(opposite.x+opposite.width/2-board.x-board.width/2)).toBeLessThan(1);
+ expect(opposite.x+opposite.width/2).toBeGreaterThan(board.x+board.width*.8);
+ expect(opposite.y).toBeLessThan(board.y+board.height*.1);
  const left=await page.locator('.seat-3 img').boundingBox(),right=await page.locator('.seat-1 img').boundingBox();
  expect(left.x+left.width/2).toBeLessThan(board.x+board.width*.15);
  expect(right.x+right.width/2).toBeGreaterThan(board.x+board.width*.85);

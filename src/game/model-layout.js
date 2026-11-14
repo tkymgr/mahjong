@@ -1,9 +1,12 @@
 import tileSpec from '../../assets/models/tile-spec.json' with { type: 'json' };
 export const TILE = Object.freeze({ ...tileSpec.dimensions, pitch: tileSpec.dimensions.width + 2 });
-export const TABLE = Object.freeze({ width: 1060, depth: 1060, centerZ: 0 });
-export const CAMERA = Object.freeze({ position: [0, 1000, 1350], target: [0, 0, -70], horizontalFov: 46 });
+// Preserve the far edge and extend the felt beyond the near viewport edge.
+export const TABLE = Object.freeze({ width: 1060, depth: 1060, centerZ: 0, foregroundExtension: 520 });
+export const CAMERA = Object.freeze({ position: [0, 1900, 1350], target: [0, 0, 10], horizontalFov: 38 });
+export const PLAYER_HAND = Object.freeze({ scale: 1.55, meldScale: 1.05, maxWidth: .80, bottom: 12, pitch: 10 });
 export const HAND_DISTANCE = 460;
-export const RIVER_SCALE = .76;
+export const WORLD_TILE_SCALE = .76;
+export const RIVER_SCALE = WORLD_TILE_SCALE;
 export const BOARD_WIDTH = 1536;
 export const BOARD_HEIGHT = 720;
 
