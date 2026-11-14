@@ -11,7 +11,7 @@
   },
   "unit": {
     "command": "npm test",
-    "passed": 39,
+    "passed": 40,
     "failed": 0,
     "scoring": {
       "sevenPairsTsumo": {
@@ -698,5 +698,66 @@
         "menu"
       ]
     }
+  },
+  "meldDisplayOrder": {
+    "checkedOn": "2026-11-14",
+    "oldestMeldAtPlayerRight": true,
+    "newMeldsExtendLeft": true,
+    "allFourSeats": true,
+    "addedKanRetainsOriginalGroup": true,
+    "concealedKanBacksPreserved": true,
+    "coreHistoryUnchanged": true,
+    "productionRegression": {
+      "command": "PLAYWRIGHT_PREVIEW=1 npm run test:browser -- tests/browser/meld-order.spec.js tests/browser/layout.spec.js --workers=2",
+      "passed": 15,
+      "failed": 0,
+      "projects": [
+        "desktop",
+        "mobile",
+        "landscape"
+      ]
+    },
+    "build": "passed",
+    "pushed": false
+  },
+  "meldSourceDisplay": {
+    "checkedOn": "2026-11-14",
+    "sourceToCalledTileSlot": {
+      "-": "left",
+      "=": "second from left",
+      "+": "right"
+    },
+    "chiCalledTileAtLeft": true,
+    "redCalledTileIdentityPreserved": true,
+    "allFourSeats": true,
+    "coreHandAndMeldHistoryUnchanged": true,
+    "worldTileCentersUseActualWidth": true,
+    "meshBoundsDoNotOverlap": true,
+    "unitPassed": 40,
+    "productionBeforeSpacingAdjustment": {
+      "passed": 18,
+      "failed": 0,
+      "included": [
+        "meld-direction",
+        "meld-order",
+        "layout"
+      ]
+    },
+    "productionFinal": {
+      "passed": 6,
+      "failed": 0,
+      "included": [
+        "meld-direction",
+        "meld-order"
+      ],
+      "projects": [
+        "desktop",
+        "mobile",
+        "landscape"
+      ]
+    },
+    "build": "passed",
+    "reference": "https://www.nihon-majan.org/furonosikata.html",
+    "pushed": false
   }
 }

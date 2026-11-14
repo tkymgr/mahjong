@@ -10,7 +10,15 @@ export function tileName(tile) {
 export function meldTiles(meld) {
   const suit = meld[0], result = [];
   for (let i = 1; i < meld.length; i++) if (/\d/.test(meld[i])) result.push({ tile: suit + meld[i], called: /[+=-]/.test(meld[i + 1] || '') });
-  const concealed = !/[+=-]/.test(meld);
+  const source = meld.match(/[+=-]/)?.[0];
+  if (source) {
+    // Core notation attaches the source to the called tile in numeric order.
+    // Display it at the caller's left / middle / right to identify the discarder.
+    const called = result.splice(result.findIndex(entry => entry.called), 1)[0];
+    const position = source === '-' ? 0 : source === '=' ? 1 : result.length;
+    result.splice(position, 0, called);
+  }
+  const concealed = !source;
   return result.map((entry, i) => ({ ...entry, back: concealed && (i === 0 || i === result.length - 1) }));
 }
 export function handTiles(hand) {
