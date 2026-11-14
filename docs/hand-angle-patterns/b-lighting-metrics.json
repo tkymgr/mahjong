@@ -1,0 +1,63 @@
+{
+  "pitch": 10,
+  "samples": [
+    {
+      "mode": "before",
+      "pixels": {
+        "bevel": [
+          167,
+          161,
+          134
+        ],
+        "face": [
+          230,
+          224,
+          207
+        ]
+      }
+    },
+    {
+      "mode": "after",
+      "pixels": {
+        "bevel": [
+          240,
+          229,
+          192
+        ],
+        "face": [
+          230,
+          224,
+          207
+        ]
+      }
+    }
+  ],
+  "pageErrors": [],
+  "createdOn": "2026-11-14",
+  "viewport": [
+    1280,
+    760
+  ],
+  "worldLightChanged": false,
+  "handKey": {
+    "intensity": 0.9,
+    "euler": [
+      45,
+      -25,
+      0
+    ]
+  },
+  "handFill": {
+    "intensity": 0.5,
+    "euler": [
+      115,
+      30,
+      0
+    ]
+  },
+  "ivoryLightingFloor": [
+    0.42,
+    0.4,
+    0.34
+  ]
+}

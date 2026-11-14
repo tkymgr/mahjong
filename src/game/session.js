@@ -29,6 +29,12 @@ export class ManagedGame extends Majiang.Game {
     this.delays.add(id);
   }
   next() { if (!this.closed && this.active()) super.next(); }
+  start() {
+    if (this.closed || !this.active()) return;
+    // Clear pause even if the current dwell timer has not fired yet.
+    this._stop = null;
+    super.start();
+  }
   reply(id, result) { if (!this.closed && this.active()) super.reply(id, result); }
   call_players(...args) { if (!this.closed) super.call_players(...args); }
   notify_players(...args) { if (!this.closed) super.notify_players(...args); }
@@ -61,13 +67,27 @@ export class HumanPlayer extends ComputerPlayer {
     else this.ask('round', { choices: [{ label: '対局を続ける', reply: {} }] }, () => ({}));
   }
   action_zimo(data, gangzimo) {
+    if (this.session.disposed) return;
     if (data.l !== this._menfeng) return this._callback();
     if (this.session.autoPlay) return super.action_zimo(data, gangzimo);
-    const choices = [];
-    if (this.select_hule(null, gangzimo)) choices.push({ label: 'ツモ', reply: { hule: '-' } });
-    for (const m of this.get_gang_mianzi(this.shoupai)) choices.push({ label: `カン ${meldTiles(m).map(p => tileName(p.tile)).join(' ')}`, reply: { gang: m } });
-    if (this.allow_pingju(this.shoupai)) choices.push({ label: '九種九牌', reply: { daopai: '-' } });
+    const canTsumo = this.select_hule(null, gangzimo);
     const discards = this.get_dapai(this.shoupai);
+    const gangs = this.get_gang_mianzi(this.shoupai);
+    if (this.shoupai.lizhi) {
+      const drawn = discards.find(p => p.endsWith('_'));
+      if (drawn && !canTsumo && !gangs.length) return this._callback({ dapai: drawn });
+      if (drawn && (canTsumo || gangs.length)) {
+        const choices = [];
+        if (canTsumo) choices.push({ label: 'ツモ', reply: { hule: '-' } });
+        for (const m of gangs) choices.push({ label: `カン ${meldTiles(m).map(p => tileName(p.tile)).join(' ')}`, reply: { gang: m } });
+        choices.push({ label: canTsumo ? '和了せずツモ切り' : '見送り（ツモ切り）', reply: { dapai: drawn } });
+        return this.ask('discard', { choices, discards, riichi: [] }, () => this.automatic(() => super.action_zimo(data, gangzimo)));
+      }
+    }
+    const choices = [];
+    if (canTsumo) choices.push({ label: 'ツモ', reply: { hule: '-' } });
+    for (const m of gangs) choices.push({ label: `カン ${meldTiles(m).map(p => tileName(p.tile)).join(' ')}`, reply: { gang: m } });
+    if (this.allow_pingju(this.shoupai)) choices.push({ label: '九種九牌', reply: { daopai: '-' } });
     const riichi = discards.filter(p => this.allow_lizhi(this.shoupai, p));
     this.ask('discard', { choices, discards, riichi }, () => this.automatic(() => super.action_zimo(data, gangzimo)));
   }
@@ -182,12 +202,23 @@ export class MahjongSession {
       this.audio?.play(own ? 'clear' : 'lose');
       const title = `${this.name(this.model.player_id[data.l])}の${data.baojia == null ? 'ツモ' : 'ロン'}和了`;
       const points = data.damanguan ? `${data.damanguan}倍役満` : `${data.fu}符 ${data.fanshu}翻`;
-      this.result = { type, title, lines: [`${points}  ${data.defen.toLocaleString()}点`, ...(data.hupai || []).map(yaku => yaku.name), ...data.fenpei.map((delta, seat) => `${this.name(this.model.player_id[seat])} ${delta >= 0 ? '+' : ''}${delta.toLocaleString()}点`)] };
+      const indicators = tiles => (tiles || []).map(indicator => ({ indicator, tile: Majiang.Shan.zhenbaopai(indicator) }));
+      this.result = {
+        type, title, points: `${points}  ${data.defen.toLocaleString()}点`,
+        yaku: (data.hupai || []).map(yaku => ({ name: yaku.name, value: typeof yaku.fanshu === 'number' ? `${yaku.fanshu}翻` : yaku.fanshu || '' })),
+        dora: indicators(this.model.shan?.baopai), uraDora: indicators(data.fubaopai),
+        players: data.fenpei.map((delta, seat) => ({ id: this.model.player_id[seat], name: this.name(this.model.player_id[seat]), delta })),
+        lines: [`${points}  ${data.defen.toLocaleString()}点`, ...(data.hupai || []).map(yaku => yaku.name), ...data.fenpei.map((delta, seat) => `${this.name(this.model.player_id[seat])} ${delta >= 0 ? '+' : ''}${delta.toLocaleString()}点`)]
+      };
       this.phase = 'result';
     }
     if (type === 'pingju') {
-      data.shoupai.forEach((hand, seat) => { if (hand) this.revealed.add(seat); });
-      this.result = { type, title: data.name === '荒牌平局' ? '流局' : data.name, lines: data.fenpei.map((delta, seat) => `${this.name(this.model.player_id[seat])} ${delta >= 0 ? '+' : ''}${delta.toLocaleString()}点`) };
+      this.revealed.clear();this.revealedHands.clear();
+      // End-of-hand disclosure is visual only. The core's declarations and
+      // noten payments stay unchanged, including hands omitted from its event.
+      this.model.shoupai.forEach((hand,seat)=>{this.revealed.add(seat);this.revealedHands.set(seat,hand.clone());});
+      const players=data.fenpei.map((delta,seat)=>({id:this.model.player_id[seat],name:this.name(this.model.player_id[seat]),delta}));
+      this.result = { type, title: data.name === '荒牌平局' ? '流局' : data.name, players, lines: players.map(player => `${player.name} ${player.delta >= 0 ? '+' : ''}${player.delta.toLocaleString()}点`) };
       this.phase = 'result';
     }
     this.onEvent(type, data);

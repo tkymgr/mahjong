@@ -1,0 +1,59 @@
+{
+  "createdOn": "2026-11-14",
+  "renderer": "Actual PlayCanvas 3D tile models; preview only",
+  "referenceHand": "m147p258s369z12567",
+  "patterns": [
+    {
+      "id": "current",
+      "degrees": 0,
+      "label": "0° 正面比較用",
+      "note": "文字の読みやすさ優先",
+      "metrics": {
+        "degrees": 0,
+        "tileCount": 14,
+        "visibleWidth": 82.60840662146819,
+        "visibleHeight": 110.09778964213865,
+        "lowestPoint": 708.0000037031431
+      }
+    },
+    {
+      "id": "a",
+      "degrees": 5,
+      "label": "A｜5° 控えめ",
+      "note": "上面を少しだけ見せる",
+      "metrics": {
+        "degrees": 5,
+        "tileCount": 14,
+        "visibleWidth": 82.60840662146819,
+        "visibleHeight": 115.3334133830848,
+        "lowestPoint": 708.0000001368937
+      }
+    },
+    {
+      "id": "b",
+      "degrees": 10,
+      "label": "B｜10° 採用パターン",
+      "note": "読みやすさと立体感を両立",
+      "metrics": {
+        "degrees": 10,
+        "tileCount": 14,
+        "visibleWidth": 82.60840662146819,
+        "visibleHeight": 119.69128178087055,
+        "lowestPoint": 707.9999889444879
+      }
+    },
+    {
+      "id": "c",
+      "degrees": 15,
+      "label": "C｜15° 立体感重視",
+      "note": "上面と厚みをはっきり見せる",
+      "metrics": {
+        "degrees": 15,
+        "tileCount": 14,
+        "visibleWidth": 82.60840662146819,
+        "visibleHeight": 123.13823475863921,
+        "lowestPoint": 708.0000151083324
+      }
+    }
+  ]
+}

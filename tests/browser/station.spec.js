@@ -11,7 +11,15 @@ test('automatic table displays all four scores and rotates winds independently o
   return {before,after:checksum(),state:g.table.stationState,enabled:g.table.stationDisplay.enabled,size:g.table.stationBody.getLocalScale().toArray()};
  });
  expect(result.before).not.toBe(result.after);expect(result.enabled).toBe(true);
- expect(result.size).toEqual([204,7,204]);expect(result.state.round).toBe('南二局');
+ expect(result.size).toEqual([232,7,232]);expect(result.state.round).toBe('南二局');
+ const displayAspect=await page.evaluate(()=>{
+  const t=window.mahjongGame.table,r=window.mahjongGame.canvas.getBoundingClientRect(),corners=[];
+  for(const x of [-113,113])for(const z of [-113,113])corners.push(t.project(t.camera.getPosition().clone().set(x,9,z)));
+  const width=(Math.max(...corners.map(p=>p.x))-Math.min(...corners.map(p=>p.x)))*r.width/1536;
+  const height=(Math.max(...corners.map(p=>p.y))-Math.min(...corners.map(p=>p.y)))*r.height/720;
+  return height/width;
+ });
+ expect(displayAspect).toBeGreaterThan(.75);
  expect(result.state.honba).toBe(2);expect(result.state.deposits).toBe(1);
  expect(result.state.players.map(p=>p.points)).toEqual([32000,18000,27000,23000]);
  expect(result.state.players.map(p=>p.wind)).toEqual(['西','北','東','南']);

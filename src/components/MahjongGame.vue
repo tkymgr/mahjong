@@ -4,9 +4,11 @@ import { createMahjongGame } from '../game/createMahjongGame.js';
 import { DEFAULT_RULES } from '../game/rules.js';
 import { loadPreferences } from '../game/preferences.js';
 import { CHARACTERS } from '../game/characters.js';
+import { tileName } from '../game/tiles.js';
 import { faceFile } from '../game/model-layout.js';
 import thirdPartyNotices from '../../THIRD_PARTY_NOTICES.md?raw';
 import ScoreResults from './ScoreResults.vue';
+import { version as appVersion } from '../../package.json';
 
 const emit = defineEmits(['created', 'disposed', 'fullscreen-available', 'retry', 'sound-change', 'state-change']);
 const frame = ref(null), canvas = ref(null), dialog = ref(null), menuButton = ref(null), loadError = ref(false);
@@ -137,6 +139,7 @@ defineExpose({ requestFullscreen, toggleSound });
             </div>
           </div>
           <button id="title-license" type="button" class="title-license" aria-haspopup="dialog" @click="openTitleLicense">素材・ライセンス</button>
+          <p class="title-version">バージョン {{ appVersion }}</p>
         </section>
         <template v-if="state.phase !== 'title' && state.phase !== 'loading' && view">
           <section v-for="profile in view.profiles" :key="profile.id" class="seat-profile" :class="`seat-${profile.player}`" :data-character="profile.id" :aria-label="profile.name">
@@ -146,8 +149,26 @@ defineExpose({ requestFullscreen, toggleSound });
         </template>
         <section v-if="state.phase === 'round' && view" id="round-prompt" class="round-prompt" role="status"><h2>{{ view.round }} {{ view.honba }}本場</h2><p>画面を押して配牌を確認</p></section>
         <button v-if="gate" class="continue-overlay" type="button" :data-choice="0" aria-label="対局を続ける" @click="continueGame"><span class="sr-only">対局を続ける</span></button>
-        <div v-if="state.phase === 'result' && state.result" class="hand-result-backdrop" @click.self="continueGame">
-          <section class="hand-result" role="region" aria-labelledby="hand-result-title"><h2 id="hand-result-title">{{ state.result.title }}</h2><ul><li v-for="(line, index) in state.result.lines" :key="index">{{ line }}</li></ul><button id="continue-result" type="button" :data-choice="0" :disabled="state.pendingKind !== 'result'" @click="continueGame">次へ</button></section>
+        <section v-if="state.phase === 'result' && state.result?.type === 'pingju'" class="draw-summary" role="region" aria-labelledby="hand-result-title">
+          <h2 id="hand-result-title">{{ state.result.title }}</h2>
+          <ul class="draw-point-changes"><li v-for="player in state.result.players" :key="player.id" :data-player="player.id"><span>{{ player.name }}</span><strong :class="{ positive: player.delta > 0, negative: player.delta < 0 }">{{ player.delta >= 0 ? '+' : '' }}{{ player.delta.toLocaleString() }}点</strong></li></ul>
+          <button id="continue-result" type="button" :data-choice="0" :disabled="state.pendingKind !== 'result'" @click="continueGame">次へ</button>
+        </section>
+        <div v-else-if="state.phase === 'result' && state.result" class="hand-result-backdrop" @click.self="continueGame">
+          <section class="hand-result" role="region" aria-labelledby="hand-result-title">
+            <header><h2 id="hand-result-title">{{ state.result.title }}</h2><p class="win-points">{{ state.result.points }}</p></header>
+            <div class="win-details">
+              <ul class="win-yaku" aria-label="役一覧"><li v-for="(yaku, index) in state.result.yaku" :key="index"><span>{{ yaku.name }}</span><strong>{{ yaku.value }}</strong></li></ul>
+              <div class="win-dora">
+                <section v-for="group in [{label:'ドラ', pairs:state.result.dora}, {label:'裏ドラ', pairs:state.result.uraDora}]" :key="group.label" :aria-label="group.label" class="dora-group">
+                  <h3>{{ group.label }} <small v-if="group.pairs.length">表示牌 → ドラ</small></h3>
+                  <div v-if="group.pairs.length" class="dora-pairs"><span v-for="(pair,index) in group.pairs" :key="index" class="dora-pair"><img :src="`${assetBase}js/faces/${faceFile(pair.indicator)}`" :alt="`${group.label}表示牌：${tileName(pair.indicator)}`"><span aria-hidden="true">→</span><img :src="`${assetBase}js/faces/${faceFile(pair.tile)}`" :alt="`${group.label}：${tileName(pair.tile)}`"></span></div>
+                  <p v-else class="no-dora">{{ group.label === '裏ドラ' ? '公開なし' : 'なし' }}</p>
+                </section>
+              </div>
+            </div>
+            <footer><ul class="win-changes"><li v-for="player in state.result.players" :key="player.id"><span>{{ player.name }}</span><strong :class="{positive:player.delta>0,negative:player.delta<0}">{{ player.delta >= 0 ? '+' : '' }}{{ player.delta.toLocaleString() }}点</strong></li></ul><button id="continue-result" type="button" :data-choice="0" :disabled="state.pendingKind !== 'result'" @click="continueGame">次へ</button></footer>
+          </section>
         </div>
         <div v-if="view?.speech && !['round','result','finished'].includes(state.phase)" class="seat-speech" :class="`speech-${view.speech.id}`" role="status">{{ speechLabels[view.speech.name] || view.speech.name }}</div>
         <section v-if="hasActions" class="table-actions" :class="{ 'reaction-actions': state.pendingKind === 'reaction' }" aria-label="鳴き・和了・立直の操作">
@@ -204,7 +225,7 @@ defineExpose({ requestFullscreen, toggleSound });
   </details></section>
             <section v-show="menuTab === 'help'" class="menu-help">
               <h3>遊び方</h3>
-              <ol><li>「対局開始」で対局。東風戦・東南戦は対局ルールで選べます。</li><li>手牌をクリック／タップして打牌。左右キーとEnterでも選べます。</li><li>ポン・チー・ロンなどは、手牌の上に表示されるボタンで選びます。チーなどの牌の組み合わせは小さな牌画像で確認できます。</li><li>立直を押したら、立直可能な手牌を選んでください。鳴かないときは「見送り」を押します。</li><li>局名・和了・流局の表示は画面を押して続行します。</li></ol>
+              <ol><li>「対局開始」で対局。東風戦・東南戦は対局ルールで選べます。</li><li>手牌をクリック／タップして打牌。左右キーとEnterでも選べます。</li><li>ポン・チー・ロンなどは、手牌の上に表示されるボタンで選びます。チーなどの牌の組み合わせは小さな牌画像で確認できます。</li><li>立直を押したら、立直可能な手牌を選んでください。鳴かないときは「見送り」を押します。</li><li>立直後は通常のツモを自動で切ります。ツモ和了・ロン・暗槓はボタンで確認し、暗槓しないときは「見送り（ツモ切り）」を選びます。おまかせONでは和了やカンもCPUに任せます。</li><li>局名・和了の表示は画面を押して続行します。流局・九種九牌などは全員の手牌を公開し、結果帯の「次へ」で進みます。</li></ol>
               <p>スマートフォンでは横向きにすると牌が見やすくなります。対局途中の状態は保存されません。</p>
               <button id="license-notices" ref="licenseButton" type="button" aria-haspopup="dialog" @click="openLicense">素材・ライセンス</button>
             </section>
