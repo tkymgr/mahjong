@@ -1,4 +1,9 @@
+export async function landscape(page) {
+  const size=page.viewportSize();
+  if(size&&size.width<size.height)await page.setViewportSize({width:size.height,height:size.width});
+}
 export async function ready(page) {
+  await landscape(page);
   await page.goto('/');
   await page.waitForFunction(() => window.mahjongGame?.initialized && window.mahjongGame.session.phase === 'title');
 }

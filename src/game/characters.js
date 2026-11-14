@@ -10,7 +10,7 @@ const roster = [
   ['gen', 'あやめ', 'advanced', '安く鳴かず、打点を育てる', '#b59dc9', 'value'],
 ];
 // IDs stay stable for match history. Policy levels are internal, never UI labels.
-export const CHARACTERS = Object.freeze(roster.map(([id, name, level, tagline, color, style]) => Object.freeze({ id, name, level, tagline, color, style, avatar: `characters/${id}.png` })));
+export const CHARACTERS = Object.freeze(roster.map(([id, name, level, tagline, color, style]) => Object.freeze({ id, name, level, tagline, color, style, avatar: `characters/${id}.png`, expressions: Object.freeze(Object.fromEntries(['happy','upset','flustered','crisis'].map(mood => [mood, `characters/expressions/${id}-${mood}.webp`]))) })));
 
 // Partial Fisher-Yates: each character is equally eligible, without replacement.
 export function selectOpponents(random = Math.random) {

@@ -204,7 +204,7 @@ export class MahjongSession {
       const points = data.damanguan ? `${data.damanguan}倍役満` : `${data.fu}符 ${data.fanshu}翻`;
       const indicators = tiles => (tiles || []).map(indicator => ({ indicator, tile: Majiang.Shan.zhenbaopai(indicator) }));
       this.result = {
-        type, title, points: `${points}  ${data.defen.toLocaleString()}点`,
+        type, title, winningTile: this.revealedHands.get(data.l)?._zimo?.slice(0,2), winMethod: data.baojia == null ? 'ツモ' : 'ロン', winnerId: this.model.player_id[data.l], standings: this.model.defen?.map((score,id)=>score+(data.fenpei[this.model.player_id.indexOf(id)] || 0)), points: `${points}  ${data.defen.toLocaleString()}点`,
         yaku: (data.hupai || []).map(yaku => ({ name: yaku.name, value: typeof yaku.fanshu === 'number' ? `${yaku.fanshu}翻` : yaku.fanshu || '' })),
         dora: indicators(this.model.shan?.baopai), uraDora: indicators(data.fubaopai),
         players: data.fenpei.map((delta, seat) => ({ id: this.model.player_id[seat], name: this.name(this.model.player_id[seat]), delta })),
@@ -218,7 +218,7 @@ export class MahjongSession {
       // noten payments stay unchanged, including hands omitted from its event.
       this.model.shoupai.forEach((hand,seat)=>{this.revealed.add(seat);this.revealedHands.set(seat,hand.clone());});
       const players=data.fenpei.map((delta,seat)=>({id:this.model.player_id[seat],name:this.name(this.model.player_id[seat]),delta}));
-      this.result = { type, title: data.name === '荒牌平局' ? '流局' : data.name, players, lines: players.map(player => `${player.name} ${player.delta >= 0 ? '+' : ''}${player.delta.toLocaleString()}点`) };
+      this.result = { type, standings: this.model.defen?.map((score,id)=>score+(data.fenpei[this.model.player_id.indexOf(id)] || 0)), title: data.name === '荒牌平局' ? '流局' : data.name, players, lines: players.map(player => `${player.name} ${player.delta >= 0 ? '+' : ''}${player.delta.toLocaleString()}点`) };
       this.phase = 'result';
     }
     this.onEvent(type, data);

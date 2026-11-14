@@ -11,7 +11,7 @@
   },
   "unit": {
     "command": "npm test",
-    "passed": 40,
+    "passed": 52,
     "failed": 0,
     "scoring": {
       "sevenPairsTsumo": {
@@ -759,5 +759,193 @@
     "build": "passed",
     "reference": "https://www.nihon-majan.org/furonosikata.html",
     "pushed": false
+  },
+  "originalMusicAndContactAudio": {
+    "checkedOn": "2026-11-14",
+    "effectsCatalogue": "assets/audio/effects.json",
+    "musicCatalogue": "assets/audio/bgm.json",
+    "audioMetrics": "assets/audio/validation.json",
+    "originalCompositionAndSynthesis": true,
+    "recordedSamplesUsed": false,
+    "approvedWinChecksumUnchanged": true,
+    "threeContactVariations": true,
+    "independentMusicControlAndVolume": true,
+    "legacyMutedSettingRespected": true,
+    "defaultMusicVolume": 0.25,
+    "duckOnWinAndNotice": true,
+    "hiddenTabPauseAndResume": true,
+    "activePlaybackDisposalChecked": true,
+    "missingMusicOptional": true,
+    "unitPassed": 41,
+    "productionRegression": {
+      "command": "PLAYWRIGHT_PREVIEW=1 npm run test:browser -- tests/browser/audio.spec.js tests/browser/menu.spec.js tests/browser/lifecycle.spec.js --workers=2",
+      "passed": 25,
+      "skipped": 5,
+      "failed": 0,
+      "projects": [
+        "desktop",
+        "mobile",
+        "landscape"
+      ]
+    },
+    "build": "passed",
+    "pushed": false
+  },
+  "characterExpressions": {
+    "checkedOn": "2026-11-14",
+    "originalAdultCharacters": 9,
+    "generatedVariants": 36,
+    "states": [
+      "normal",
+      "happy",
+      "upset",
+      "flustered",
+      "crisis"
+    ],
+    "costumeStages": 2,
+    "lossThresholdsRelativeToStart": [
+      0.6,
+      0.3
+    ],
+    "winnerExpressionPriority": true,
+    "squarePortraitsAcrossGameRosterScores": true,
+    "namesBelowPortraits": true,
+    "oppositeNameDoesNotOverlapRightPortrait": true,
+    "settlementSnapshotByPlayerId": true,
+    "noCoreScoreMutationOrDoubleSettlement": true,
+    "preloadAndOriginalPortraitFallback": true,
+    "unitPassed": 46,
+    "productionRegression": {
+      "command": "PLAYWRIGHT_PREVIEW=1 npm run test:browser -- tests/browser/expressions.spec.js tests/browser/characters.spec.js tests/browser/menu.spec.js tests/browser/game.spec.js --workers=2",
+      "passed": 38,
+      "skipped": 4,
+      "failed": 0,
+      "realHanchanCompletedInAllProjects": true
+    },
+    "finalPortraitAndRiverLayoutChecks": {
+      "command": "PLAYWRIGHT_PREVIEW=1 npm run test:browser -- tests/browser/expressions.spec.js tests/browser/characters.spec.js tests/browser/assets.spec.js --workers=2",
+      "passed": 24,
+      "failed": 0,
+      "projects": [
+        "desktop",
+        "mobile",
+        "landscape"
+      ]
+    },
+    "preview": "docs/character-expression-preview.jpg",
+    "screenshots": [
+      "docs/playcanvas-desktop-square-expressions.png",
+      "docs/playcanvas-mobile-square-expressions.png",
+      "docs/playcanvas-landscape-square-expressions.png"
+    ],
+    "build": "passed",
+    "pushed": false
+  },
+  "pwaAndOrientation": {
+    "checkedOn": "2026-11-14",
+    "manifest": "public/manifest.webmanifest",
+    "icon": "assets/pwa/generation.json",
+    "offlineAssetCount": 127,
+    "offlineAssetBytes": 9337277,
+    "scopeRelativeUrls": true,
+    "serviceWorkerUpdatesRequireSafePhase": true,
+    "otherTabsNotReloaded": true,
+    "oldCacheRetainedForOtherTabs": true,
+    "installFailureAtomic": true,
+    "installingCacheProtectedFromCleanup": true,
+    "portraitGatePausesMatchAndBgm": true,
+    "sameInstanceResumesAfterRotation": true,
+    "safeAreaInsetsRespected": true,
+    "chromeManifestParseErrors": 0,
+    "productionRegression": {
+      "command": "PLAYWRIGHT_PWA=1 npm run test:browser -- tests/browser/pwa.spec.js --workers=2",
+      "passed": 12,
+      "failed": 0,
+      "projects": [
+        "desktop",
+        "mobile",
+        "landscape"
+      ],
+      "offlinePlayAtRootAndMahjongSubdirectory": true,
+      "manualUpdateFlowChecked": true,
+      "serverVaryOriginHeader": true
+    },
+    "unitPassed": 52,
+    "build": "passed",
+    "installedOnPhysicalDevice": false,
+    "pushed": false,
+    "varyOriginStaticCacheRegressionFixed": true
+  },
+  "winningHandVisibility": {
+    "checkedOn": "2026-11-14",
+    "panelPlacement": {
+      "rightWinner": "left",
+      "leftWinner": "right",
+      "oppositeWinner": "bottom"
+    },
+    "winningTileImageWithRonOrTsumo": true,
+    "singleDrawnTileOutlineAndLabel": true,
+    "exactRedWinningTilePreserved": true,
+    "winnerHandAndMeldsOutsidePanel": true,
+    "productionFinal": {
+      "command": "PLAYWRIGHT_PREVIEW=1 npm run test:browser -- tests/browser/winner-visibility.spec.js tests/browser/win-dora.spec.js --workers=2",
+      "passed": 12,
+      "failed": 0,
+      "projects": [
+        "desktop",
+        "mobile",
+        "landscape"
+      ]
+    },
+    "sample": "docs/playcanvas-landscape-winner-1-visible.png",
+    "pushed": false
+  },
+  "gearMenuButton": {
+    "checkedOn": "2026-11-14",
+    "asset": "public/icons/settings-gear.svg",
+    "transparentBackground": true,
+    "borderWidth": 0,
+    "minimumTapArea": 44,
+    "keyboardAndFocusPreserved": true,
+    "productionChecks": {
+      "passed": 13,
+      "skipped": 2,
+      "failed": 0
+    },
+    "pwaPrecached": true,
+    "screenshot": "docs/playcanvas-landscape-gear-menu.png",
+    "build": "passed",
+    "pushed": false
+  },
+  "imageCloseButton": {
+    "checkedOn": "2026-11-14",
+    "asset": "public/icons/close.svg",
+    "borderWidth": 0,
+    "transparentBackground": true,
+    "tapArea": [
+      44,
+      44
+    ],
+    "productionChecks": {
+      "passed": 13,
+      "skipped": 2,
+      "failed": 0
+    },
+    "screenshot": "docs/playcanvas-landscape-image-close.png",
+    "build": "passed",
+    "pushed": false
+  },
+  "releaseVerification": {
+    "version": "1.0.2",
+    "checkedOn": "2026-11-14",
+    "unitPassed": 52,
+    "build": "passed",
+    "pwaPassed": 12,
+    "realVitePreviewOfflineReloadAndPlay": true,
+    "effectsLoaded": 9,
+    "bgmLoaded": true,
+    "titleVersionChecked": true,
+    "buildId": "16bdf9779e39a565",
+    "screenshot": "docs/playcanvas-landscape-v1.0.2.png"
   }
 }

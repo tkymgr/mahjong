@@ -3,9 +3,11 @@ import { defineConfig } from '@playwright/test';
 export default defineConfig({
   testDir: './tests/browser',
   timeout: 60_000,
-  use: { baseURL: 'http://127.0.0.1:4175', headless: true },
+  use: { baseURL: 'http://127.0.0.1:4175', headless: true, serviceWorkers: process.env.PLAYWRIGHT_PWA ? 'allow' : 'block' },
   webServer: {
-    command: process.env.PLAYWRIGHT_PREVIEW
+    command: process.env.PLAYWRIGHT_PWA
+      ? 'node tests/browser/fixtures/pwa-server.mjs --port 4175'
+      : process.env.PLAYWRIGHT_PREVIEW
       ? 'npm run preview -- --port 4175 --strictPort'
       : 'npm start -- --port 4175 --strictPort',
     url: 'http://127.0.0.1:4175'

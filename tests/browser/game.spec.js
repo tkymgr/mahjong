@@ -15,6 +15,7 @@ test('PlayCanvas deals, picks a 3D tile and runs the CPUs', async ({ page, isMob
 
 test('a missing 3D graphics context shows a recoverable error', async ({page})=>{
   await page.addInitScript(()=>{const original=HTMLCanvasElement.prototype.getContext;HTMLCanvasElement.prototype.getContext=function(type,...args){return /webgl/.test(type)?null:original.call(this,type,...args);};});
+  const size=page.viewportSize();if(size.width<size.height)await page.setViewportSize({width:size.height,height:size.width});
   await page.goto('/');await expect(page.locator('#load-error')).toBeVisible();await expect(page.locator('#retry')).toBeVisible();
 });
 

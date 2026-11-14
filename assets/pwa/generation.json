@@ -1,0 +1,27 @@
+{
+  "generator": "built-in image_gen",
+  "createdOn": "2026-11-14",
+  "source": "assets/pwa/beauty-mahjong-source.png",
+  "sha256": "54326d1487f802e8a6a6edd49feb7e6672441755385a71ce0742d964b42128c9",
+  "references": [
+    "public/characters/hinata.png",
+    "assets/pwa/tile-icon-reference.png"
+  ],
+  "specification": "Original adult Hinata identity, fully dressed floral kimono, friendly confident smile, emerald/gold background, small One Circle mahjong tile emblems in lower right, no text or frame.",
+  "exporter": "scripts/generate-pwa-icons.mjs",
+  "maskableSafePadding": 0.125,
+  "outputs": {
+    "public/icons/apple-touch-icon.png": {
+      "sha256": "125f71ea56bfe4184edc61fc84d3e766b8d3ec66955457a76b7f4553f850c807"
+    },
+    "public/icons/icon-192.png": {
+      "sha256": "1cb63ad50f1cf4a6a30439db70ac8c25e30c937c62eeb82540ad42f4b95e9b7e"
+    },
+    "public/icons/icon-512.png": {
+      "sha256": "507a4011dc8e6439b9d69a1ff76af8bf10510473259c8f263ae5a867b7e18975"
+    },
+    "public/icons/maskable-512.png": {
+      "sha256": "3ed0ae950be37fe91c54f1a33ae0690bf35a939f23264cd9adc6f8dd1577e9e3"
+    }
+  }
+}

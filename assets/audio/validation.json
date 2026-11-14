@@ -1,0 +1,105 @@
+{
+  "bgm": {
+    "left": {
+      "decodedDuration": 45.71428125,
+      "peakDbfs": -5.76,
+      "rmsDbfs": -20.03,
+      "boundaryDelta": 0.002410888671875,
+      "clippedSamples": 0
+    },
+    "right": {
+      "decodedDuration": 45.71428125,
+      "peakDbfs": -5.44,
+      "rmsDbfs": -20.81,
+      "boundaryDelta": 9.1552734375e-05,
+      "clippedSamples": 0
+    }
+  },
+  "effects": [
+    {
+      "file": "w_clear.wav",
+      "silentBoundaries": true,
+      "clippedSamples": 0
+    },
+    {
+      "file": "w_lose.wav",
+      "silentBoundaries": true,
+      "clippedSamples": 0
+    },
+    {
+      "file": "w_naki.wav",
+      "silentBoundaries": true,
+      "clippedSamples": 0
+    },
+    {
+      "file": "w_naki_2.wav",
+      "silentBoundaries": true,
+      "clippedSamples": 0
+    },
+    {
+      "file": "w_naki_3.wav",
+      "silentBoundaries": true,
+      "clippedSamples": 0
+    },
+    {
+      "file": "w_notice.wav",
+      "silentBoundaries": true,
+      "clippedSamples": 0
+    },
+    {
+      "file": "w_puyo.wav",
+      "silentBoundaries": true,
+      "clippedSamples": 0
+    },
+    {
+      "file": "w_ribo.wav",
+      "silentBoundaries": true,
+      "clippedSamples": 0
+    },
+    {
+      "file": "w_ribo_2.wav",
+      "silentBoundaries": true,
+      "clippedSamples": 0
+    },
+    {
+      "file": "w_ribo_3.wav",
+      "silentBoundaries": true,
+      "clippedSamples": 0
+    },
+    {
+      "file": "w_sute.wav",
+      "silentBoundaries": true,
+      "clippedSamples": 0
+    },
+    {
+      "file": "w_sute_2.wav",
+      "silentBoundaries": true,
+      "clippedSamples": 0
+    },
+    {
+      "file": "w_sute_3.wav",
+      "silentBoundaries": true,
+      "clippedSamples": 0
+    },
+    {
+      "file": "w_tenbo.wav",
+      "silentBoundaries": true,
+      "clippedSamples": 0
+    },
+    {
+      "file": "w_tumo.wav",
+      "silentBoundaries": true,
+      "clippedSamples": 0
+    },
+    {
+      "file": "w_tumo_2.wav",
+      "silentBoundaries": true,
+      "clippedSamples": 0
+    },
+    {
+      "file": "w_tumo_3.wav",
+      "silentBoundaries": true,
+      "clippedSamples": 0
+    }
+  ]
+}

@@ -93,28 +93,31 @@
       "description": "和の文字を使う新規生成の赤い印章。52×52、透過PNG。"
     },
     "w_tumo.wav": {
-      "sha256": "691578eb58a691e81cde10909d06da36520966b7ca9ba1d06220616b38ec4874",
+      "sha256": "e97822993a09ae5d58423ac074f4a492ab92c2d13f834a15678dbc6c6657b486",
       "generator": "scripts/generate-game-sounds.py",
       "description": "配牌・ツモ：小さく乾いた樹脂の接触音",
       "duration": 0.11,
       "sampleRate": 48000,
-      "loopable": false
+      "loopable": false,
+      "synthesis": "Deterministic modal, filtered contact-noise and sine synthesis; no recordings or sample libraries."
     },
     "w_sute.wav": {
-      "sha256": "e2f72450dbb516cd585dfa888293b2be58468ef3b5bf1e2ebae445f72366e949",
+      "sha256": "fbebede8a961f4f885b85bae5de84b424b144674aea743060591dd85b36813b9",
       "generator": "scripts/generate-game-sounds.py",
       "description": "打牌：ツモより芯のある短い打音",
       "duration": 0.14,
       "sampleRate": 48000,
-      "loopable": false
+      "loopable": false,
+      "synthesis": "Deterministic modal, filtered contact-noise and sine synthesis; no recordings or sample libraries."
     },
     "w_naki.wav": {
-      "sha256": "85cfd973266a5e148d0cf611a170a8c25ffc0fd7cd38a4a0bedf48eb1de64967",
+      "sha256": "f02a9e6b6780ec22c8d6743eaafd96053fecd2d60221d0edc5c60caf0be526e8",
       "generator": "scripts/generate-game-sounds.py",
       "description": "鳴き・カンの牌を置く連続した打音",
       "duration": 0.25,
       "sampleRate": 48000,
-      "loopable": false
+      "loopable": false,
+      "synthesis": "Deterministic modal, filtered contact-noise and sine synthesis; no recordings or sample libraries."
     },
     "w_puyo.wav": {
       "sha256": "ee8a4af8224d6128c60813bcdbe9374ee8b8282f722ed1cb0b9ddd19ae354b87",
@@ -122,7 +125,8 @@
       "description": "宣言・効果音ONの確認：柔らかい短い上昇音",
       "duration": 0.24,
       "sampleRate": 48000,
-      "loopable": false
+      "loopable": false,
+      "synthesis": "Deterministic modal, filtered contact-noise and sine synthesis; no recordings or sample libraries."
     },
     "w_notice.wav": {
       "sha256": "037a5890b87a6439ab40db0cdfb30c65bc89948bd0af52b45149bce4768784ce",
@@ -130,23 +134,26 @@
       "description": "ツモ・ロン可能時の通知：聞き分けやすい2音",
       "duration": 0.46,
       "sampleRate": 48000,
-      "loopable": false
+      "loopable": false,
+      "synthesis": "Deterministic modal, filtered contact-noise and sine synthesis; no recordings or sample libraries."
     },
     "w_ribo.wav": {
-      "sha256": "2abf66749277ac886ce91620aac956dcddcd3341d45598162e3f2d4fb094dc6b",
+      "sha256": "d2f25f675cafc8f9b5e4b3e4f56d1983d49f5177a05219f3c01888b23ba6713c",
       "generator": "scripts/generate-game-sounds.py",
       "description": "供託・支払い：点棒を置く打音と小さな余韻",
       "duration": 0.26,
       "sampleRate": 48000,
-      "loopable": false
+      "loopable": false,
+      "synthesis": "Deterministic modal, filtered contact-noise and sine synthesis; no recordings or sample libraries."
     },
     "w_tenbo.wav": {
-      "sha256": "332e1cb9babe470893164a0020876489bdd9c8150f5c601e0673afe8012edc89",
+      "sha256": "10b84eab3fde9a73b37d291f91853df8c17612b6d06d6a9ce4444b6050bb123f",
       "generator": "scripts/generate-game-sounds.py",
       "description": "点数精算：継ぎ目が無音になる低音量のカウント音",
       "duration": 0.2,
       "sampleRate": 48000,
-      "loopable": true
+      "loopable": true,
+      "synthesis": "Deterministic modal, filtered contact-noise and sine synthesis; no recordings or sample libraries."
     },
     "w_lose.wav": {
       "sha256": "aaaff390cda7432f4f5702251d69c6ffb85aff2c38baf586b4835002746f29d8",
@@ -154,7 +161,8 @@
       "description": "CPU和了：穏やかな下降チャイム",
       "duration": 0.62,
       "sampleRate": 48000,
-      "loopable": false
+      "loopable": false,
+      "synthesis": "Deterministic modal, filtered contact-noise and sine synthesis; no recordings or sample libraries."
     },
     "title-salon.webp": {
       "sha256": "62c73073f38d5cc101467ea1bb572d2bdedc89654df881320aa96e47ecb637d1",
@@ -184,6 +192,82 @@
       "generator": "scripts/prepare-salon-title.py",
       "createdOn": "2026-11-11",
       "description": "Original quiet salon backdrop behind the transparent 3D game canvas."
+    },
+    "w_tumo_2.wav": {
+      "sha256": "dcfeb979435a5ae02e819d4f8f56afb8c0c012bf1f87913a7d7ab89e799edacc",
+      "generator": "scripts/generate-game-sounds.py",
+      "description": "配牌・ツモ：小さく乾いた樹脂の接触音（音色の変化）",
+      "duration": 0.11,
+      "sampleRate": 48000
+    },
+    "w_tumo_3.wav": {
+      "sha256": "cabbbd1574a185bd674f1cd46dee468e77c2459037dd463b4f8416f4e382dbc5",
+      "generator": "scripts/generate-game-sounds.py",
+      "description": "配牌・ツモ：小さく乾いた樹脂の接触音（音色の変化）",
+      "duration": 0.11,
+      "sampleRate": 48000
+    },
+    "w_sute_2.wav": {
+      "sha256": "6023acd42f263b1efd02ca0ddaaf414c366f5935d1fdc265eb2575c48b49c998",
+      "generator": "scripts/generate-game-sounds.py",
+      "description": "打牌：ツモより芯のある短い打音（音色の変化）",
+      "duration": 0.14,
+      "sampleRate": 48000
+    },
+    "w_sute_3.wav": {
+      "sha256": "c30974767c7846434af26b2306af5c3bfb7b9e4f3a1a5753f1ba76fe33da379d",
+      "generator": "scripts/generate-game-sounds.py",
+      "description": "打牌：ツモより芯のある短い打音（音色の変化）",
+      "duration": 0.14,
+      "sampleRate": 48000
+    },
+    "w_naki_2.wav": {
+      "sha256": "5c68b5bc79ca8ddee33a27ad4a9ff22309568d140076b669152656ed402e266d",
+      "generator": "scripts/generate-game-sounds.py",
+      "description": "鳴き・カンの牌を置く連続した打音（音色の変化）",
+      "duration": 0.25,
+      "sampleRate": 48000
+    },
+    "w_naki_3.wav": {
+      "sha256": "d6cd9f96231c66fcf0a4588fc7d8f95f3ffdef1c594c5dcb645a18b29b92b4af",
+      "generator": "scripts/generate-game-sounds.py",
+      "description": "鳴き・カンの牌を置く連続した打音（音色の変化）",
+      "duration": 0.25,
+      "sampleRate": 48000
+    },
+    "w_ribo_2.wav": {
+      "sha256": "bf5dd50e2c29be5ba8e5adede72d328a5d1ec15f854431cc40ffa8a09f2c2d5f",
+      "generator": "scripts/generate-game-sounds.py",
+      "description": "供託・支払い：点棒を置く打音と小さな余韻（音色の変化）",
+      "duration": 0.26,
+      "sampleRate": 48000
+    },
+    "w_ribo_3.wav": {
+      "sha256": "1d89fdddaeaf50a289c6e2d9d478e849244afb2449255e5a00a6480e0af4dd54",
+      "generator": "scripts/generate-game-sounds.py",
+      "description": "供託・支払い：点棒を置く打音と小さな余韻（音色の変化）",
+      "duration": 0.26,
+      "sampleRate": 48000
+    },
+    "bgm-salon.mp3": {
+      "sha256": "a8836d8cd16fce0fcac14cc6f92a0c036e92cd0c831f79ba89c96eddc1604001",
+      "generator": "scripts/generate-salon-bgm.py",
+      "description": "月灯りの卓 / Moonlit Table",
+      "license": "MIT",
+      "duration": 45.71428125,
+      "provenance": "assets/audio/bgm.json"
+    },
+    "icons/settings-gear.svg": {
+      "generator": "Original procedural SVG geometry",
+      "sha256": "24f047b14ca59dbc5186ccc1fb56eb93fd49facdd01ed1795258d5732c422417",
+      "description": "Original transparent gear icon for the table menu",
+      "license": "MIT"
+    },
+    "icons/close.svg": {
+      "generator": "Original procedural SVG geometry",
+      "sha256": "f8dadd33ac9fc2705a33ec55323bac3d56b0517f8804fea06049d9717c3486aa",
+      "description": "Original transparent close icon matching the gold gear menu",
+      "license": "MIT"
     }
   },
   "audioCatalogue": "assets/audio/effects.json",
@@ -277,5 +361,222 @@
     "triangles": 60,
     "specification": "assets/models/tile-spec.json"
   },
-  "runtimeFaceDirectory": "public/js/faces"
+  "runtimeFaceDirectory": "public/js/faces",
+  "characterExpressions": {
+    "generator": "built-in image_gen",
+    "createdOn": "2026-11-14",
+    "specification": "assets/characters/expressions/generation.json",
+    "exporter": "scripts/prepare-character-expressions.py",
+    "runtimeSize": [
+      256,
+      256
+    ],
+    "states": [
+      "normal",
+      "happy",
+      "upset",
+      "flustered",
+      "crisis"
+    ],
+    "files": {
+      "hinata-happy.webp": {
+        "source": "assets/characters/expressions/hinata-sheet-source.png",
+        "sourcePanel": 0,
+        "sha256": "e2cb164fdf6e703aadd5d7c77d4286ee1dc35a19e971ad0dbfffbab7c4d6ffa0"
+      },
+      "hinata-upset.webp": {
+        "source": "assets/characters/expressions/hinata-sheet-source.png",
+        "sourcePanel": 1,
+        "sha256": "640296580aec2fa12745e6447134caa4f7e90188bb5184998bb686c55002c696"
+      },
+      "hinata-flustered.webp": {
+        "source": "assets/characters/expressions/hinata-sheet-source.png",
+        "sourcePanel": 2,
+        "sha256": "7f9e123e0338e52513b72eca8ee463c4633e7544526be36ddd04ddaf3d92ad94"
+      },
+      "hinata-crisis.webp": {
+        "source": "assets/characters/expressions/hinata-crisis-source.png",
+        "sha256": "189a7d07357527c6d800f8fd52d597673fd17c01f3131e3e6af66d14f99c46e7"
+      },
+      "ponta-happy.webp": {
+        "source": "assets/characters/expressions/ponta-sheet-source.png",
+        "sourcePanel": 0,
+        "sha256": "cd66da83831a81c62a384cb210997458d25d435d04cf1573d9fd1d0ef978d651"
+      },
+      "ponta-upset.webp": {
+        "source": "assets/characters/expressions/ponta-sheet-source.png",
+        "sourcePanel": 1,
+        "sha256": "17b0df921d0a5495c03cc3113618ccac9111843814867fed8c5506a2d291b9c1"
+      },
+      "ponta-flustered.webp": {
+        "source": "assets/characters/expressions/ponta-sheet-source.png",
+        "sourcePanel": 2,
+        "sha256": "1e5db0a384065731fd48afcaaecf98acdf91c79141521805d69536d3287bf59e"
+      },
+      "ponta-crisis.webp": {
+        "source": "assets/characters/expressions/ponta-crisis-source.png",
+        "sha256": "85ba9d8a55ac0aee8bcdde414a0f063e9603b4d4697ffcbd7825ccbb06ac5466"
+      },
+      "suzume-happy.webp": {
+        "source": "assets/characters/expressions/suzume-sheet-source.png",
+        "sourcePanel": 0,
+        "sha256": "61b24a0d3643fe915db10bb5142c63a188c1990060be8e69d195d88f4a8fc0a8"
+      },
+      "suzume-upset.webp": {
+        "source": "assets/characters/expressions/suzume-sheet-source.png",
+        "sourcePanel": 1,
+        "sha256": "60f1441bf21ea6dc259947964bb835053f10d624b5145d50ede72a571b68ae9c"
+      },
+      "suzume-flustered.webp": {
+        "source": "assets/characters/expressions/suzume-sheet-source.png",
+        "sourcePanel": 2,
+        "sha256": "ed504b6ca3f9899db51785473dc79c01b4d2b348151eb967be6321520056139b"
+      },
+      "suzume-crisis.webp": {
+        "source": "assets/characters/expressions/suzume-crisis-source.png",
+        "sha256": "63aa67bb04c48c8fb7b0eadee975df1590c14f4eb4cd77ec6d67c8420fa8f634"
+      },
+      "ren-happy.webp": {
+        "source": "assets/characters/expressions/ren-sheet-source.png",
+        "sourcePanel": 0,
+        "sha256": "47496fd7abbf07b76af6f0789884995df7689d9a7e9c92588a952b203c09be96"
+      },
+      "ren-upset.webp": {
+        "source": "assets/characters/expressions/ren-sheet-source.png",
+        "sourcePanel": 1,
+        "sha256": "255ba859463199c960b744d4dca9b38ed038c2e13ec2a1e4a0232bf1592dff29"
+      },
+      "ren-flustered.webp": {
+        "source": "assets/characters/expressions/ren-sheet-source.png",
+        "sourcePanel": 2,
+        "sha256": "f8e1cfd30d39d27213bf349802b5f69ae56b40303bde8cdeb7b35dae36d87f01"
+      },
+      "ren-crisis.webp": {
+        "source": "assets/characters/expressions/ren-crisis-source.png",
+        "sha256": "3bababc1e27a4f40054da024ab445881bcf2dd09c87fae5747df58283273468a"
+      },
+      "saki-happy.webp": {
+        "source": "assets/characters/expressions/saki-sheet-source.png",
+        "sourcePanel": 0,
+        "sha256": "ce1f404c7315da8f8456fe9441c566a1d5eb4d4fb3dec95ba20cc3c142c54eb0"
+      },
+      "saki-upset.webp": {
+        "source": "assets/characters/expressions/saki-sheet-source.png",
+        "sourcePanel": 1,
+        "sha256": "dceb499cb704f0f6eec7bd0cc7671df1b83bc8291d4914f13c12ad432f2bdc43"
+      },
+      "saki-flustered.webp": {
+        "source": "assets/characters/expressions/saki-sheet-source.png",
+        "sourcePanel": 2,
+        "sha256": "adc212ecd8b1b7f64960a55a8b99077f0c14f48e7f9e9d4464a00a59f5063137"
+      },
+      "saki-crisis.webp": {
+        "source": "assets/characters/expressions/saki-crisis-source.png",
+        "sha256": "c4f7c45e967f291a20b09398b11d793a7df5d21e9b6c17a4f766026c73902763"
+      },
+      "teppei-happy.webp": {
+        "source": "assets/characters/expressions/teppei-sheet-source.png",
+        "sourcePanel": 0,
+        "sha256": "5c1e904899402f6320327540833170683ac48ad59b4407c2d94fe85a08e1a439"
+      },
+      "teppei-upset.webp": {
+        "source": "assets/characters/expressions/teppei-sheet-source.png",
+        "sourcePanel": 1,
+        "sha256": "784c3e0712e6a48d936efaf0703fc17643605f8a4ea793810006ea27a16dd36d"
+      },
+      "teppei-flustered.webp": {
+        "source": "assets/characters/expressions/teppei-sheet-source.png",
+        "sourcePanel": 2,
+        "sha256": "428000b4d64752d5e950083f17731712819414e3bc38c4366e9b62dbe540f5c9"
+      },
+      "teppei-crisis.webp": {
+        "source": "assets/characters/expressions/teppei-crisis-source.png",
+        "sha256": "c483b838c4ea51610c398946a340f25d198ce4c57193a00484415db919363025"
+      },
+      "rei-happy.webp": {
+        "source": "assets/characters/expressions/rei-sheet-source.png",
+        "sourcePanel": 0,
+        "sha256": "2b343908c1e0e16a2d58248d02c87396aa6189d99e2726789fdab4da5112458b"
+      },
+      "rei-upset.webp": {
+        "source": "assets/characters/expressions/rei-sheet-source.png",
+        "sourcePanel": 1,
+        "sha256": "9a419a4cac33af36575aac2198a7aee32f0cbe18c32adbfd9b85f977549a2c04"
+      },
+      "rei-flustered.webp": {
+        "source": "assets/characters/expressions/rei-sheet-source.png",
+        "sourcePanel": 2,
+        "sha256": "91d26a89e0336f52ea8bb7ca463e64ca6b5a2476419ea3d167f399afc998a03e"
+      },
+      "rei-crisis.webp": {
+        "source": "assets/characters/expressions/rei-crisis-source.png",
+        "sha256": "f48981494a0abe56cdded6008b593063fda6c0e1795a5d328f0b5df9f729ee43"
+      },
+      "jin-happy.webp": {
+        "source": "assets/characters/expressions/jin-sheet-source.png",
+        "sourcePanel": 0,
+        "sha256": "7b19f6118bd40bf795ba8f0d7143c95f501f8e9ce15efa89d10c3090e364b0b8"
+      },
+      "jin-upset.webp": {
+        "source": "assets/characters/expressions/jin-sheet-source.png",
+        "sourcePanel": 1,
+        "sha256": "a2bd5c59e360d080aaeb79e6abc2c45b05a001816aca97289511656b87f27c7f"
+      },
+      "jin-flustered.webp": {
+        "source": "assets/characters/expressions/jin-sheet-source.png",
+        "sourcePanel": 2,
+        "sha256": "0e0f9780a039ee0675fd4bac858c7fcfa2d4d299eec4abef8e33a08354a307b7"
+      },
+      "jin-crisis.webp": {
+        "source": "assets/characters/expressions/jin-crisis-source.png",
+        "sha256": "5f825cf737a0861547150daf04735222e1254fb36c765462b7d9039e276aaa8a"
+      },
+      "gen-happy.webp": {
+        "source": "assets/characters/expressions/gen-sheet-source.png",
+        "sourcePanel": 0,
+        "sha256": "80b3271b41d6cce00b8169bea86d4f491a3b6250a680bb8c50252c2bfe5023ee"
+      },
+      "gen-upset.webp": {
+        "source": "assets/characters/expressions/gen-sheet-source.png",
+        "sourcePanel": 1,
+        "sha256": "511b70b2225ad2d202e03b8130ab462fb2229f68825e3e79827fde13be08d5c8"
+      },
+      "gen-flustered.webp": {
+        "source": "assets/characters/expressions/gen-sheet-source.png",
+        "sourcePanel": 2,
+        "sha256": "e8fcd6c1885caa1f317a362648372e117c278a4ae4a268e09887a65c5ab9237f"
+      },
+      "gen-crisis.webp": {
+        "source": "assets/characters/expressions/gen-crisis-source.png",
+        "sha256": "1247e8bbf4e6c30df7bea4076098e7acce3f1218d8b7e799d9c333696e07ca65"
+      }
+    }
+  },
+  "pwaIcon": {
+    "generator": "built-in image_gen",
+    "createdOn": "2026-11-14",
+    "source": "assets/pwa/beauty-mahjong-source.png",
+    "sha256": "54326d1487f802e8a6a6edd49feb7e6672441755385a71ce0742d964b42128c9",
+    "references": [
+      "public/characters/hinata.png",
+      "assets/pwa/tile-icon-reference.png"
+    ],
+    "specification": "Original adult Hinata identity, fully dressed floral kimono, friendly confident smile, emerald/gold background, small One Circle mahjong tile emblems in lower right, no text or frame.",
+    "exporter": "scripts/generate-pwa-icons.mjs",
+    "maskableSafePadding": 0.125,
+    "outputs": {
+      "public/icons/apple-touch-icon.png": {
+        "sha256": "125f71ea56bfe4184edc61fc84d3e766b8d3ec66955457a76b7f4553f850c807"
+      },
+      "public/icons/icon-192.png": {
+        "sha256": "1cb63ad50f1cf4a6a30439db70ac8c25e30c937c62eeb82540ad42f4b95e9b7e"
+      },
+      "public/icons/icon-512.png": {
+        "sha256": "507a4011dc8e6439b9d69a1ff76af8bf10510473259c8f263ae5a867b7e18975"
+      },
+      "public/icons/maskable-512.png": {
+        "sha256": "3ed0ae950be37fe91c54f1a33ae0690bf35a939f23264cd9adc6f8dd1577e9e3"
+      }
+    }
+  }
 }
