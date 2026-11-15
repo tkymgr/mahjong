@@ -41,8 +41,9 @@ for(const path of ['/','/mahjong/'])test(`PWA manifest, complete offline assets 
  expect(new URL(info.scope).pathname).toBe(path);expect(info.manifest.orientation).toBe('landscape');expect(info.manifest.display).toBe('standalone');expect(info.manifest.icons.some(i=>i.sizes==='512x512'&&i.purpose==='maskable')).toBe(true);expect(info.complete).toBe(true);expect(info.count).toBeGreaterThan(100);expect(info.bytes).toBeLessThan(15*1024*1024);
  await context.setOffline(true);await page.reload();await page.waitForFunction(()=>window.mahjongGame?.initialized&&window.mahjongGame.session.phase==='title');
  await start(page);
- expect(await page.evaluate(()=>({faces:window.mahjongGame.table.faceMaterials.size,effects:window.mahjongGame.audio.sounds.size,bgm:!!window.mahjongGame.audio.musicBuffer}))).toEqual({faces:37,effects:9,bgm:true});
+ expect(await page.evaluate(()=>({faces:window.mahjongGame.table.faceMaterials.size,effects:window.mahjongGame.audio.sounds.size,bgm:!!window.mahjongGame.audio.musicBuffer,voices:window.mahjongGame.audio.voices.size}))).toEqual({faces:37,effects:9,bgm:true,voices:60});
  await expect(page.locator('.seat-profile')).toHaveCount(3);
+ expect(await page.evaluate(()=>window.mahjongGame.audio.speak('hinata','rong'))).toBe(true);
  await context.setOffline(false);
 });
 

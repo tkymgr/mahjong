@@ -11,7 +11,7 @@
   },
   "unit": {
     "command": "npm test",
-    "passed": 52,
+    "passed": 58,
     "failed": 0,
     "scoring": {
       "sevenPairsTsumo": {
@@ -646,10 +646,6 @@
       "realHanchanCompletedInAllProjects": true
     },
     "samples": [
-      "docs/playcanvas-desktop-draw-all-hands.png",
-      "docs/playcanvas-desktop-nine-terminals-all-hands.png",
-      "docs/playcanvas-mobile-draw-all-hands.png",
-      "docs/playcanvas-mobile-nine-terminals-all-hands.png",
       "docs/playcanvas-landscape-draw-all-hands.png",
       "docs/playcanvas-landscape-nine-terminals-all-hands.png"
     ],
@@ -671,8 +667,6 @@
     "build": "passed",
     "pushed": false,
     "samples": [
-      "docs/playcanvas-desktop-win-ura-dora.png",
-      "docs/playcanvas-mobile-win-ura-dora.png",
       "docs/playcanvas-landscape-win-ura-dora.png"
     ],
     "productionRegression": {
@@ -833,20 +827,16 @@
       ]
     },
     "preview": "docs/character-expression-preview.jpg",
-    "screenshots": [
-      "docs/playcanvas-desktop-square-expressions.png",
-      "docs/playcanvas-mobile-square-expressions.png",
-      "docs/playcanvas-landscape-square-expressions.png"
-    ],
     "build": "passed",
-    "pushed": false
+    "pushed": false,
+    "screenshotIndex": "docs/README.md"
   },
   "pwaAndOrientation": {
     "checkedOn": "2026-11-14",
     "manifest": "public/manifest.webmanifest",
     "icon": "assets/pwa/generation.json",
-    "offlineAssetCount": 127,
-    "offlineAssetBytes": 9337277,
+    "offlineAssetCount": 189,
+    "offlineAssetBytes": 9594379,
     "scopeRelativeUrls": true,
     "serviceWorkerUpdatesRequireSafePhase": true,
     "otherTabsNotReloaded": true,
@@ -874,7 +864,8 @@
     "build": "passed",
     "installedOnPhysicalDevice": false,
     "pushed": false,
-    "varyOriginStaticCacheRegressionFixed": true
+    "varyOriginStaticCacheRegressionFixed": true,
+    "voiceFiles": 60
   },
   "winningHandVisibility": {
     "checkedOn": "2026-11-14",
@@ -913,7 +904,7 @@
       "failed": 0
     },
     "pwaPrecached": true,
-    "screenshot": "docs/playcanvas-landscape-gear-menu.png",
+    "screenshot": "docs/playcanvas-landscape-board.png",
     "build": "passed",
     "pushed": false
   },
@@ -931,21 +922,88 @@
       "skipped": 2,
       "failed": 0
     },
-    "screenshot": "docs/playcanvas-landscape-image-close.png",
+    "screenshot": "docs/playcanvas-landscape-table-menu.png",
     "build": "passed",
     "pushed": false
   },
   "releaseVerification": {
-    "version": "1.0.2",
-    "checkedOn": "2026-11-14",
-    "unitPassed": 52,
+    "version": "1.1.0",
+    "checkedOn": "2026-11-15",
+    "unitPassed": 58,
     "build": "passed",
-    "pwaPassed": 12,
-    "realVitePreviewOfflineReloadAndPlay": true,
-    "effectsLoaded": 9,
-    "bgmLoaded": true,
+    "realVitePreviewOfflineReloadAndVoicePlayback": true,
+    "voiceClipsLoaded": 60,
+    "rightAlignedAuditionButtons": 9,
     "titleVersionChecked": true,
-    "buildId": "16bdf9779e39a565",
-    "screenshot": "docs/playcanvas-landscape-v1.0.2.png"
+    "sampleChecksPassed": 6,
+    "screenshots": [
+      "docs/playcanvas-landscape-salon-title.png",
+      "docs/playcanvas-landscape-character-roster.png"
+    ]
+  },
+  "characterDeclarationVoices": {
+    "checkedOn": "2026-11-14",
+    "model": "Qwen3-TTS VoiceDesign (local MLX 4-bit)",
+    "characterVoices": 9,
+    "playerVoice": true,
+    "clips": 60,
+    "actions": [
+      "ツモ",
+      "ロン",
+      "ポン",
+      "チー",
+      "カン",
+      "リーチ"
+    ],
+    "paidApiUsed": false,
+    "modelWeightsDistributed": false,
+    "catalogue": "assets/voices/catalogue.json",
+    "metrics": "assets/voices/audio-validation.json",
+    "preview": "assets/voices/preview.mp3",
+    "fixedPlayerIdRouting": true,
+    "oldEngineGuard": true,
+    "independentVolumeAndMute": true,
+    "sequentialPlayback": true,
+    "queueClearedOnNewDealAndHidden": true,
+    "missingVoiceFallback": true,
+    "voiceAuditionInRoster": true,
+    "unitPassed": 58,
+    "productionVoiceAndAudioChecks": {
+      "command": "PLAYWRIGHT_PREVIEW=1 npm run test:browser -- tests/browser/voices.spec.js tests/browser/audio.spec.js --workers=2",
+      "passed": 18,
+      "failed": 0,
+      "projects": [
+        "desktop",
+        "mobile",
+        "landscape"
+      ]
+    },
+    "productionPwaOfflineChecks": {
+      "command": "PLAYWRIGHT_PWA=1 npm run test:browser -- tests/browser/pwa.spec.js --workers=2",
+      "passed": 12,
+      "failed": 0,
+      "all60ClipsDecodedOffline": true,
+      "offlineSpeechPlayback": true
+    },
+    "build": "passed",
+    "pushed": false,
+    "auditionButtonAtCardRight": true,
+    "rightAlignedButtonChecks": {
+      "passed": 9,
+      "failed": 0,
+      "rightInsetPixels": 11,
+      "textGapPixels": 12,
+      "screenshot": "docs/playcanvas-landscape-character-roster.png"
+    }
+  },
+  "documentationImages": {
+    "beforeImages": 131,
+    "afterImages": 13,
+    "removedImages": 118,
+    "beforeBytes": 49336947,
+    "afterBytes": 4299084,
+    "checkedOn": "2026-11-15",
+    "index": "docs/README.md",
+    "anglePreviewOutput": "test-results/hand-angle-patterns"
   }
 }

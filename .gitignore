@@ -9,6 +9,7 @@ coverage/
 
 # Local Python environments and caches
 .venv-art/
+.venv-voice/
 .venv/
 venv/
 

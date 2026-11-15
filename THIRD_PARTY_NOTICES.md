@@ -90,3 +90,14 @@ Vite and `@vitejs/plugin-vue` are MIT-licensed. Playwright is licensed under Apa
 ## PWA App Icon
 
 The PWA icon was newly generated with image_gen on November 14, 2026, using the project's original adult Hinata portrait and original vector tile emblem as references. It is distributed under the project's MIT License. Source, specifications and hashes are in `assets/pwa/`; `scripts/generate-pwa-icons.mjs` exports the browser icons and the padded Android maskable variant.
+
+## Character Declaration Voices
+
+The 60 declaration clips in `public/voices/` were generated locally for this project with Qwen3-TTS VoiceDesign. Nine original adult female character voices and one neutral player voice were designed from text descriptions. The generated clips are distributed under the project's MIT License.
+
+- Original model: Qwen/Qwen3-TTS-12Hz-1.7B-VoiceDesign, Apache License 2.0: https://huggingface.co/Qwen/Qwen3-TTS-12Hz-1.7B-VoiceDesign. License copy: `licenses/QWEN3-TTS-LICENSE.txt`.
+- Creation-time quantized model: mlx-community/Qwen3-TTS-12Hz-1.7B-VoiceDesign-4bit, revision 5c390979e4b93af5f2932f90742ca99c7dd04687.
+- Creation-time inference software: MLX-Audio 0.6.5, MIT License: https://github.com/Neywa-Labs/mlx-audio. License copy: `licenses/MLX-AUDIO-LICENSE.txt`.
+- Generation specifications, model revision, seeds, output hashes and source audio: `assets/voices/`; exporter: `scripts/generate-character-voices.py`.
+
+The model weights and synthesis runtime are not included in the distributed game. Playback uses the bundled MP3 files; no speech API or operating-system voice is required.

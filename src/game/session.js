@@ -173,10 +173,18 @@ export class MahjongSession {
     engine.view = {
       kaiju: () => this.publish(), redraw: () => this.handleEvent('qipai'),
       update: message => message ? this.handleEvent(Object.keys(message)[0], Object.values(message)[0]) : this.publish(),
-      say: (name, seat) => { this.speech = { name, id: engine.model.player_id[seat], until: Date.now() + 1300 }; this.audio?.play('puyo'); this.publish(); },
+      say: (name, seat) => { if(active())this.announce(name,seat); },
       summary: paipu => { if (active()) this.completeMatch(paipu); },
     };
     engine.kaiju();
+    this.publish();
+  }
+  announce(name,seat){
+    if(this.disposed)return;
+    const id=this.model?.player_id[seat];if(id==null)return;
+    this.speech={name,id,until:Date.now()+1300};
+    const voice=id===0?'player':this.opponents[id-1]?.id;
+    if(!this.audio?.speak?.(voice,name))this.audio?.play('puyo');
     this.publish();
   }
   completeMatch(paipu) {
@@ -191,7 +199,7 @@ export class MahjongSession {
   handleEvent(type, data) {
     if (this.disposed) return;
     this.lastEvent = { type, data };
-    if (type === 'qipai') { this.phase = 'playing'; this.result = null; this.revealed.clear(); this.revealedHands.clear(); this.audio?.play('tumo'); }
+    if (type === 'qipai') { this.speech=null;this.audio?.stopVoices?.();this.phase = 'playing'; this.result = null; this.revealed.clear(); this.revealedHands.clear(); this.audio?.play('tumo'); }
     if (['zimo', 'gangzimo'].includes(type)) this.audio?.play('tumo');
     if (type === 'dapai') { this.audio?.play('sute'); if (data.p.endsWith('*')) this.audio?.play('ribo'); }
     if (['fulou', 'gang'].includes(type)) this.audio?.play('naki');

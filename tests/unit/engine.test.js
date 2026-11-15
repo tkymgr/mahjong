@@ -30,7 +30,7 @@ test('settings round trip, migrate old preferences and tolerate blocked storage'
   const data = new Map([['mahjong', 'speed=2&sound=0&']]);
   const storage = { getItem: key => data.get(key), setItem: (key, value) => data.set(key, value) };
   assert.equal(loadPreferences(storage).sound, false); assert.equal(loadPreferences(storage).speed, 2);
-  const prefs = { speed: 4, sound: true, music: false, musicVolume: .37, rules: normalizeRules({ rounds: 1 }) };
+  const prefs = { speed: 4, sound: true, voice:true, voiceVolume:.8, music: false, musicVolume: .37, rules: normalizeRules({ rounds: 1 }) };
   savePreferences(prefs, storage); assert.deepEqual(loadPreferences(storage), prefs);
   const blocked = { getItem() { throw Error('blocked'); }, setItem() { throw Error('blocked'); } };
   assert.equal(loadPreferences(blocked).speed, 3); assert.doesNotThrow(() => savePreferences(prefs, blocked));

@@ -79,6 +79,7 @@ function closeMenu() {
   licenseOpen.value = false; menuOpen.value = false;
   const current = scene();
   if (current) {
+    current.audio?.stopVoices();
     current.input.enabled = true;
     if (pausedEngine && pausedEngine === current.session.engine && !pausedEngine.closed) pausedEngine.start();
   }
@@ -122,6 +123,9 @@ async function toggleMusic() {
   current.audio.setMusicEnabled(!current.preferences.music);current.saveSettings();await current.audio.unlock();
 }
 function musicVolume(event) { scene()?.audio.setMusicVolume(+event.target.value/100);scene()?.saveSettings(); }
+async function toggleVoice(){const current=scene();if(!current?.audio)return;current.audio.setVoiceEnabled(!current.preferences.voice);current.saveSettings();await current.audio.unlock();}
+function voiceVolume(event){scene()?.audio.setVoiceVolume(+event.target.value/100);scene()?.saveSettings();}
+async function previewVoice(character){const current=scene();if(!current?.audio)return;await current.audio.unlock();current.audio.stopVoices();for(const action of ['zimo','rong','lizhi'])current.audio.speak(character.id,action);}
 function applyRules() { scene()?.session.configure(form.value); scene()?.saveSettings(); }
 function resetRules() { form.value = { ...DEFAULT_RULES }; applyRules(); }
 function speed(event) { scene()?.session.setSpeed(+event.target.value); scene()?.saveSettings(); }
@@ -218,6 +222,8 @@ defineExpose({ requestFullscreen, toggleSound });
               <button id="sound-toggle" type="button" :disabled="!sound.available" :aria-pressed="sound.enabled" @click="toggleSound">効果音 {{ sound.enabled ? 'ON' : 'OFF' }}</button>
               <button id="music-toggle" type="button" :disabled="!sound.musicAvailable" :aria-pressed="sound.musicEnabled" @click="toggleMusic">BGM {{ sound.musicEnabled ? 'ON' : 'OFF' }}</button>
               <label class="music-volume">BGM音量 <input id="music-volume" type="range" min="0" max="100" step="1" :value="Math.round((sound.musicVolume ?? .25)*100)" @input="musicVolume"><output>{{ Math.round((sound.musicVolume ?? .25)*100) }}%</output></label>
+              <button id="voice-toggle" type="button" :disabled="!sound.voiceAvailable" :aria-pressed="sound.voiceEnabled" @click="toggleVoice">ボイス {{ sound.voiceEnabled ? 'ON' : 'OFF' }}</button>
+              <label class="voice-volume">ボイス音量 <input id="voice-volume" type="range" min="0" max="100" step="1" :value="Math.round((sound.voiceVolume ?? .8)*100)" @input="voiceVolume"><output>{{ Math.round((sound.voiceVolume ?? .8)*100) }}%</output></label>
               <label>打牌速度 <select id="speed" :value="state.speed" @change="speed"><option v-for="(label, i) in ['ゆっくり', '遅め', '標準', '速め', '最速']" :key="i" :value="i">{{ label }}</option></select></label>
               <button v-if="!['title', 'finished'].includes(state.phase)" id="auto-play" type="button" :aria-pressed="state.autoPlay" @click="scene()?.session.setAutoPlay(!state.autoPlay)">おまかせ {{ state.autoPlay ? 'ON' : 'OFF' }}</button>
               <button v-if="fullscreenAvailable" id="fullscreen" type="button" @click="requestFullscreen">全画面表示を切り替える</button>
@@ -257,9 +263,11 @@ defineExpose({ requestFullscreen, toggleSound });
     <div class="character-roster">
       <article v-for="character in CHARACTERS" :key="character.id" class="opponent-card" :style="{ '--character-color': character.color }">
         <img :src="`${assetBase}${character.avatar}`" :alt="`${character.name}のアバター`" width="64" height="64" loading="lazy">
-        <div><strong>{{ character.name }}</strong><small>{{ character.tagline }}</small></div>
+        <div class="opponent-info"><strong>{{ character.name }}</strong><small>{{ character.tagline }}</small></div>
+        <button class="voice-preview" type="button" :aria-label="`${character.name}の声を試聴`" :disabled="!sound.voiceAvailable || !sound.voiceEnabled" @click="previewVoice(character)">声を聞く</button>
       </article>
     </div>
+    <p>「声を聞く」でツモ・ロン・リーチを試聴できます。ボイスのON/OFFと音量は「設定」で変更できます。</p>
     <p>対戦相手の顔とニックネームは卓上に表示されます。雀士ごとの打ち筋も楽しみながら対局してください。</p>
   </details></section>
             </template>
