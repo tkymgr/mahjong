@@ -7,7 +7,7 @@ import {start} from '../tests/browser/helpers.js';
 
 const root=fileURLToPath(new URL('../',import.meta.url));
 const base=process.env.MAHJONG_PREVIEW_URL||'http://127.0.0.1:4173';
-const output=path.join(root,'docs/hand-angle-patterns');await fs.mkdir(output,{recursive:true});
+const output=path.join(root,'test-results/hand-angle-patterns');await fs.mkdir(output,{recursive:true});
 const patterns=[
  {id:'current',degrees:0,label:'0° 正面比較用',note:'文字の読みやすさ優先'},
  {id:'a',degrees:5,label:'A｜5° 控えめ',note:'上面を少しだけ見せる'},
@@ -69,5 +69,5 @@ try{
  },rows);
  await fs.writeFile(path.join(output,'comparison.png'),Buffer.from(sheet.split(',')[1],'base64'));
  await fs.writeFile(path.join(output,'patterns.json'),JSON.stringify({createdOn:'2026-11-14',renderer:'Actual PlayCanvas 3D tile models; preview only',referenceHand:'m147p258s369z12567',patterns:rows.map(({image,...row})=>row)},null,2)+'\n');
- console.log('Saved 0 / 5 / 10 / 15 degree previews and comparison sheet in docs/hand-angle-patterns');
+ console.log('Saved 0 / 5 / 10 / 15 degree previews and comparison sheet in test-results/hand-angle-patterns');
 }finally{await browser.close();}

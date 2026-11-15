@@ -76,9 +76,11 @@ test('original BGM loops independently, saves volume and pauses on hidden/title/
   expect(await page.evaluate(()=>window.mahjongGame.audio.musicSource)).toBeNull();
   await page.evaluate(async()=>{const g=window.mahjongGame;g.session.start();await g.audio.unlock();});
   await page.waitForFunction(()=>!!window.mahjongGame.audio.musicSource);
+  expect(await page.evaluate(()=>window.mahjongGame.audio.speak('hinata','rong'))).toBe(true);
   await page.evaluate(()=>window.mahjongGame.destroy());
   await page.waitForFunction(()=>window.mahjongGame.audio.context.state==='closed');
   expect(await page.evaluate(()=>window.mahjongGame.audio.musicBuffer)).toBeNull();
+  expect(await page.evaluate(()=>({clips:window.mahjongGame.audio.voices.size,queue:window.mahjongGame.audio.voiceQueue.length,playing:!!window.mahjongGame.audio.voiceSource}))).toEqual({clips:0,queue:0,playing:false});
 });
 
 test('missing BGM remains optional and does not block play or effects',async({page})=>{

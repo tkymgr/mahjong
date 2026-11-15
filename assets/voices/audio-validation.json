@@ -1,0 +1,485 @@
+{
+  "decodedClips": [
+    {
+      "id": "hinata",
+      "action": "zimo",
+      "duration": 0.4,
+      "peak": 0.43971,
+      "rms": 0.05875,
+      "clippedSamples": 0
+    },
+    {
+      "id": "hinata",
+      "action": "rong",
+      "duration": 0.395,
+      "peak": 0.43702,
+      "rms": 0.08304,
+      "clippedSamples": 0
+    },
+    {
+      "id": "hinata",
+      "action": "peng",
+      "duration": 0.365,
+      "peak": 0.4036,
+      "rms": 0.08822,
+      "clippedSamples": 0
+    },
+    {
+      "id": "hinata",
+      "action": "chi",
+      "duration": 0.485,
+      "peak": 0.32603,
+      "rms": 0.08963,
+      "clippedSamples": 0
+    },
+    {
+      "id": "hinata",
+      "action": "gang",
+      "duration": 0.435,
+      "peak": 0.45689,
+      "rms": 0.07991,
+      "clippedSamples": 0
+    },
+    {
+      "id": "hinata",
+      "action": "lizhi",
+      "duration": 0.675,
+      "peak": 0.41729,
+      "rms": 0.09164,
+      "clippedSamples": 0
+    },
+    {
+      "id": "ponta",
+      "action": "zimo",
+      "duration": 0.395,
+      "peak": 0.44351,
+      "rms": 0.08508,
+      "clippedSamples": 0
+    },
+    {
+      "id": "ponta",
+      "action": "rong",
+      "duration": 0.335,
+      "peak": 0.38827,
+      "rms": 0.0882,
+      "clippedSamples": 0
+    },
+    {
+      "id": "ponta",
+      "action": "peng",
+      "duration": 0.305,
+      "peak": 0.38809,
+      "rms": 0.08688,
+      "clippedSamples": 0
+    },
+    {
+      "id": "ponta",
+      "action": "chi",
+      "duration": 0.475,
+      "peak": 0.44126,
+      "rms": 0.06398,
+      "clippedSamples": 0
+    },
+    {
+      "id": "ponta",
+      "action": "gang",
+      "duration": 0.455,
+      "peak": 0.43153,
+      "rms": 0.0899,
+      "clippedSamples": 0
+    },
+    {
+      "id": "ponta",
+      "action": "lizhi",
+      "duration": 0.575,
+      "peak": 0.44877,
+      "rms": 0.0586,
+      "clippedSamples": 0
+    },
+    {
+      "id": "suzume",
+      "action": "zimo",
+      "duration": 0.315,
+      "peak": 0.27648,
+      "rms": 0.08714,
+      "clippedSamples": 0
+    },
+    {
+      "id": "suzume",
+      "action": "rong",
+      "duration": 0.355,
+      "peak": 0.36781,
+      "rms": 0.08813,
+      "clippedSamples": 0
+    },
+    {
+      "id": "suzume",
+      "action": "peng",
+      "duration": 0.295,
+      "peak": 0.43593,
+      "rms": 0.08022,
+      "clippedSamples": 0
+    },
+    {
+      "id": "suzume",
+      "action": "chi",
+      "duration": 0.445,
+      "peak": 0.34003,
+      "rms": 0.09,
+      "clippedSamples": 0
+    },
+    {
+      "id": "suzume",
+      "action": "gang",
+      "duration": 0.365,
+      "peak": 0.39475,
+      "rms": 0.08875,
+      "clippedSamples": 0
+    },
+    {
+      "id": "suzume",
+      "action": "lizhi",
+      "duration": 0.495,
+      "peak": 0.40836,
+      "rms": 0.09063,
+      "clippedSamples": 0
+    },
+    {
+      "id": "ren",
+      "action": "zimo",
+      "duration": 0.43,
+      "peak": 0.43582,
+      "rms": 0.08663,
+      "clippedSamples": 0
+    },
+    {
+      "id": "ren",
+      "action": "rong",
+      "duration": 0.405,
+      "peak": 0.40489,
+      "rms": 0.0894,
+      "clippedSamples": 0
+    },
+    {
+      "id": "ren",
+      "action": "peng",
+      "duration": 0.355,
+      "peak": 0.3615,
+      "rms": 0.08792,
+      "clippedSamples": 0
+    },
+    {
+      "id": "ren",
+      "action": "chi",
+      "duration": 0.365,
+      "peak": 0.42557,
+      "rms": 0.07742,
+      "clippedSamples": 0
+    },
+    {
+      "id": "ren",
+      "action": "gang",
+      "duration": 0.375,
+      "peak": 0.40064,
+      "rms": 0.08846,
+      "clippedSamples": 0
+    },
+    {
+      "id": "ren",
+      "action": "lizhi",
+      "duration": 0.565,
+      "peak": 0.44626,
+      "rms": 0.09092,
+      "clippedSamples": 0
+    },
+    {
+      "id": "saki",
+      "action": "zimo",
+      "duration": 0.415,
+      "peak": 0.35809,
+      "rms": 0.08957,
+      "clippedSamples": 0
+    },
+    {
+      "id": "saki",
+      "action": "rong",
+      "duration": 0.415,
+      "peak": 0.34979,
+      "rms": 0.08926,
+      "clippedSamples": 0
+    },
+    {
+      "id": "saki",
+      "action": "peng",
+      "duration": 0.386,
+      "peak": 0.41589,
+      "rms": 0.08872,
+      "clippedSamples": 0
+    },
+    {
+      "id": "saki",
+      "action": "chi",
+      "duration": 0.425,
+      "peak": 0.39827,
+      "rms": 0.08981,
+      "clippedSamples": 0
+    },
+    {
+      "id": "saki",
+      "action": "gang",
+      "duration": 0.386,
+      "peak": 0.4345,
+      "rms": 0.08616,
+      "clippedSamples": 0
+    },
+    {
+      "id": "saki",
+      "action": "lizhi",
+      "duration": 0.525,
+      "peak": 0.40309,
+      "rms": 0.0902,
+      "clippedSamples": 0
+    },
+    {
+      "id": "teppei",
+      "action": "zimo",
+      "duration": 0.445,
+      "peak": 0.43821,
+      "rms": 0.08407,
+      "clippedSamples": 0
+    },
+    {
+      "id": "teppei",
+      "action": "rong",
+      "duration": 0.395,
+      "peak": 0.44187,
+      "rms": 0.08141,
+      "clippedSamples": 0
+    },
+    {
+      "id": "teppei",
+      "action": "peng",
+      "duration": 0.345,
+      "peak": 0.43392,
+      "rms": 0.08791,
+      "clippedSamples": 0
+    },
+    {
+      "id": "teppei",
+      "action": "chi",
+      "duration": 0.386,
+      "peak": 0.42074,
+      "rms": 0.08908,
+      "clippedSamples": 0
+    },
+    {
+      "id": "teppei",
+      "action": "gang",
+      "duration": 0.375,
+      "peak": 0.44107,
+      "rms": 0.08841,
+      "clippedSamples": 0
+    },
+    {
+      "id": "teppei",
+      "action": "lizhi",
+      "duration": 0.615,
+      "peak": 0.45105,
+      "rms": 0.08611,
+      "clippedSamples": 0
+    },
+    {
+      "id": "rei",
+      "action": "zimo",
+      "duration": 0.39,
+      "peak": 0.43594,
+      "rms": 0.08907,
+      "clippedSamples": 0
+    },
+    {
+      "id": "rei",
+      "action": "rong",
+      "duration": 0.375,
+      "peak": 0.43372,
+      "rms": 0.08853,
+      "clippedSamples": 0
+    },
+    {
+      "id": "rei",
+      "action": "peng",
+      "duration": 0.325,
+      "peak": 0.43421,
+      "rms": 0.07887,
+      "clippedSamples": 0
+    },
+    {
+      "id": "rei",
+      "action": "chi",
+      "duration": 0.365,
+      "peak": 0.41299,
+      "rms": 0.08789,
+      "clippedSamples": 0
+    },
+    {
+      "id": "rei",
+      "action": "gang",
+      "duration": 0.355,
+      "peak": 0.437,
+      "rms": 0.0884,
+      "clippedSamples": 0
+    },
+    {
+      "id": "rei",
+      "action": "lizhi",
+      "duration": 0.525,
+      "peak": 0.44771,
+      "rms": 0.08477,
+      "clippedSamples": 0
+    },
+    {
+      "id": "jin",
+      "action": "zimo",
+      "duration": 0.405,
+      "peak": 0.38308,
+      "rms": 0.08887,
+      "clippedSamples": 0
+    },
+    {
+      "id": "jin",
+      "action": "rong",
+      "duration": 0.355,
+      "peak": 0.44366,
+      "rms": 0.07629,
+      "clippedSamples": 0
+    },
+    {
+      "id": "jin",
+      "action": "peng",
+      "duration": 0.305,
+      "peak": 0.43864,
+      "rms": 0.07154,
+      "clippedSamples": 0
+    },
+    {
+      "id": "jin",
+      "action": "chi",
+      "duration": 0.325,
+      "peak": 0.44749,
+      "rms": 0.07587,
+      "clippedSamples": 0
+    },
+    {
+      "id": "jin",
+      "action": "gang",
+      "duration": 0.335,
+      "peak": 0.43206,
+      "rms": 0.06782,
+      "clippedSamples": 0
+    },
+    {
+      "id": "jin",
+      "action": "lizhi",
+      "duration": 0.515,
+      "peak": 0.43149,
+      "rms": 0.0668,
+      "clippedSamples": 0
+    },
+    {
+      "id": "gen",
+      "action": "zimo",
+      "duration": 0.43,
+      "peak": 0.4232,
+      "rms": 0.0886,
+      "clippedSamples": 0
+    },
+    {
+      "id": "gen",
+      "action": "rong",
+      "duration": 0.395,
+      "peak": 0.37238,
+      "rms": 0.08866,
+      "clippedSamples": 0
+    },
+    {
+      "id": "gen",
+      "action": "peng",
+      "duration": 0.425,
+      "peak": 0.36209,
+      "rms": 0.08892,
+      "clippedSamples": 0
+    },
+    {
+      "id": "gen",
+      "action": "chi",
+      "duration": 0.405,
+      "peak": 0.33112,
+      "rms": 0.08811,
+      "clippedSamples": 0
+    },
+    {
+      "id": "gen",
+      "action": "gang",
+      "duration": 0.365,
+      "peak": 0.40171,
+      "rms": 0.08798,
+      "clippedSamples": 0
+    },
+    {
+      "id": "gen",
+      "action": "lizhi",
+      "duration": 0.645,
+      "peak": 0.39288,
+      "rms": 0.09119,
+      "clippedSamples": 0
+    },
+    {
+      "id": "player",
+      "action": "zimo",
+      "duration": 0.38,
+      "peak": 0.45017,
+      "rms": 0.05836,
+      "clippedSamples": 0
+    },
+    {
+      "id": "player",
+      "action": "rong",
+      "duration": 0.295,
+      "peak": 0.43822,
+      "rms": 0.07348,
+      "clippedSamples": 0
+    },
+    {
+      "id": "player",
+      "action": "peng",
+      "duration": 0.275,
+      "peak": 0.4026,
+      "rms": 0.08613,
+      "clippedSamples": 0
+    },
+    {
+      "id": "player",
+      "action": "chi",
+      "duration": 0.355,
+      "peak": 0.4335,
+      "rms": 0.07365,
+      "clippedSamples": 0
+    },
+    {
+      "id": "player",
+      "action": "gang",
+      "duration": 0.305,
+      "peak": 0.43072,
+      "rms": 0.0731,
+      "clippedSamples": 0
+    },
+    {
+      "id": "player",
+      "action": "lizhi",
+      "duration": 0.515,
+      "peak": 0.42693,
+      "rms": 0.06562,
+      "clippedSamples": 0
+    }
+  ],
+  "clippedSamples": 0
+}

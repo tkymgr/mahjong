@@ -1,0 +1,89 @@
+{
+  "model": "mlx-community/Qwen3-TTS-12Hz-1.7B-VoiceDesign-4bit",
+  "revision": "5c390979e4b93af5f2932f90742ca99c7dd04687",
+  "upstream": "https://huggingface.co/Qwen/Qwen3-TTS-12Hz-1.7B-VoiceDesign",
+  "runtime": "mlx-audio==0.6.5",
+  "modelLicense": "Apache-2.0",
+  "language": "Japanese",
+  "actions": {
+    "zimo": "ツモ！",
+    "rong": "ロン！",
+    "peng": "ポン！",
+    "chi": "チー！",
+    "gang": "カン！",
+    "lizhi": "リーチ！"
+  },
+  "sharedInstruction": "Speak short confident mahjong declarations in native Tokyo Japanese. Pronounce exactly the requested words. Clearly separate each declaration with a brief pause. One consistent adult female voice. Clean studio audio, no background music.",
+  "profiles": [
+    {
+      "id": "hinata",
+      "name": "ひなた",
+      "seed": 1101,
+      "description": "明るく柔らかな声",
+      "instruct": "Adult Japanese woman, warm clear mezzo-soprano, medium-high pitch, smooth rounded vowels, radiant friendly smile. Bright but gentle and composed."
+    },
+    {
+      "id": "ponta",
+      "name": "こはる",
+      "seed": 1102,
+      "description": "元気で弾む声",
+      "instruct": "Adult Japanese woman, high bright soprano, forward ringing resonance, animated bouncy rhythm and playful confident energy. Clear mature articulation."
+    },
+    {
+      "id": "suzume",
+      "name": "すずめ",
+      "seed": 1103,
+      "description": "穏やかで繊細な声",
+      "instruct": "Adult Japanese woman, quiet medium pitch, delicate slightly breathy timbre, soft consonants and measured thoughtful delivery. Gentle reserved warmth."
+    },
+    {
+      "id": "ren",
+      "name": "れん",
+      "seed": 1104,
+      "description": "快活で少しハスキーな声",
+      "instruct": "Adult Japanese woman, low-medium pitch, lightly raspy husky texture, energetic brisk rhythm and bold sporty attitude. Strong clear attack on words."
+    },
+    {
+      "id": "saki",
+      "name": "さき",
+      "seed": 1105,
+      "description": "低めで澄んだ声",
+      "instruct": "Adult Japanese woman, low smooth alto, cool crystalline articulation, dark rounded resonance and calm elegant delivery. Unhurried and self-assured."
+    },
+    {
+      "id": "teppei",
+      "name": "しずく",
+      "seed": 1106,
+      "description": "軽やかでやさしい声",
+      "instruct": "Adult Japanese woman, airy light soprano, medium-high pitch with a tender silvery timbre, soft gentle flowing delivery and relaxed consonants."
+    },
+    {
+      "id": "rei",
+      "name": "レイ",
+      "seed": 1107,
+      "description": "涼しげな中低音",
+      "instruct": "Adult Japanese woman, distinctive deep contralto, dry velvety slightly gravelly resonance, precise clipped consonants and composed confident low register."
+    },
+    {
+      "id": "jin",
+      "name": "りん",
+      "seed": 1108,
+      "description": "芯のある力強い声",
+      "instruct": "Adult Japanese woman, medium-low pitch, full chest resonance, firm brassy clear timbre and decisive punchy quick delivery. Assertive competitive energy."
+    },
+    {
+      "id": "gen",
+      "name": "あやめ",
+      "seed": 1109,
+      "description": "余裕のある艶やかな声",
+      "instruct": "Adult Japanese woman, warm low alto, mellow rich velvety timbre, softly rounded consonants and relaxed elegant rhythm. A slight breathiness with poised confidence."
+    },
+    {
+      "id": "player",
+      "name": "あなた",
+      "seed": 1110,
+      "description": "自然で明瞭な声",
+      "instruct": "Adult Japanese woman, neutral natural medium-pitched mezzo voice, balanced clear studio diction, steady plain cadence and calm confident tone."
+    }
+  ]
+}
